@@ -1,9 +1,14 @@
 import React from "react"
-import { ThemeProvider } from "@material-ui/core/styles"
-
-import theme from "./theme"
+import { MuiThemeProvider } from "@material-ui/core/styles"
+import { ThemeProvider } from "styled-components"
+import {mainTheme} from "./theme/index"
 
 export const wrapRootElement = ({ element }) => {
-  console.info(`theme`, theme)
-  return <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  return (
+    <MuiThemeProvider theme={mainTheme}>
+      <ThemeProvider theme={mainTheme}>
+        {element}
+      </ThemeProvider>
+    </MuiThemeProvider>
+  )
 }

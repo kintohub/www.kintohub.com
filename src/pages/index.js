@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Button from '@material-ui/core/Button';
 
 const CustomBox = styled.div`
-  border: 1px solid rgb(0, 143, 104);
+  border: 8px solid rgb(0, 143, 104);
   padding: 20px;
 
   h3 {

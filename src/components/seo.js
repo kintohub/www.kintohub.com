@@ -9,8 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import sharingImage from "../images/kintohub-og.png"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +20,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -33,7 +35,15 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s`}
+      script={[
+        {
+          src: "https://unpkg.com/@segment/tracktor",
+          "data-workspace-id": "K98tn8ZQgd",
+          "data-source-id": "5vHz1DUJTq",
+          type: "text/javascript",
+        },
+      ]}
       meta={[
         {
           name: `description`,
@@ -52,8 +62,12 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:url`,
+          content: site.siteMetadata.siteUrl,
+        },
+        {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}${sharingImage}`,
         },
         {
           name: `twitter:creator`,
@@ -64,10 +78,36 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          name: `twitter:image`,
+          content: `${site.siteMetadata.siteUrl}${sharingImage}`,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@kintohub`,
+        },
+        {
+          name: `twitter:image:alt`,
+          content:
+            "kintohub logo and microservice blocks floating in the background on a purple backdrop",
+        },
+        {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              }
+            : []
+        )
+        .concat(meta)}
     />
   )
 }
@@ -75,6 +115,7 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
+  keywords: [],
   description: ``,
 }
 
@@ -82,6 +123,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
+  keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
 }
 
