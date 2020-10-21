@@ -49,6 +49,7 @@ const StyledDiv = styled.div`
 `
 
 export default ({title,subtitle,buttonTitle,buttonIcon}:Props) => {
+  console.log(buttonIcon);
   return (
     <StyledDiv>
       <Typography className="heading">

@@ -27,12 +27,12 @@ const SimpleButton = ({ buttonTitle }: Props) => {
   )
 }
 
-const CallToActionButton = ({ buttonIcon,buttonTitle }: Props) => {
+const CallToActionButton = ({ buttonIcon: Component, buttonTitle }: Props) => {
   return (
     <StyledButton
       variant="contained"
       color="primary"
-      startIcon={buttonIcon}
+      startIcon={Component ? <Component /> : null}
     >
       {buttonTitle}
     </StyledButton>

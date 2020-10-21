@@ -123,7 +123,7 @@ const ContactForm = () => {
 
         <CallToActionButton
           title={"Send Message"}
-          startIcon={PowerSettingsNewIcon}
+          buttonIcon={PowerSettingsNewIcon}
         />
       </form>
     </StyledDiv>
