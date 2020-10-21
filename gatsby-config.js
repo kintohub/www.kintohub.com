@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `custom-mui-theme`,
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-typescript`,
 
     {
       resolve: `gatsby-source-filesystem`,
