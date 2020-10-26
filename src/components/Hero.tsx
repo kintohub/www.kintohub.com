@@ -1,72 +1,80 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import HeroBg from "../images/Hero.png"
-import { Typography } from "@material-ui/core"
+import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { CallToActionButton } from "./Button"
 import { FeatureCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import angular from "../images/fe/angular.svg"
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
+import { VerticalSpacer } from "./Spacer"
+import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
 
 const StyledDiv = styled.div`
   width: 100%;
+  height: auto;
   background-image: url(${HeroBg}) no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .CallToActionButton {
-    margin-top: 30px;
-  }
+  position: relative;
 
   .heading {
     font-size: 60px;
     width: 764px;
     font-weight: 500;
-    text-align: center;
-    margin-bottom: 34px;
-    margin-top: 164px;
   }
 
-  .credit-text {
-    margin-top: 20px;
-  }
-
-  .tagline-text {
-    margin: 85px 0px;
-    width: 509px;
-    text-align: center;
-  }
-
-  .feature-text {
-    margin-bottom: 60px;
-    width: 509px;
-    text-align: center;
-    text-transform: uppercase;
+  a {
+    text-decoration: none;
+    color: #6200ee;
   }
 
   .feature-container .feature-suggestion-container {
     margin: 20px;
+  }
+
+  .hero-wrapper {
+    position: absolute;
+    height: 85%;
+    width: 100%;
+    z-index: -999;
+    background-size: contain;
   }
 `
 
 export default () => {
   return (
     <StyledDiv>
-      <Typography className="heading">
+      <img src={HeroBg} className="hero-wrapper" />
+      <VerticalSpacer size={200} />
+
+      <Typography align="center" className="heading" color="textPrimary">
         The best way to deploy fullstack apps
       </Typography>
-      <CallToActionButton buttonTitle={"Start Deploying"} />
-      <Typography variant="body1" className="credit-text">
+      <VerticalSpacer size={34} />
+      <CallToActionButton
+        variant="contained"
+        buttonTitle={"Start Deploying"}
+        startIcon={<PowerSettingsNewIcon />}
+      />
+      <VerticalSpacer size={20} />
+      <Typography variant="caption" color="textSecondary">
         No credit card required.
       </Typography>
-      <Typography variant="body1" className="tagline-text">
-        KintoHub is an all-in-one deployment platform designed for fullstack
-        developers by fullstack developers.
+      <VerticalSpacer size={85} />
+      <Typography variant="subtitle1" color="textPrimary" align="center">
+        <div>
+          KintoHub is an all-in-one deployment platform designed for fullstack
+        </div>
+        <div>developers by fullstack developers</div>
       </Typography>
-      <Typography variant="body1" className="feature-text">
-        All your App's needs in one place
+      <VerticalSpacer size={90} />
+      <Typography variant="body1">
+        ALL YOUR APPS'S NEEDS IN ONE PLACE
       </Typography>
 
+      <VerticalSpacer size={70} />
       <Grid container direction="row" justify="center" alignItems="center">
         <FeatureCard
           featureTitle={"Frontend"}
@@ -92,28 +100,45 @@ export default () => {
         />
       </Grid>
 
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className="feature-container"
-      >
-        <div className="feature-suggestion-container">
-          <Typography variant="h6">Deploy an Existing Project with Git</Typography>
-          <Typography>
-            Use our Git integrations with GitHub or use an import url.
-          </Typography>
-          <Typography>okok</Typography>
-        </div>
-        <div className="feature-suggestion-container">
-          <Typography>Connect Your Custom Domains</Typography>
-          <Typography>
-            Once deployed, your projects can be assigned to a custom domain.
-          </Typography>
-          <Typography>Learn more →</Typography>
-        </div>
-      </Grid>
+      <MuiThemeProvider theme={textThemeDark}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className="feature-container"
+        >
+          <div className="feature-suggestion-container">
+            <Typography variant="h6" color="textPrimary">
+              Deploy an Existing Project with Git
+            </Typography>
+            <Typography color="textPrimary">
+              Use our Git integrations with{" "}
+              <a href="https://docs.kintohub.com/repository/github-apps">
+                GitHub
+              </a>
+              or use an
+              <a href="https://docs.kintohub.com/repository/import%20url">
+                {" "}
+                import url.
+              </a>
+            </Typography>
+          </div>
+          <div className="feature-suggestion-container">
+            <Typography variant="h6" color="textPrimary">
+              Connect Your Custom Domains
+            </Typography>
+            <Typography color="textPrimary">
+              Once deployed, your projects can be assigned to a custom domain.
+            </Typography>
+            <Typography  color="textPrimary">
+              <a href="https://docs.kintohub.com/anatomy/domains">
+                Learn more →
+              </a>
+            </Typography>
+          </div>
+        </Grid>
+      </MuiThemeProvider>
     </StyledDiv>
   )
 }

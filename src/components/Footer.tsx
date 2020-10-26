@@ -1,20 +1,30 @@
 import React, { Props } from "react"
 import styled from "styled-components"
-import { Grid} from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import KintoFooterIcon from "../images/kinto-footer.svg"
+import { VerticalSpacer } from "./Spacer"
+import { bps } from "../../plugins/custom-mui-theme/theme"
 
 const StyledDiv = styled.div`
-  height: 350px;
+  height: auto;
   background-color: #ffffff;
+
   .list-header {
     font-size: 18px;
     font-weight: 500;
     margin: 50px 0px 25px 0px;
   }
 
+  .footer {
+    flex-direction: row;
+
+    ${bps.down("md")} {
+      flex-direction: column;
+    }
+  }
+
   ul {
     list-style-type: none;
-
     color: rgba(0, 0, 0, 0.87);
     font-size: 16px;
     font-weight: normal;
@@ -23,18 +33,20 @@ const StyledDiv = styled.div`
   }
 `
 
-export default ({ title }: Props) => {
+export default () => {
   return (
     <StyledDiv>
       <div>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item xs={3}>
+        <Grid
+          container
+          className="footer"
+          justify="space-evenly"
+          alignItems="flex-start"
+        >
+          <Grid item>
             <ul>
               <li className="list-header">
-                <img
-                  src={KintoFooterIcon}
-                  alt="KintoHub"
-                />
+                <img src={KintoFooterIcon} alt="KintoHub" />
               </li>
               <li>Create Account</li>
               <li>Pricing</li>
@@ -43,7 +55,7 @@ export default ({ title }: Props) => {
               <li>Status</li>
             </ul>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item>
             <ul>
               <li className="list-header">Community</li>
               <li>Discord Community</li>
@@ -52,7 +64,7 @@ export default ({ title }: Props) => {
               <li>Report a Bug</li>
             </ul>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item>
             <ul>
               <li className="list-header">Connect</li>
               <li>GitHub</li>
@@ -74,6 +86,7 @@ export default ({ title }: Props) => {
         </Grid>
         <Grid item xs={3}></Grid>
       </Grid>
+      <VerticalSpacer size={16} />
     </StyledDiv>
   )
 }

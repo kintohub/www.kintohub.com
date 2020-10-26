@@ -1,87 +1,154 @@
-import { AppBar, Grid } from "@material-ui/core"
+import { AppBar, Divider, Grid, MuiThemeProvider } from "@material-ui/core"
 import Box from "@material-ui/core/Box/Box"
 import Toolbar from "@material-ui/core/Toolbar/Toolbar"
 import Typography from "@material-ui/core/Typography/Typography"
-import useScrollTrigger from "@material-ui/core/useScrollTrigger/useScrollTrigger"
-import React from "react"
+import KintoBlackLogo from "../images/kinto-black-logo.svg"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { SimpleButton } from "./Button"
+import { CallToActionButton } from "./Button"
 import KintoWhiteLogo from "../images/kinto-white-logo.svg"
+import { HorizontalSpacer } from "./Spacer"
+import {Drawer as MUIDrawer}  from "@material-ui/core"
+import ListItem from "@material-ui/core/ListItem/ListItem"
+import List from "@material-ui/core/List/List"
+import ListItemText from "@material-ui/core/ListItemText/ListItemText"
+import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import ListItemIcon from "@material-ui/core/ListItemIcon/ListItemIcon"
+import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
+import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
+import LiveHelpRoundedIcon from "@material-ui/icons/LiveHelpRounded"
+import MailRoundedIcon from "@material-ui/icons/MailRounded"
 
-const NavBar = styled(AppBar)`
+
+const Drawer = () => {
+  const itemList = [
+    { text: "Pricing", icon: <TuneRoundedIcon /> },
+    { text: "Documentation", icon: <LibraryBooksRoundedIcon /> },
+    { text: "Support", icon: <LiveHelpRoundedIcon /> },
+    { text: "Contact Us", icon: <MailRoundedIcon /> },
+  ]
+
+  return (
+    <MuiThemeProvider theme={textThemeDark}>
+      <MUIDrawer style={{width:"900px"}}>
+        <CallToActionButton buttonTitle="Login" variant="outlined" />
+        <CallToActionButton
+          buttonTitle="Signup Free"
+          variant="contained"
+          color="primary"
+        />
+        <List>
+          {itemList.map((item, index) => {
+            const { text, icon } = item
+
+            return (
+              <>
+                <ListItem button key={text}>
+                  <ListItemText primary={text} />
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <Divider />
+                </ListItem>
+              </>
+            )
+          })}
+        </List>
+      </MUIDrawer>
+    </MuiThemeProvider>
+  )
+        }    
+
+const StyledContainer = styled.div`
+  .active {
+    background-color: #fff;
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+  .inactive {
+    background-color: transparent;
+    box-shadow: none;
+  }
+`
+
+const StyledToolbar = styled(Toolbar)`
   margin: 0;
   padding: 0;
-  box-shadow: none;
-  z-index:999;
+  z-index: 999;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 `
 
 const StyledBox = styled(Box)`
   margin: 0px 16px;
 `
 
-interface Props {
-  window?: () => Window
-  children: React.ReactElement
-}
+export default () => {
+  const [navbar, setNavbar] = useState(false)
 
-function ElevationScroll(props: Props) {
-  const { children, window } = props
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  })
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 100) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  })
-}
+  window.addEventListener("scroll", changeNavbarColor)
 
-const Header = () => (
-  <NavBar color="transparent">
-    <Toolbar>
-      <Grid container alignItems="center" justify="center">
-        <Box mx="auto">
-          <img
-            src={KintoWhiteLogo}
-            alt="logo"
-          />
-        </Box>
-        <Box mx="auto">
-          <Grid container>
-            <StyledBox>
-              <Link to="/pricing">
-                <Typography variant="subtitle2">Pricing</Typography>
-              </Link>
-            </StyledBox>
-            <StyledBox>
-              <Link to="https://docs.kintohub.com">
-                <Typography variant="subtitle2">Docs</Typography>
-              </Link>
-            </StyledBox>
-            <StyledBox>
-              <Link to="/support">
-                <Typography variant="subtitle2">Support</Typography>
-              </Link>
-            </StyledBox>
-          </Grid>
-        </Box>
-        <Box mx="auto">
-          <Grid container>
-            <Box>
-              <Link to="/">
-                <SimpleButton buttonTitle={"Login"} />
-              </Link>
+  return (
+    <StyledContainer>
+      <AppBar className={navbar ? "active" : "inactive"}>
+        <Drawer />
+        <StyledToolbar>
+          <Grid container alignItems="center" justify="center">
+            <Box mx="auto">
+              <img src={navbar ? KintoBlackLogo : KintoWhiteLogo} alt="logo" />
             </Box>
-            <Box>
-              <SimpleButton buttonTitle={"Signup Free"} />
+            <Box mx="auto">
+              <Grid container>
+                <StyledBox>
+                  <Link to="/pricing">
+                    <Typography variant="subtitle2">Pricing</Typography>
+                  </Link>
+                </StyledBox>
+                <StyledBox>
+                  <a href="https://docs.kintohub.com">
+                    <Typography variant="subtitle2">Docs</Typography>
+                  </a>
+                </StyledBox>
+                <StyledBox>
+                  <Link to="/support">
+                    <Typography variant="subtitle2">Support</Typography>
+                  </Link>
+                </StyledBox>
+              </Grid>
+            </Box>
+            <Box mx="auto">
+              <Grid container>
+                <Box>
+                  <a href="https://app.kintohub.com/auth/sign-up">
+                    <CallToActionButton buttonTitle={"Login"} />
+                  </a>
+                </Box>
+                <HorizontalSpacer size={16} />
+                <Box>
+                  <a href="https://app.kintohub.com/auth/sign-up">
+                    <CallToActionButton
+                      variant="contained"
+                      buttonTitle={"Signup Free"}
+                    />
+                  </a>
+                </Box>
+              </Grid>
             </Box>
           </Grid>
-        </Box>
-      </Grid>
-    </Toolbar>
-  </NavBar>
-)
-
-export default Header
+        </StyledToolbar>
+      </AppBar>
+    </StyledContainer>
+  )
+}

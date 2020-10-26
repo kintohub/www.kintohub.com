@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import Button, { ButtonProps } from "@material-ui/core/Button"
-import { render } from "react-dom";
+import { render } from "react-dom"
 
 type Props = {
-  buttonIcon?: React.ComponentType;
-  buttonTitle: string;
-} & ButtonProps;
+  buttonTitle: string
+} & ButtonProps
 
 const StyledButton = styled(Button)`
   text-transform: none;
@@ -18,25 +17,12 @@ const StyledButton = styled(Button)`
   border-radius: 8px;
 `
 
-
-const SimpleButton = ({ buttonTitle }: Props) => {
+const CallToActionButton = ({ buttonTitle, ...props }: Props) => {
   return (
-    <StyledButton variant="contained" color="primary">
+    <StyledButton {...props} color="primary">
       {buttonTitle}
     </StyledButton>
   )
 }
 
-const CallToActionButton = ({ buttonIcon: Component, buttonTitle }: Props) => {
-  return (
-    <StyledButton
-      variant="contained"
-      color="primary"
-      startIcon={Component ? <Component /> : null}
-    >
-      {buttonTitle}
-    </StyledButton>
-  )
-}
-
-export { SimpleButton, CallToActionButton }
+export { CallToActionButton }

@@ -17,7 +17,7 @@ const palette: PaletteOptions = {
   },
   secondary: {
     main: "#ffffff",
-    light: "#ff867c",
+    light: "#cecece",
     dark: "#b61827",
     contrastText: "#000",
   },
@@ -29,10 +29,10 @@ const palette: PaletteOptions = {
     disabled: "",
   },
   text: {
-    primary: "rgba(17, 34, 37)",
-    secondary: "rgba(17, 34, 37, 0.8)",
+    primary: "rgba(255,255,255,.87)",
+    secondary: "rgba(255,255,255,0.6)",
     disabled: "rgba(0, 0, 0, 0.38)",
-    hint: "rgba(0, 0, 0, 0.74)",
+    hint: "rgba(0, 0, 0, 0.6)",
   },
   divider: "rgba(0, 0, 0, 0.12)",
   common: {
@@ -60,7 +60,7 @@ export const typography = {
   h3: {
     fontFamily: headingFontFamily,
     fontSize: 26,
-    fontWeight: 700,
+    fontWeight: 500,
   },
   h4: {
     fontFamily: headingFontFamily,
@@ -81,11 +81,12 @@ export const typography = {
   subtitle1: {
     fontFamily: bodyFontFamily,
     fontSize: 16,
+    fontWeight: 500,
   },
   subtitle2: {
     fontFamily: bodyFontFamily,
     fontSize: 14,
-    letterSpacing:0.25,
+    letterSpacing: 0.25,
   },
   body1: {
     fontFamily: bodyFontFamily,
@@ -119,3 +120,47 @@ export const mainTheme = createMuiTheme({
   typography,
   palette: createPalette(palette),
 })
+
+
+export const textThemeDark = createMuiTheme({
+  typography,
+  palette: createPalette({
+    ...palette,
+    text: {
+      primary: "rgba(0,0,0,.87)",
+      secondary: "rgba(0,0,0,0.6)",
+    },
+  }),
+})
+
+export const pricingCaculatorTheme = createMuiTheme({
+  typography: {
+    ...typography,
+    h4: {
+      fontFamily: bodyFontFamily,
+      fontSize: 24,
+      fontWeight: 700,
+    },
+    h6: {
+      fontFamily: bodyFontFamily,
+      fontSize: 18,
+      fontWeight: 500,
+    },
+    body2: {
+      fontSize: 14,
+      lineHeight: 1.5,
+      letterSpacing: 0.25,
+    }
+  },
+  palette: createPalette({
+    ...palette,
+    secondary: {
+      main: 'rgb(6, 0, 45)',
+    },
+    text: {
+      primary: "rgba(0,0,0,.87)",
+      secondary: "rgba(0,0,0,0.6)",
+    },
+    divider: 'rgb(185, 213, 236)'
+  })
+});

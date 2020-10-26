@@ -6,211 +6,178 @@ import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "../components/Layout"
-import HeroBg from "../images/Hero.png"
-import ForumIcon from "@material-ui/icons/Forum"
-import { Button, Grid, Typography } from "@material-ui/core"
+import HeroBg from "../images/hero-bg-contact.svg"
+import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
+import { Divider, Grid, MuiThemeProvider, Typography } from "@material-ui/core"
 import TextField from "@material-ui/core/TextField/TextField"
-import { CallToActionButton, SimpleButton } from "../components/Button"
+import { CallToActionButton } from "../components/Button"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import { typography } from "../../plugins/custom-mui-theme/theme"
-import { Link } from "gatsby"
+import SendIcon from "@material-ui/icons/Send"
+import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
+import { VerticalSpacer } from "../components/Spacer"
+import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 
+const StyledHeaderContainer = styled.div`
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-image: url(${HeroBg});
+  background-size:cover;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+`
 const SupportHeader = () => {
-  const StyledDiv = styled.div`
-    width: 100%;
-    height: 321px;
-    background-position: center;
-    background-image: url(${HeroBg});
+  return (
+    <StyledHeaderContainer>
+      <VerticalSpacer size={126} />
+      <Typography variant="h2" color="textPrimary" align="center">
+        Contact Our Team
+      </Typography>
+      <VerticalSpacer size={16} />
+      <Typography variant="body2" color="textSecondary" align="center">
+        Let us know how we can help. If you need support, it’s best to join our
+        Discord to chat with our developers.
+      </Typography>
+      <VerticalSpacer size={96} />
+    </StyledHeaderContainer>
+  )
+}
+
+const StyledFormContainer = styled.div`
+  height: auto;
+  width: 500px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: left;
+
+  .form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    text-align: center;
+    padding: 30px;
+  }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .title {
-      color: rgba(255, 255, 255, 0.87);
-      font-size: 30px;
-      font-weight: 500;
-      letter-spacing: -0.25px;
-      line-height: 38px;
-      padding-top: 126px;
-    }
-    .subtitle {
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 500;
-      letter-spacing: 0.1px;
-      line-height: 24px;
-      font-size: 14px;
-      width: 500px;
-      text-align: center;
-    }
-  `
-
-  return (
-    <StyledDiv>
-      <div className="container">
-        <Typography className="title">Contact Our Team</Typography>
-        <Typography className="subtitle">
-          Let us know how we can help. If you need support, it’s best to join
-          our Discord to chat with our developers.
-        </Typography>
-      </div>
-    </StyledDiv>
-  )
-}
+  .message-button {
+    width: 180px;
+  }
+`
 
 const ContactForm = () => {
-  const StyledDiv = styled.div`
-    height: 681px;
-    width: 500px;
-    background: rgb(255, 255, 255);
-    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-
-    .form {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      padding: 30px;
-    }
-
-    .form-field {
-      margin-bottom: 30px;
-    }
-  `
-
   return (
-    <StyledDiv>
-      <form noValidate autoComplete="off" className="form">
-        <TextField
-          id="outlined-basic"
-          label="Message Type"
-          variant="outlined"
-          className="form-field"
-        />
-        <TextField
-          id="outlined-basic"
-          label="First Name"
-          variant="outlined"
-          className="form-field"
-        />
-        <TextField
-          id="outlined-basic"
-          label="Laste Name"
-          variant="outlined"
-          className="form-field"
-        />
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          className="form-field"
-        />
-        <TextField
-          id="outlined-basic"
-          rows={4}
-          multiline
-          label="How can we help?"
-          variant="outlined"
-          className="form-field"
-        />
-
-        <CallToActionButton
-          title={"Send Message"}
-          buttonIcon={PowerSettingsNewIcon}
-        />
-      </form>
-    </StyledDiv>
+    <StyledFormContainer>
+      <MuiThemeProvider theme={textThemeDark}>
+        <form noValidate autoComplete="off" className="form">
+          <TextField
+            id="outlined-basic"
+            label="Message Type"
+            variant="outlined"
+          />
+          <VerticalSpacer size={24} />
+          <TextField
+            id="outlined-basic"
+            label="First Name"
+            variant="outlined"
+          />
+          <VerticalSpacer size={24} />
+          <TextField
+            id="outlined-basic"
+            label="Laste Name"
+            variant="outlined"
+          />
+          <VerticalSpacer size={24} />
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+          />{" "}
+          <VerticalSpacer size={24} />
+          <TextField
+            id="outlined-basic"
+            rows={6}
+            multiline
+            label="How can we help?"
+            variant="outlined"
+          />
+          <VerticalSpacer size={24} />
+          <CallToActionButton
+            className="message-button"
+            buttonTitle={"Send Message"}
+            startIcon={<SendIcon />}
+            variant="contained"
+          />
+          <VerticalSpacer size={24} />
+          <Typography align="left" variant="subtitle2" color="textSecondary">
+            Make sure the email is correct so we can reach you.
+            <div>Usually we respond within 24 hours.</div>
+          </Typography>
+        </form>
+      </MuiThemeProvider>
+    </StyledFormContainer>
   )
 }
 
-const NextActions = () => {
-  const StyledDiv = styled.div`
-    margin: 64px;
+const StyledNextActionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  text-align: left;
+  margin: 64px;
 
-    .action {
-      width: 447px;
-      height: 95px;
-      text-align: left;
-    }
-  `
+  a {
+    text-decoration: none;
+  }
 
+  .grid-container {
+    position: relative;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .contact-option-icon {
+    position: absolute;
+    color: #717275;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    left: 0;
+  }
+`
+const NextAction = () => {
   return (
-    <StyledDiv>
-      <div className="action">
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start"
-        >
-          <div>
-            <ForumIcon />
-          </div>
-          <div>
-            <Typography variant="h6"> Discord chat support</Typography>
-            <Typography variant="body2">
-              Need help with your deployment? Chat with the Kinto dev team to
-              solve your issues.
-            </Typography>
-            <Link to="https://kintohub.com/discord">
-              <Typography variant="body2" color="primary">
-                Join KintoHub Discord →
-              </Typography>
-            </Link>
-          </div>
-        </Grid>
-      </div>
-      <div className="action">
-        <Typography variant="h6">Read our documentation</Typography>
-        <Typography variant="body2">
-          Explore all KintoHub has to offer by sifting through our features and
-          our simple code examples.
-        </Typography>
-        <Link to="https://docs.kintohub.com">
-          <Typography variant="body2" color="primary">
-            Go to docs →
-          </Typography>
-        </Link>
-      </div>
-      <div className="action">
-        <Typography variant="h6"> Frequently Asked Questions</Typography>
-        <Typography variant="body2">
-          Asking a general question? There’s a good chance that someone else did
-          too.
-        </Typography>
-        <Link to="https://kintohub.com">
-          <Typography variant="body2" color="primary">
-            Go to FAQ →
-          </Typography>
-        </Link>
-      </div>
-    </StyledDiv>
+    <StyledNextActionContainer>
+      <MuiThemeProvider theme={textThemeDark}>
+        
+      </MuiThemeProvider>
+    </StyledNextActionContainer>
   )
 }
+
+const StyledContactUsBodyContainer = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  background-color:#f7f9ff;
+
+  .contact-div {
+    margin: 0px auto;
+  }
+`
 
 const ContactUsBody = () => {
-  const StyledDiv = styled.div`
-    width: 100%;
-    height: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
-
-    .contact-div {
-      margin: 0px auto;
-    }
-  `
-
   return (
-    <StyledDiv>
+    <StyledContactUsBodyContainer>
       <div className="contact-div">
         <Grid
           container
@@ -220,10 +187,11 @@ const ContactUsBody = () => {
           spacing={6}
         >
           <ContactForm />
-          <NextActions />
+          <NextAction />
         </Grid>
       </div>
-    </StyledDiv>
+      <VerticalSpacer size={124} />
+    </StyledContactUsBodyContainer>
   )
 }
 
@@ -263,6 +231,7 @@ class HomePage extends React.Component {
           subtitle={"Deploy for free. No CC required."}
           buttonTitle={"Try for Free"}
           buttonIcon={PowerSettingsNewIcon}
+          variant="contained"
         />
         <Footer />
       </Layout>
