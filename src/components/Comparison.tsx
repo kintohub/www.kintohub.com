@@ -25,10 +25,10 @@ const ComparisonTable = () => {
     border-radius: 8px;
     padding: 0px 16px;
     ${bps.down("md")} {
-      width:80%
+      width: 80%;
     }
     ${bps.down("xs")} {
-      width:90%
+      width: 90%;
     }
   `
 
@@ -58,7 +58,7 @@ const ComparisonTable = () => {
     createData(
       "Automated Let's Encrypt SSL",
       <CheckIcon color="primary" />,
-      <CloseIcon />,
+      <CloseIcon color="action" />,
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />
     ),
@@ -66,15 +66,15 @@ const ComparisonTable = () => {
       "Support Websockets",
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Compatible with Other CDNs",
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Web Services",
@@ -87,50 +87,50 @@ const ComparisonTable = () => {
       "Cron Jobs",
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Background Workers",
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Postgres, Redis",
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "MongoDB, S3 Cloud Storage, MySQL",
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Dedicated Resources and Scaling",
       <CheckIcon color="primary" />,
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "Environments (Service Grouping)",
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
     createData(
       "On-Prem and Private Cloud Licensing",
       <CheckIcon color="primary" />,
-      <CloseIcon />,
-      <CloseIcon />,
-      <CloseIcon />
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />,
+      <CloseIcon color="action" />
     ),
   ]
 
@@ -141,11 +141,17 @@ const ComparisonTable = () => {
           <TableRow>
             <StyledTableCell>FEATURES</StyledTableCell>
             <StyledTableCell align="center">
-              <b>KintoHub</b>
+              <Typography variant="subtitle1">KintoHub</Typography>
             </StyledTableCell>
-            <StyledTableCell align="center">Heroku</StyledTableCell>
-            <StyledTableCell align="center">Netlify</StyledTableCell>
-            <StyledTableCell align="center">Vercel</StyledTableCell>
+            <StyledTableCell align="center">
+              <Typography variant="subtitle2">Heroku</Typography>
+            </StyledTableCell>
+            <StyledTableCell align="center">
+              <Typography variant="subtitle2">Netlify</Typography>
+            </StyledTableCell>
+            <StyledTableCell align="center">
+              <Typography variant="subtitle2">Vercel</Typography>
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -170,7 +176,7 @@ const StyledDiv = styled.div`
   height: auto;
   background-color: #111111;
   width: 100%;
-  height:auto;
+  height: auto;
   padding-top: 70px;
 
   a {
@@ -188,29 +194,24 @@ export default () => {
       <Typography align="center" variant="h1" color="textPrimary">
         Get more features with KintoHub
       </Typography>
-      <VerticalSpacer size={14}/>
-      <Typography
-        
-        align="center"
-        variant="subtitle1"
-        color="textPrimary"
-      >
+      <VerticalSpacer size={14} />
+      <Typography align="center" variant="subtitle1" color="textPrimary">
         Don't sacrifice your app's stack due to the platform you choose.
         KintoHub empowers choice.
       </Typography>
-      <VerticalSpacer size={20}/>
+      <VerticalSpacer size={20} />
       <ComparisonTable />
-      <VerticalSpacer size={24}/>
+      <VerticalSpacer size={24} />
       <a href="https://kintohub.com">
         <Typography align="center">
           <CallToActionButton
-          variant="contained"
+            variant="contained"
             startIcon={<MapIcon />}
             buttonTitle={"View Roadmap"}
           />
         </Typography>
       </a>
-      <VerticalSpacer size={38}/>
+      <VerticalSpacer size={38} />
     </StyledDiv>
   )
 }
