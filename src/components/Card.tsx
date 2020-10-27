@@ -6,13 +6,13 @@ import Chip from "@material-ui/core/Chip/Chip"
 import Typography from "@material-ui/core/Typography/Typography"
 import Avatar from "@material-ui/core/Avatar/Avatar"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import { VerticalSpacer } from "./Spacer"
-import { MuiThemeProvider } from "@material-ui/core"
+import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
+import { Grid, MuiThemeProvider } from "@material-ui/core"
 import { Image } from "@material-ui/icons"
 
 const StyledCard = styled(Card)`
   width: 350px;
-  height: 252px;
+  height: 245px;
   margin: 16px;
   padding: 0px 20px;
   border-radius: 8px;
@@ -25,15 +25,10 @@ const StyledCard = styled(Card)`
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
 
-  .avataar {
-    height: 50px;
-    width: 50px;
-  }
-
-  .feature-avataar {
+  .avatar {
     width: 30px;
     height: 30px;
-    margin: 0px 10px;
+    margin-right: 9px;
   }
 
   .pill-wrapper {
@@ -80,8 +75,20 @@ const TechStackCard = ({
         <Typography variant="overline" color="textSecondary" align="left">
           {Category}
         </Typography>
-        <VerticalSpacer size={10} />
-        {AvatarSrc && AvatarSrc.forEach(i => <Avatar src={i} />)}
+        <VerticalSpacer size={12} />
+
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          
+        >
+          {AvatarSrc &&
+            AvatarSrc.map((item, index) => (
+              <Avatar className="avatar" variant="square" src={item} />
+            ))}
+        </Grid>
       </CardContent>
     </MuiThemeProvider>
   </StyledCard>
@@ -99,7 +106,7 @@ const TestimonialCard = ({
   <StyledCard>
     <ThemeProvider theme={textThemeDark}>
       <VerticalSpacer size={16} />
-      <Avatar aria-label="recipe" className="avataar">
+      <Avatar aria-label="recipe" className="avatar">
         {avatarText}
       </Avatar>
       <VerticalSpacer size={18} />

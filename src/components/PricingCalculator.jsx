@@ -20,7 +20,7 @@ import WebIcon from "@material-ui/icons/WebRounded"
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcardRounded"
 import ExtrasIcon from "@material-ui/icons/AddToPhotosRounded"
 import { Hidden } from "@material-ui/core"
-import { CallToActionButton } from "./Button"
+import CallToActionButton from "./Button"
 import { VerticalSpacer } from "./Spacer"
 
 const StyledDiv = styled.div`

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Button, { ButtonProps } from "@material-ui/core/Button"
-import { render } from "react-dom"
+
 
 type Props = {
   buttonTitle: string
@@ -17,12 +17,10 @@ const StyledButton = styled(Button)`
   border-radius: 8px;
 `
 
-const CallToActionButton = ({ buttonTitle, ...props }: Props) => {
+export default ({ buttonTitle, ...props }: Props) => {
   return (
     <StyledButton {...props} color="primary">
       {buttonTitle}
     </StyledButton>
   )
 }
-
-export { CallToActionButton }

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Typography } from "@material-ui/core"
-import { CallToActionButton } from "./Button"
+import CallToActionButton from "./Button"
 import { ButtonProps } from "@material-ui/core/Button/Button"
 import CallToActionBg from "../images/CallToActionBg.svg"
 

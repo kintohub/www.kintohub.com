@@ -12,7 +12,7 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core"
-import { CallToActionButton } from "./Button"
+import CallToActionButton from "./Button"
 import { VerticalSpacer } from "./Spacer"
 import { bps } from "../../plugins/custom-mui-theme/theme"
 

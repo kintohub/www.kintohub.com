@@ -2,13 +2,28 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import HeroBg from "../images/Hero.png"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
-import { CallToActionButton } from "./Button"
+import CallToActionButton from "./Button"
 import { TechStackCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
-import angular from "../images/fe/angular.svg"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import { VerticalSpacer } from "./Spacer"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import angular from "../images/fe/angular.svg"
+import gatsby from "../images/fe/gatsby.svg"
+import hugo from "../images/fe/hugo.svg"
+import nextjs from "../images/fe/nextjs.svg"
+import react from "../images/fe/react.svg"
+import vue from "../images/fe/vue.svg"
+import more from "../images/fe/more.svg"
+import docker from "../images/be/docker.svg"
+import golang from "../images/be/golang.svg"
+import node from "../images/be/node.svg"
+import python from "../images/be/python.svg"
+import ruby from "../images/be/ruby.svg"
+import mongo from "../images/catalog/mongo.svg"
+import mysql from "../images/catalog/mysql.svg"
+import postgresql from "../images/catalog/postgresql.svg"
+import redis from "../images/catalog/redis.svg"
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -82,7 +97,7 @@ export default () => {
             "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
           }
           Category={"popular frameworks"}
-          AvatarSrc={[angular]}
+          AvatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
         />
         <TechStackCard
           TechStackTitle={"Backend"}
@@ -90,7 +105,7 @@ export default () => {
             "Scale APIs, consume messages with background workers or create repeatable jobs."
           }
           Category={"popular Languages"}
-          AvatarSrc={[angular]}
+          AvatarSrc={[docker, node, golang, ruby, python, more]}
         />
         <TechStackCard
           TechStackTitle={"Data & Storage"}
@@ -98,7 +113,7 @@ export default () => {
             "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
           }
           Category={"popular catalogs"}
-          AvatarSrc={[angular]}
+          AvatarSrc={[mongo,postgresql,mysql,redis]}
         />
       </Grid>
 
@@ -121,7 +136,6 @@ export default () => {
               </a>
               or use an
               <a href="https://docs.kintohub.com/repository/import%20url">
-                {" "}
                 import url.
               </a>
             </Typography>
