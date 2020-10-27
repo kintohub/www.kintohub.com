@@ -113,7 +113,7 @@ export default () => {
             "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
           }
           Category={"popular catalogs"}
-          AvatarSrc={[mongo,postgresql,mysql,redis]}
+          AvatarSrc={[mongo, postgresql, mysql, redis]}
         />
       </Grid>
 
