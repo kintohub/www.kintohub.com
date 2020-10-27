@@ -64,7 +64,6 @@ const StyledContainer = styled.div`
 
   .solidNav {
     background-color: #fff;
-    color: red;
 
     a {
       color: #000;
@@ -137,7 +136,7 @@ export default () => {
               <Grid container>
                 <Box>
                   <a href="https://app.kintohub.com/auth/sign-up">
-                    <CallToActionButton buttonTitle={"Login"} />
+                    <CallToActionButton color="secondary" buttonTitle={"Login"} />
                   </a>
                 </Box>
                 <HorizontalSpacer size={16} />

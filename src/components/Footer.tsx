@@ -1,18 +1,25 @@
 import React, { Props } from "react"
 import styled from "styled-components"
-import { Grid } from "@material-ui/core"
+import { Grid, MuiThemeProvider, Typography } from "@material-ui/core"
 import KintoFooterIcon from "../images/kinto-footer.svg"
-import { VerticalSpacer } from "./Spacer"
-import { bps } from "../../plugins/custom-mui-theme/theme"
+import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
+import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import { Link } from "gatsby"
 
 const StyledDiv = styled.div`
   height: auto;
-  background-color: #ffffff;
+  background-color: ${props => props.theme.palette.secondary.main};
 
   .list-header {
+    color: ${props => props.theme.palette.secondary.contrastText};
     font-size: 18px;
     font-weight: 500;
     margin: 50px 0px 25px 0px;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.palette.text.hint};
   }
 
   .footer {
@@ -25,7 +32,6 @@ const StyledDiv = styled.div`
 
   ul {
     list-style-type: none;
-    color: rgba(0, 0, 0, 0.87);
     font-size: 16px;
     font-weight: normal;
     letter-spacing: 0.5px;
@@ -48,43 +54,151 @@ export default () => {
               <li className="list-header">
                 <img src={KintoFooterIcon} alt="KintoHub" />
               </li>
-              <li>Create Account</li>
-              <li>Pricing</li>
-              <li>FAQ</li>
-              <li>Contact Us</li>
-              <li>Status</li>
+              <li>
+                <a target="_blank" href="https://app.kintohub.com/auth/signup">
+                  Create Account
+                </a>
+              </li>
+              <li>
+                <Link to="/pricing"> Pricing</Link>
+              </li>
+              <li>
+                <a target="_blank" href="https://kintohub.com/">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <Link to="/support">Contact Us</Link>
+              </li>
+              <li>
+                <a target="_blank" href="https://kintohub.statuspage.io/">
+                  {" "}
+                  Status
+                </a>
+              </li>
             </ul>
           </Grid>
           <Grid item>
             <ul>
               <li className="list-header">Community</li>
-              <li>Discord Community</li>
-              <li>Roadmap</li>
-              <li>Request Features</li>
-              <li>Report a Bug</li>
+              <li>
+                <a target="_blank" href="https://kintohub.com/discord">
+                  Discord Community
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://feedback.kintohub.com/">
+                  Roadmap
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://feedback.kintohub.com/feature-requests"
+                >
+                  Feature Requests
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://feedback.kintohub.com/bugs">
+                  Report a Bug
+                </a>
+              </li>
             </ul>
           </Grid>
           <Grid item>
             <ul>
               <li className="list-header">Connect</li>
-              <li>GitHub</li>
-              <li>Twitter</li>
-              <li>Facebook</li>
-              <li>YouTube</li>
-              <li>Linkedin</li>
+              <li>
+                <a target="_blank" href="https://github.com/kintohub">
+                  Github
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://twitter.com/kintohub">
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://facebook.com/KintoHub">
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/channel/UCpJJc0zcfzdHPw64BSP3GyQ"
+                >
+                  Youtube
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/company/13376177/"
+                >
+                  Linkedin
+                </a>
+              </li>
             </ul>
           </Grid>
         </Grid>
       </div>
 
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item xs={3}>
-          © KintoHub 2020. All rights reserved.
-        </Grid>
-        <Grid item xs={3}>
-          Terms of Service | Privacy
-        </Grid>
-        <Grid item xs={3}></Grid>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className="footer"
+      >
+        <MuiThemeProvider theme={textThemeDark}>
+          <Grid item>
+            <Typography
+              display="inline"
+              align="center"
+              color="textPrimary"
+              variant="subtitle2"
+            >
+              © KintoHub 2020. All rights reserved.
+            </Typography>
+          </Grid>
+          <HorizontalSpacer size={32} />
+          <Grid item>
+            <a target="_blank" href="https://www.kintohub.com/terms-of-service">
+              <Typography
+                display="inline"
+                align="center"
+                color="textSecondary"
+                variant="subtitle2"
+              >
+                Terms of Service
+              </Typography>
+            </a>
+          </Grid>
+          <HorizontalSpacer size={16} />
+          <Typography
+            display="inline"
+            align="center"
+            color="textSecondary"
+            variant="subtitle2"
+          >
+            |
+          </Typography>
+          <HorizontalSpacer size={16} />
+          <Grid item>
+            <a target="_blank" href="https://www.kintohub.com/privacy-policy">
+              <Typography
+                display="inline"
+                align="center"
+                color="textSecondary"
+                variant="subtitle2"
+              >
+                Privacy Policy
+              </Typography>
+            </a>
+          </Grid>
+        </MuiThemeProvider>
       </Grid>
       <VerticalSpacer size={16} />
     </StyledDiv>

@@ -6,7 +6,7 @@ import CallToActionButton from "./Button"
 import { TechStackCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import { VerticalSpacer } from "./Spacer"
+import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
 import angular from "../images/fe/angular.svg"
 import gatsby from "../images/fe/gatsby.svg"
@@ -28,15 +28,19 @@ import redis from "../images/catalog/redis.svg"
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  background-image: url(${HeroBg}) no-repeat;
+  background-image: url(${HeroBg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding:0px 16px;
 
   .heading {
     font-size: 60px;
-    width: 764px;
+    max-width:764px;
     font-weight: 500;
   }
 
@@ -48,22 +52,12 @@ const StyledDiv = styled.div`
   .feature-container .feature-suggestion-container {
     margin: 20px;
   }
-
-  .hero-wrapper {
-    position: absolute;
-    height: 85%;
-    width: 100%;
-    z-index: -999;
-    background-size: contain;
-  }
 `
 
 export default () => {
   return (
     <StyledDiv>
-      <img src={HeroBg} className="hero-wrapper" />
       <VerticalSpacer size={200} />
-
       <Typography align="center" className="heading" color="textPrimary">
         The best way to deploy fullstack apps
       </Typography>
