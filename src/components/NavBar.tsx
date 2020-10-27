@@ -58,38 +58,31 @@ const Drawer = () => {
 }
 
 const StyledContainer = styled.div`
-  .active {
+  a {
+    text-decoration: none;
+  }
+
+  .solidNav {
     background-color: #fff;
+    color: red;
+
     a {
-      color: #000000;
-    }
-    a:link {
-      color: #6200ee;
-    }
-
-    /* visited link */
-    a:visited {
-      color: #f55555;
-    }
-
-    /* mouse over link */
-    a:hover {
-      font-weight: 900;
-    }
-
-    /* selected link */
-    a:active {
-      color: yellow;
-    }
-
-    .inactive {
-      background-color: transparent;
-      box-shadow: none;
+      color: #000;
     }
   }
-`
 
-const StyledBox = styled(Box)``
+  .transparentNav {
+    background-color: transparent;
+    box-shadow: none;
+    a {
+      color: #fff;
+    }
+  }
+
+  .active {
+    text-decoration: underline;
+  }
+`
 
 export default () => {
   const [navbar, setNavbar] = useState(false)
@@ -106,12 +99,12 @@ export default () => {
 
   return (
     <StyledContainer>
-      <AppBar className={navbar ? "active" : "inactive"}>
+      <AppBar className={navbar ? "solidNav" : "transparentNav"}>
         <Drawer />
         <Toolbar>
           <Grid container alignItems="center" justify="center">
             <Box mx="auto">
-              <Link to="/">
+              <Link to="/" activeClassName="active">
                 <img
                   src={navbar ? KintoBlackLogo : KintoWhiteLogo}
                   alt="logo"
@@ -122,7 +115,7 @@ export default () => {
               <Grid container>
                 <HorizontalSpacer size={28} />
                 <Box>
-                  <Link to="/pricing">
+                  <Link to="/pricing" activeClassName="active">
                     <Typography variant="subtitle2">Pricing</Typography>
                   </Link>
                 </Box>
@@ -134,7 +127,7 @@ export default () => {
                 </Box>
                 <HorizontalSpacer size={28} />
                 <Box>
-                  <Link to="/support">
+                  <Link to="/support" activeClassName="active">
                     <Typography variant="subtitle2">Support</Typography>
                   </Link>
                 </Box>
