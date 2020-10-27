@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from "styled-components"
 import HeroBg from "../images/Hero.png"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { CallToActionButton } from "./Button"
-import { FeatureCard } from "./Card"
+import { TechStackCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import angular from "../images/fe/angular.svg"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
@@ -76,27 +76,27 @@ export default () => {
 
       <VerticalSpacer size={70} />
       <Grid container direction="row" justify="center" alignItems="center">
-        <FeatureCard
-          featureTitle={"Frontend"}
-          featureDescription={
+        <TechStackCard
+          TechStackTitle={"Frontend"}
+          TechStackDescription={
             "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
           }
-          featureCategory={"popular frameworks"}
-          src={angular}
+          Category={"popular frameworks"}
+          AvatarSrc={[angular,angular]}
         />
-        <FeatureCard
-          featureTitle={"Backend"}
-          featureDescription={
+        <TechStackCard
+          TechStackTitle={"Backend"}
+          TechStackDescription={
             "Scale APIs, consume messages with background workers or create repeatable jobs."
           }
-          featureCategory={"popular Languages"}
+          Category={"popular Languages"}
         />
-        <FeatureCard
-          featureTitle={"Data & Storage"}
-          featureDescription={
+        <TechStackCard
+          TechStackTitle={"Data & Storage"}
+          TechStackDescription={
             "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
           }
-          featureCategory={"popular catalogs"}
+          Category={"popular catalogs"}
         />
       </Grid>
 
@@ -131,7 +131,7 @@ export default () => {
             <Typography color="textPrimary">
               Once deployed, your projects can be assigned to a custom domain.
             </Typography>
-            <Typography  color="textPrimary">
+            <Typography color="textPrimary">
               <a href="https://docs.kintohub.com/anatomy/domains">
                 Learn more →
               </a>

@@ -48,30 +48,24 @@ const StyledCard = styled(Card)`
   }
 `
 
-type Props = {
-  avatarText?: string
-  testimonialText?: string
-  featureTitle?: string
-  featureDescription?: string
-  featureCategory?: string
-  src?: any
-  serviceType?: string
-  allowedUsage?: string
-  serviceDescription?: string
+type TechStackCardprops = {
+  TechStackTitle?: string
+  TechStackDescription?: string
+  Category?: string
+  AvatarSrc?: string[]
 }
 
-
-const FeatureCard = ({
-  featureTitle,
-  featureDescription,
-  featureCategory,
-  src,
-}: Props) => (
+const TechStackCard = ({
+  TechStackTitle,
+  TechStackDescription,
+  Category,
+  AvatarSrc,
+}: TechStackCardprops) => (
   <StyledCard>
     <MuiThemeProvider theme={textThemeDark}>
       <CardContent>
         <Typography variant="h3" color="textPrimary" align="center">
-          {featureTitle}
+          {TechStackTitle}
         </Typography>
         <VerticalSpacer size={10} />
         <div className="pill-wrapper">
@@ -80,21 +74,32 @@ const FeatureCard = ({
 
         <VerticalSpacer size={10} />
         <Typography variant="body2" color="textSecondary" align="left">
-          {featureDescription}
+          {TechStackDescription}
         </Typography>
         <VerticalSpacer size={10} />
 
         <Typography variant="overline" color="textSecondary" align="left">
-          {featureCategory}
+          {Category}
         </Typography>
         <VerticalSpacer size={10} />
-        <Avatar className="feature-avataar" variant="square" src={src}></Avatar>
+        <div>
+      { AvatarSrc && AvatarSrc.forEach(i => <Image src={i} key={i}/>}
+      </div>
+        
       </CardContent>
     </MuiThemeProvider>
   </StyledCard>
 )
 
-const TestimonialCard = ({ avatarText, testimonialText }: Props) => (
+type TestimonialCardProps = {
+  avatarText?: string
+  testimonialText?: string
+}
+
+const TestimonialCard = ({
+  avatarText,
+  testimonialText,
+}: TestimonialCardProps) => (
   <StyledCard>
     <ThemeProvider theme={textThemeDark}>
       <VerticalSpacer size={16} />
@@ -109,4 +114,4 @@ const TestimonialCard = ({ avatarText, testimonialText }: Props) => (
   </StyledCard>
 )
 
-export { FeatureCard, TestimonialCard }
+export { TechStackCard, TestimonialCard }

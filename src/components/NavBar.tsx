@@ -9,7 +9,7 @@ import { Link } from "gatsby"
 import { CallToActionButton } from "./Button"
 import KintoWhiteLogo from "../images/kinto-white-logo.svg"
 import { HorizontalSpacer } from "./Spacer"
-import {Drawer as MUIDrawer}  from "@material-ui/core"
+import { Drawer as MUIDrawer } from "@material-ui/core"
 import ListItem from "@material-ui/core/ListItem/ListItem"
 import List from "@material-ui/core/List/List"
 import ListItemText from "@material-ui/core/ListItemText/ListItemText"
@@ -19,7 +19,6 @@ import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import LiveHelpRoundedIcon from "@material-ui/icons/LiveHelpRounded"
 import MailRoundedIcon from "@material-ui/icons/MailRounded"
-
 
 const Drawer = () => {
   const itemList = [
@@ -31,7 +30,7 @@ const Drawer = () => {
 
   return (
     <MuiThemeProvider theme={textThemeDark}>
-      <MUIDrawer style={{width:"900px"}}>
+      <MUIDrawer style={{ width: "900px" }}>
         <CallToActionButton buttonTitle="Login" variant="outlined" />
         <CallToActionButton
           buttonTitle="Signup Free"
@@ -56,36 +55,41 @@ const Drawer = () => {
       </MUIDrawer>
     </MuiThemeProvider>
   )
-        }    
+}
 
 const StyledContainer = styled.div`
   .active {
     background-color: #fff;
     a {
-      text-decoration: none;
       color: #000000;
     }
-  }
-  .inactive {
-    background-color: transparent;
-    box-shadow: none;
+    a:link {
+      color: #6200ee;
+    }
+
+    /* visited link */
+    a:visited {
+      color: #f55555;
+    }
+
+    /* mouse over link */
+    a:hover {
+      font-weight: 900;
+    }
+
+    /* selected link */
+    a:active {
+      color: yellow;
+    }
+
+    .inactive {
+      background-color: transparent;
+      box-shadow: none;
+    }
   }
 `
 
-const StyledToolbar = styled(Toolbar)`
-  margin: 0;
-  padding: 0;
-  z-index: 999;
-
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
-`
-
-const StyledBox = styled(Box)`
-  margin: 0px 16px;
-`
+const StyledBox = styled(Box)``
 
 export default () => {
   const [navbar, setNavbar] = useState(false)
@@ -104,28 +108,36 @@ export default () => {
     <StyledContainer>
       <AppBar className={navbar ? "active" : "inactive"}>
         <Drawer />
-        <StyledToolbar>
+        <Toolbar>
           <Grid container alignItems="center" justify="center">
             <Box mx="auto">
-              <img src={navbar ? KintoBlackLogo : KintoWhiteLogo} alt="logo" />
+              <Link to="/">
+                <img
+                  src={navbar ? KintoBlackLogo : KintoWhiteLogo}
+                  alt="logo"
+                />
+              </Link>
             </Box>
             <Box mx="auto">
               <Grid container>
-                <StyledBox>
+                <HorizontalSpacer size={28} />
+                <Box>
                   <Link to="/pricing">
                     <Typography variant="subtitle2">Pricing</Typography>
                   </Link>
-                </StyledBox>
-                <StyledBox>
+                </Box>
+                <HorizontalSpacer size={28} />
+                <Box>
                   <a href="https://docs.kintohub.com">
                     <Typography variant="subtitle2">Docs</Typography>
                   </a>
-                </StyledBox>
-                <StyledBox>
+                </Box>
+                <HorizontalSpacer size={28} />
+                <Box>
                   <Link to="/support">
                     <Typography variant="subtitle2">Support</Typography>
                   </Link>
-                </StyledBox>
+                </Box>
               </Grid>
             </Box>
             <Box mx="auto">
@@ -147,7 +159,7 @@ export default () => {
               </Grid>
             </Box>
           </Grid>
-        </StyledToolbar>
+        </Toolbar>
       </AppBar>
     </StyledContainer>
   )
