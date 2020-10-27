@@ -1,13 +1,14 @@
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent/CardContent"
 import React from "react"
-import styled, { AnyStyledComponent, ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import Chip from "@material-ui/core/Chip/Chip"
 import Typography from "@material-ui/core/Typography/Typography"
 import Avatar from "@material-ui/core/Avatar/Avatar"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
 import { VerticalSpacer } from "./Spacer"
-import { CardHeader, MuiThemeProvider } from "@material-ui/core"
+import { MuiThemeProvider } from "@material-ui/core"
+import { Image } from "@material-ui/icons"
 
 const StyledCard = styled(Card)`
   width: 350px;
@@ -71,21 +72,16 @@ const TechStackCard = ({
         <div className="pill-wrapper">
           <Chip className="pill" />
         </div>
-
         <VerticalSpacer size={10} />
         <Typography variant="body2" color="textSecondary" align="left">
           {TechStackDescription}
         </Typography>
         <VerticalSpacer size={10} />
-
         <Typography variant="overline" color="textSecondary" align="left">
           {Category}
         </Typography>
         <VerticalSpacer size={10} />
-        <div>
-      { AvatarSrc && AvatarSrc.forEach(i => <Image src={i} key={i}/>}
-      </div>
-        
+        {AvatarSrc && AvatarSrc.forEach(i => <Avatar src={i} />)}
       </CardContent>
     </MuiThemeProvider>
   </StyledCard>

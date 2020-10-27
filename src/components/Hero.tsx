@@ -82,7 +82,7 @@ export default () => {
             "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
           }
           Category={"popular frameworks"}
-          AvatarSrc={[angular,angular]}
+          AvatarSrc={[angular]}
         />
         <TechStackCard
           TechStackTitle={"Backend"}
@@ -90,6 +90,7 @@ export default () => {
             "Scale APIs, consume messages with background workers or create repeatable jobs."
           }
           Category={"popular Languages"}
+          AvatarSrc={[angular]}
         />
         <TechStackCard
           TechStackTitle={"Data & Storage"}
@@ -97,6 +98,7 @@ export default () => {
             "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
           }
           Category={"popular catalogs"}
+          AvatarSrc={[angular]}
         />
       </Grid>
 
