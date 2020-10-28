@@ -7,10 +7,9 @@ import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "../components/Layout"
 import HeroBg from "../images/hero-bg-contact.svg"
-import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
-import { Divider, Grid, MuiThemeProvider, Typography } from "@material-ui/core"
+import { Grid, MuiThemeProvider, Typography } from "@material-ui/core"
 import TextField from "@material-ui/core/TextField/TextField"
-import CallToActionButton from "../components/Button"
+import ActionButton from "../components/Button"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import SendIcon from "@material-ui/icons/Send"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
@@ -23,7 +22,7 @@ const StyledHeaderContainer = styled.div`
   height: auto;
   background-position: center;
   background-image: url(${HeroBg});
-  background-size:cover;
+  background-size: cover;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -49,7 +48,7 @@ const SupportHeader = () => {
 const StyledFormContainer = styled.div`
   height: auto;
   width: 500px;
-  background: rgb(255, 255, 255);
+  background: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -104,7 +103,7 @@ const ContactForm = () => {
             variant="outlined"
           />
           <VerticalSpacer size={24} />
-          <CallToActionButton
+          <ActionButton
             className="message-button"
             buttonTitle={"Send Message"}
             startIcon={<SendIcon />}
@@ -139,12 +138,12 @@ const StyledNextActionContainer = styled.div`
   .divider {
     height: 1px;
     width: 100%;
-    color: rgba(0, 0, 0, 0.3);
+    color: ${props => props.theme.palette.divider};
   }
 
   .contact-option-icon {
     position: absolute;
-    color: #717275;
+    color: ${props => props.theme.palette.text.disabled};
     width: 40px;
     height: 40px;
     top: 0;
@@ -155,7 +154,7 @@ const NextAction = () => {
   return (
     <StyledNextActionContainer>
       <MuiThemeProvider theme={textThemeDark}>
-        
+        ok
       </MuiThemeProvider>
     </StyledNextActionContainer>
   )
@@ -168,7 +167,7 @@ const StyledContactUsBodyContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
-  background-color:#f7f9ff;
+  background-color: ${props => props.theme.palette.divider};
 
   .contact-div {
     margin: 0px auto;

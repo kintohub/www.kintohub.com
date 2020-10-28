@@ -13,16 +13,16 @@ const palette: PaletteOptions = {
     light: "rgb(122, 104, 232)",
     main: "#6200ee",
     dark: "rgb(122, 104, 232)",
-    contrastText: "#fff",
+    contrastText: "#f7f9ff",
   },
   secondary: {
     main: "#ffffff",
-    light: "#cecece",
-    dark: "#b61827",
+    light: "#dedede",
+    dark: "#b8b8b8",
     contrastText: "#000",
   },
   background: {
-    default: "#f6f7f9",
+    default: "#111111",
     paper: "#ffffff",
   },
   action: {
@@ -32,7 +32,7 @@ const palette: PaletteOptions = {
     primary: "rgba(255,255,255,.87)",
     secondary: "rgba(255,255,255,0.6)",
     disabled: "rgba(0, 0, 0, 0.38)",
-    hint: "rgba(0, 0, 0, 0.6)",
+    hint: "rgba(0, 0, 0, 0.8)",
   },
   divider: "rgba(0, 0, 0, 0.12)",
   common: {

@@ -11,13 +11,12 @@ const StyledDiv = styled.div`
   width: 100%;
   height: auto;
   align-items: center;
-  padding-top: 80px;
   display: flex;
   flex-direction: column;
   background-image: url(${TestimonialBg});
 
   span {
-    color: rgb(98, 0, 238);
+    color: ${props => props.theme.palette.primary.main};
   }
 `
 
@@ -25,7 +24,8 @@ export default () => {
   return (
     <StyledDiv>
       <MuiThemeProvider theme={textThemeDark}>
-        <Typography align="center" variant="body1" color="primary">
+        <VerticalSpacer size={80}/>
+        <Typography align="center" variant="subtitle1" color="primary">
           DEV COMMUNITY
         </Typography>
         <Typography align="center" variant="h1" color="textPrimary">

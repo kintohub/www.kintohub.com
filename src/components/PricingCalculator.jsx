@@ -20,14 +20,11 @@ import WebIcon from "@material-ui/icons/WebRounded"
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcardRounded"
 import ExtrasIcon from "@material-ui/icons/AddToPhotosRounded"
 import { Hidden } from "@material-ui/core"
-import CallToActionButton from "./Button"
+import ActionButton from "./Button"
 import { VerticalSpacer } from "./Spacer"
 
 const StyledDiv = styled.div`
-  width: 80%;
-  ${bps.down("md")} {
-      min-width: 95%;
-    }
+  width: auto;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
@@ -316,7 +313,7 @@ export default () => {
               <Grid container item xs={12}>
                 <Hidden smDown>
                   <Grid item md={3}>
-                    <CallToActionButton
+                    <ActionButton
                       buttonTitle={"Reset All"}
                       startIcon={<RotateLeftRoundedIcon />}
                       color="primary"
@@ -350,9 +347,7 @@ export default () => {
                     <Typography variant="h6">
                       Includes Password Protection, SSL, CDN
                     </Typography>
-                    <Typography variant="h6" >
-                      Free
-                    </Typography>
+                    <Typography variant="h6">Free</Typography>
                   </RightColumns>
                 </Grid>
               </Grid>

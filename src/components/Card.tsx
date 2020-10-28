@@ -6,9 +6,10 @@ import Chip from "@material-ui/core/Chip/Chip"
 import Typography from "@material-ui/core/Typography/Typography"
 import Avatar from "@material-ui/core/Avatar/Avatar"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
+import { VerticalSpacer } from "./Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
-import { Image } from "@material-ui/icons"
+
+import deepPurple from "@material-ui/core/colors/deepPurple"
 
 const StyledCard = styled(Card)`
   width: 350px;
@@ -31,6 +32,13 @@ const StyledCard = styled(Card)`
     margin-right: 9px;
   }
 
+  .feature-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.secondary.main};
+  }
+
   .pill-wrapper {
     text-align: center;
   }
@@ -40,7 +48,7 @@ const StyledCard = styled(Card)`
     height: 4px;
     border-radius: 16px;
     text-align: center;
-    background-color: #f55555;
+    background-color: ${props => props.theme.palette.primary.main};
   }
 `
 
@@ -82,11 +90,10 @@ const TechStackCard = ({
           direction="row"
           justify="flex-start"
           alignItems="center"
-          
         >
           {AvatarSrc &&
             AvatarSrc.map((item, index) => (
-              <Avatar className="avatar" variant="square" src={item} />
+              <Avatar className="avatar" variant="square" src={item} key={index} />
             ))}
         </Grid>
       </CardContent>
@@ -106,9 +113,7 @@ const TestimonialCard = ({
   <StyledCard>
     <ThemeProvider theme={textThemeDark}>
       <VerticalSpacer size={16} />
-      <Avatar aria-label="recipe" className="avatar">
-        {avatarText}
-      </Avatar>
+      <Avatar className="feature-avatar">{avatarText}</Avatar>
       <VerticalSpacer size={18} />
       <Typography variant="body1" color="textPrimary">
         {testimonialText}

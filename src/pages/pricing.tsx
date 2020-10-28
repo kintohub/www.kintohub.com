@@ -1,7 +1,7 @@
 import Footer from "../components/Footer"
 import CallToAction from "../components/CallToAction"
 import SEO from "../components/seo"
-import React from "react"
+import React, { Component } from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "../components/Layout"
@@ -14,15 +14,18 @@ import { VerticalSpacer } from "../components/Spacer"
 import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider } from "@material-ui/core"
 import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import CallToActionButton from "../components/Button"
+import ActionButton from "../components/Button"
 import Divider from "@material-ui/core/Divider/Divider"
 import PayAsYouGoBg from "../images/examples-chart.svg"
-import SnoozeIcon from "@material-ui/icons/Snooze"
+import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import DataUsageRoundedIcon from "@material-ui/icons/DataUsageRounded"
 import WebRoundedIcon from "@material-ui/icons/WebRounded"
 import CategoryRoundedIcon from "@material-ui/icons/CategoryRounded"
 import SvgIcon from "@material-ui/core/SvgIcon/SvgIcon"
 import PricingCalculator from "../components/PricingCalculator"
+import Box from "@material-ui/core/Box/Box"
+import WbSunnyRoundedIcon from "@material-ui/icons/WbSunnyRounded"
+import { SvgIconComponent } from "@material-ui/icons"
 
 type PricingCardProps = {
   serviceType: string
@@ -30,28 +33,30 @@ type PricingCardProps = {
   serviceDescription: string
 }
 
+const StyledPricingCard = styled(Card)`
+  width: 500px;
+  min-width: 500;
+  ${bps.down("xs")} {
+    max-width: 500px;
+    min-width: auto;
+    min-height: auto;
+  }
+  height: 170px;
+  margin: 16px 12px;
+  padding: 22px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+`
+
 const PricingCard = ({
   serviceType,
   allowedUsage,
   serviceDescription,
 }: PricingCardProps) => {
-  const PricingStyledCard = styled(Card)`
-    width: 500px;
-    
-    ${bps.down("xs")} {
-      width: 350px;
-      min-height:auto;
-    }
-    height: 170px;
-    margin: 16px 12px;
-    padding: 22px;
-    border-radius: 8px;
-    text-align: left;
-    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
-  `
   return (
-    <PricingStyledCard>
+    <StyledPricingCard>
       <MuiThemeProvider theme={textThemeDark}>
         <Typography variant="h6" color="textPrimary">
           {serviceType}
@@ -65,26 +70,26 @@ const PricingCard = ({
           {serviceDescription}
         </Typography>
       </MuiThemeProvider>
-    </PricingStyledCard>
+    </StyledPricingCard>
   )
 }
 
-const PricingHero = () => {
-  const StyledDiv = styled.div`
-    width: 100%;
-    height: auto;
-    background-image: url(${PricingHeroBg});
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: center;
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column;
-  `
+const StyledPricingHeroContainer = styled.div`
+  width: 100%;
+  height: auto;
+  background-image: url(${PricingHeroBg});
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+`
 
+const PricingHero = () => {
   return (
-    <StyledDiv>
+    <StyledPricingHeroContainer>
       <VerticalSpacer size={150} />
       <Typography variant="h2" color="textPrimary">
         Start for free, then pay to scale.
@@ -94,71 +99,73 @@ const PricingHero = () => {
         Flexible pay-as-you-go. Simple and no hidden costs.
       </Typography>
       <VerticalSpacer size={120} />
-    </StyledDiv>
+    </StyledPricingHeroContainer>
   )
 }
 
+const StyledPricingDetailContainer = styled.div`
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => props.theme.palette.primary.contrastText};
+
+  .divider {
+    height: 1px;
+    background-color: ${props => props.theme.palette.divider};
+    width: 55%;
+  }
+`
 const PricingDetail = () => {
-  const StyledDiv = styled.div`
-    width: 100%;
-    height: auto;
-    margin-top: -68px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
-    .divider {
-      height: 1px;
-      background-color: rgba(0, 0, 0, 0.2);
-      width: 55%;
-    }
-  `
-
   return (
-    <StyledDiv>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item>
-          <PricingCard
-            serviceType={"Static Websites"}
-            allowedUsage={"FREE"}
-            serviceDescription={"HTML, Javascript, Gatsby, React, Vue & more."}
-          />
+    <StyledPricingDetailContainer>
+      <Box marginY={-8}>
+        <Grid container direction="row" justify="center" alignItems="center">
+          <Grid item>
+            <PricingCard
+              serviceType={"Static Websites"}
+              allowedUsage={"FREE"}
+              serviceDescription={
+                "HTML, Javascript, Gatsby, React, Vue & more."
+              }
+            />
+          </Grid>
+          <Grid item>
+            <PricingCard
+              serviceType={"Memory"}
+              allowedUsage={"Up to 1 GB Free"}
+              serviceDescription={
+                "Free plan includes 3 services with 256 MB each. $2 per gb month pay-as-you-go."
+              }
+            />
+          </Grid>
         </Grid>
-
-        <Grid item>
-          <PricingCard
-            serviceType={"Memory"}
-            allowedUsage={"Up to 1 GB Free"}
-            serviceDescription={
-              "Free plan includes 3 services with 256 MB each. $2 per gb month pay-as-you-go."
-            }
-          />
+        <Grid container direction="row" justify="center" alignItems="center">
+          <Grid item>
+            <PricingCard
+              serviceType={"CPU Shared"}
+              allowedUsage={"Up to 3 Shared vCPU Free"}
+              serviceDescription={
+                "Dedicated vCPU starting at $1.5 USD /month on pay-as-you-go."
+              }
+            />
+          </Grid>
+          <Grid item>
+            <PricingCard
+              serviceType={"Storage"}
+              allowedUsage={"Up to 1 GB Persistent Data Free"}
+              serviceDescription={"$.028 per GB/month on pay-as-you-go."}
+            />
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <Grid item>
-          <PricingCard
-            serviceType={"CPU Shared"}
-            allowedUsage={"Up to 3 Shared vCPU Free"}
-            serviceDescription={
-              "Dedicated vCPU starting at $1.5 USD /month on pay-as-you-go."
-            }
-          />
-        </Grid>
-
-        <Grid item>
-          <PricingCard
-            serviceType={"Storage"}
-            allowedUsage={"Up to 1 GB Persistent Data Free"}
-            serviceDescription={"$.028 per GB/month on pay-as-you-go."}
-          />
-        </Grid>
-      </Grid>
-      <VerticalSpacer size={54} />
-      <CallToActionButton
+      </Box>
+      <VerticalSpacer size={96} />
+      <ActionButton
         variant="contained"
         buttonTitle="Try for Free"
         startIcon={<PowerSettingsNewIcon />}
+        link={"https://app.kintohub.com/auth/sign-up"}
       />
       <VerticalSpacer size={54} />
       <Divider className="divider" />
@@ -173,12 +180,14 @@ const PricingDetail = () => {
           Configure your app to use the only resources you need.
         </Typography>
         <VerticalSpacer size={40} />
+        <PricingCalculator />
       </MuiThemeProvider>
-    </StyledDiv>
+    </StyledPricingDetailContainer>
   )
 }
 
 type ExampleCardProps = {
+  cardIcon: SvgIconComponent
   serviceName: string
   serviceType: string
   serviceDescription: string
@@ -195,7 +204,31 @@ type ExampleCardProps = {
   totalPrice: string
 }
 
+const StyledExampleCard = styled.div`
+  width: 330px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: left;
+  background-color: ${props => props.theme.palette.background.paper};
+  border-radius: 8px;
+  margin: 16px;
+  padding: 16px 20px;
+  position: relative;
+
+  .example-card-icon {
+    margin: 8px 18px;
+    right: 0;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    color: ${props => props.theme.palette.background.default};
+  }
+`
+
 const ExampleCard = ({
+  cardIcon,
   serviceName,
   serviceType,
   serviceDescription,
@@ -211,33 +244,11 @@ const ExampleCard = ({
   total,
   totalPrice,
 }: ExampleCardProps) => {
-  const StyledDiv = styled.div`
-    width: 330px;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: left;
-    background-color: #fff;
-    border-radius: 8px;
-    margin: 16px;
-    padding: 16px 20px;
-    position: relative;
-
-    .card-icon {
-      margin: 8px 16px;
-      right: 0;
-      position: absolute;
-      height: 45px;
-      width: 45px;
-      color: #000;
-    }
-  `
-
   return (
-    <StyledDiv>
+    <StyledExampleCard>
       <MuiThemeProvider theme={textThemeDark}>
-        <WebRoundedIcon className="card-icon" />
+        <SvgIcon>{cardIcon}</SvgIcon>
+
         <Typography variant="h6" color="textPrimary">
           {serviceName}
         </Typography>
@@ -299,11 +310,7 @@ const ExampleCard = ({
               {sleep}
             </Typography>
           </Grid>
-          <Grid xs={2} item>
-            <SvgIcon>
-              <SnoozeIcon color="action" />
-            </SvgIcon>
-          </Grid>
+          <Grid xs={2} item></Grid>
           <Grid xs={12} item>
             <Divider color="primary" />
           </Grid>
@@ -319,39 +326,39 @@ const ExampleCard = ({
           </Grid>
         </Grid>
       </MuiThemeProvider>
-    </StyledDiv>
+    </StyledExampleCard>
   )
 }
 
-const PayAsYouGoExample = () => {
-  const StyledDiv = styled.div`
+const StyledPayAsYouGoExampleContainer = styled.div`
+  width: 100%;
+  height: auto;
+  background-color: ${props => props.theme.palette.background.default};
+  display: flex;
+  z-index: -999;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+
+  .bg-wrapper {
+    position: absolute;
+    height: 100%;
     width: 100%;
-    height: auto;
-    background-color: #101011;
-    display: flex;
-    z-index: -999;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
+    left: 0;
+    z-index: -1;
+    bottom: 0;
+    background-size: contain;
+  }
 
-    .bg-wrapper {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      left: 0;
-      z-index: -1;
-      bottom: 0;
-      background-size: contain;
-    }
+  .example-card {
+    position: relative;
+    z-index: 10;
+  }
+`
 
-    .example-card {
-      position: relative;
-      z-index: 10;
-    }
-  `
-
+const PayAsYouGoExample = () => {
   return (
-    <StyledDiv>
+    <StyledPayAsYouGoExampleContainer>
       <VerticalSpacer size={86} />
       <Typography variant="h1" color="textPrimary">
         Pay-as-you-go examples
@@ -359,11 +366,8 @@ const PayAsYouGoExample = () => {
       <VerticalSpacer size={12} />
       <Typography variant="body1" color="textSecondary">
         Free Plan discounts included and cost optimization is enabled in service
-        examples. Once you input your
-       
-          credit card your free resources become flexible within Advanced
-          Options.
-        
+        examples. Once you input your credit card your free resources become
+        flexible within Advanced Options.
       </Typography>
       <VerticalSpacer size={62} />
       <div className="example-card">
@@ -371,6 +375,7 @@ const PayAsYouGoExample = () => {
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
             <ExampleCard
+              cardIcon={WebRoundedIcon}
               serviceName={"Example Dev"}
               serviceType={"Web App"}
               serviceDescription={"Simple Backend Node"}
@@ -389,6 +394,7 @@ const PayAsYouGoExample = () => {
           </Grid>
           <Grid item>
             <ExampleCard
+              cardIcon={DataUsageRoundedIcon}
               serviceName={"Example Dev"}
               serviceType={"MongoDB"}
               serviceDescription={"Simple Database"}
@@ -407,6 +413,7 @@ const PayAsYouGoExample = () => {
           </Grid>
           <Grid item>
             <ExampleCard
+              cardIcon={CategoryRoundedIcon}
               serviceName={"Example Prod"}
               serviceType={"Backend API"}
               serviceDescription={"Heavy-duty Business Logic"}
@@ -426,7 +433,7 @@ const PayAsYouGoExample = () => {
         </Grid>
       </div>
       <VerticalSpacer size={100} />
-    </StyledDiv>
+    </StyledPayAsYouGoExampleContainer>
   )
 }
 
@@ -461,7 +468,6 @@ class HomePage extends React.Component {
         <NavBar />
         <PricingHero />
         <PricingDetail />
-        <PricingCalculator/>
         <PayAsYouGoExample />
         <CallToAction
           title={"All your App's needs in one place. Try for Free."}

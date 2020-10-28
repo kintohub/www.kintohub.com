@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Testimonial from "../components/Testimonial"
 import React from "react"
 import Helmet from "react-helmet"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import Comparison from "../components/Comparison"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import Layout from "../components/Layout"
@@ -15,22 +15,22 @@ import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { VerticalSpacer } from "../components/Spacer"
 import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import ActionButton from "../components/Button"
+import Showcase from "../components/Showcase"
 
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
   height: auto;
-  background-color:#f7f9ff;
-  overflow:hidden;
+  background-color: ${props => props.theme.palette.background.paper};
+  overflow: hidden;
 
-
-.grid-container{
-  flex-direction: row;
-  align-content:center;
-  ${bps.down("xs")} {
+  .grid-container {
+    flex-direction: row;
+    align-content: center;
+    ${bps.down("xs")} {
       flex-direction: column;
     }
-}
-  
+  }
 
   .grid-box {
     width: 500px;
@@ -40,9 +40,15 @@ const FeatureDescription = () => {
   return (
     <StyledFeatureDescriptionContainer>
       <MuiThemeProvider theme={textThemeDark}>
-        <Grid container className="grid-container" justify="center" alignItems="flex-start" spacing={4}>
-        
-          <Grid item className="grid-box"><VerticalSpacer size={84} />
+        <Grid
+          container
+          className="grid-container"
+          justify="center"
+          alignItems="flex-start"
+          spacing={4}
+        >
+          <Grid item className="grid-box">
+            <VerticalSpacer size={84} />
             <Typography color="primary" variant="subtitle1">
               DESIGNED BY DEVELOPERS
             </Typography>
@@ -80,8 +86,8 @@ const FeatureDescription = () => {
                   Advanced Configurations
                 </Typography>
                 <Typography color="textSecondary" variant="subtitle2">
-                  Click your way to cost effective development or scalable production
-                  environments. 
+                  Click your way to cost effective development or scalable
+                  production environments.
                 </Typography>
                 <VerticalSpacer size={10} />
                 <Typography color="textPrimary" variant="subtitle1">
@@ -92,6 +98,13 @@ const FeatureDescription = () => {
                 </Typography>
               </Grid>
             </Grid>
+            <VerticalSpacer size={32} />
+            <ActionButton
+              variant="contained"
+              color="primary"
+              buttonTitle={"Try for Free"}
+              link={"https://app.kintohub.com/auth/sign-up"}
+            />
           </Grid>
 
           <Grid item>
@@ -135,6 +148,7 @@ class HomePage extends React.Component {
         <Hero />
         <FeatureDescription />
         <Comparison />
+        <Showcase/>
         <Testimonial />
         <CallToAction
           title={"Ready to start deploying your app?"}

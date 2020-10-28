@@ -6,7 +6,7 @@ import KintoBlackLogo from "../images/kinto-black-logo.svg"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import CallToActionButton from "./Button"
+import ActionButton from "./Button"
 import KintoWhiteLogo from "../images/kinto-white-logo.svg"
 import { HorizontalSpacer } from "./Spacer"
 import { Drawer as MUIDrawer } from "@material-ui/core"
@@ -31,11 +31,16 @@ const Drawer = () => {
   return (
     <MuiThemeProvider theme={textThemeDark}>
       <MUIDrawer style={{ width: "900px" }}>
-        <CallToActionButton buttonTitle="Login" variant="outlined" />
-        <CallToActionButton
+        <ActionButton
+          buttonTitle="Login"
+          variant="outlined"
+          link={"https://app.kintohub.com/auth/login"}
+        />
+        <ActionButton
           buttonTitle="Signup Free"
           variant="contained"
           color="primary"
+          link={"https://app.kintohub.com/auth/sign-up"}
         />
         <List>
           {itemList.map((item, index) => {
@@ -63,10 +68,10 @@ const StyledContainer = styled.div`
   }
 
   .solidNav {
-    background-color: #fff;
+    background-color: ${props => props.theme.palette.background.paper};
 
     a {
-      color: #000;
+      color: ${props => props.theme.palette.text.hint};
     }
   }
 
@@ -74,7 +79,7 @@ const StyledContainer = styled.div`
     background-color: transparent;
     box-shadow: none;
     a {
-      color: #fff;
+      color: ${props => props.theme.palette.text.primary};
     }
   }
 
@@ -99,7 +104,7 @@ export default () => {
   return (
     <StyledContainer>
       <AppBar className={navbar ? "solidNav" : "transparentNav"}>
-        <Drawer />
+        
         <Toolbar>
           <Grid container alignItems="center" justify="center">
             <Box mx="auto">
@@ -135,18 +140,19 @@ export default () => {
             <Box mx="auto">
               <Grid container>
                 <Box>
-                  <a href="https://app.kintohub.com/auth/sign-up">
-                    <CallToActionButton color="secondary" buttonTitle={"Login"} />
-                  </a>
+                  <ActionButton
+                    color="secondary"
+                    buttonTitle={"Login"}
+                    link={"https://app.kintohub.com/auth/login"}
+                  />
                 </Box>
                 <HorizontalSpacer size={16} />
                 <Box>
-                  <a href="https://app.kintohub.com/auth/sign-up">
-                    <CallToActionButton
-                      variant="contained"
-                      buttonTitle={"Signup Free"}
-                    />
-                  </a>
+                  <ActionButton
+                    variant="contained"
+                    buttonTitle={"Signup Free"}
+                    link={"https://app.kintohub.com/auth/sign-up"}
+                  />
                 </Box>
               </Grid>
             </Box>

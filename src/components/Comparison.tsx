@@ -12,31 +12,31 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core"
-import CallToActionButton from "./Button"
+import ActionButton from "./Button"
 import { VerticalSpacer } from "./Spacer"
 import { bps } from "../../plugins/custom-mui-theme/theme"
 
+const StyledTableContainer = styled(TableContainer)`
+  background-color: ${props => props.theme.palette.background.paper};
+  color: ${props => props.theme.palette.text.hint};
+  width: 70%;
+  margin: 0px auto 50px auto;
+  border-radius: 8px;
+  padding: 0px 16px;
+  ${bps.down("md")} {
+    width: 80%;
+  }
+  ${bps.down("xs")} {
+    width: 90%;
+  }
+`
+
+const StyledTableCell = styled(TableCell)`
+  color: ${props => props.theme.palette.text.hint};
+  height: 40px;
+`
+
 const ComparisonTable = () => {
-  const StyledTableContainer = styled(TableContainer)`
-    background-color: #fff;
-    color: #000;
-    width: 70%;
-    margin: 0px auto 50px auto;
-    border-radius: 8px;
-    padding: 0px 16px;
-    ${bps.down("md")} {
-      width: 80%;
-    }
-    ${bps.down("xs")} {
-      width: 90%;
-    }
-  `
-
-  const StyledTableCell = styled(TableCell)`
-    color: #000;
-    height: 40px;
-  `
-
   function createData(
     Features: string,
     KintoHub: any,
@@ -139,7 +139,7 @@ const ComparisonTable = () => {
       <Table size="medium">
         <TableHead>
           <TableRow>
-            <StyledTableCell>FEATURES</StyledTableCell>
+            <StyledTableCell align="left">FEATURES</StyledTableCell>
             <StyledTableCell align="center">
               <Typography variant="subtitle1">KintoHub</Typography>
             </StyledTableCell>
@@ -157,13 +157,21 @@ const ComparisonTable = () => {
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.Features}>
-              <StyledTableCell component="th" scope="row">
-                {row.Features}
+              <StyledTableCell align="left" component="th" scope="row">
+                <Typography variant="subtitle1">{row.Features}</Typography>
               </StyledTableCell>
-              <StyledTableCell align="center">{row.KintoHub}</StyledTableCell>
-              <StyledTableCell align="center">{row.Heroku}</StyledTableCell>
-              <StyledTableCell align="center">{row.Netlify}</StyledTableCell>
-              <StyledTableCell align="center">{row.Vercel}</StyledTableCell>
+              <StyledTableCell align="center">
+                <Typography variant="subtitle2">{row.KintoHub}</Typography>{" "}
+              </StyledTableCell>
+              <StyledTableCell align="center">
+                <Typography variant="subtitle2">{row.Heroku}</Typography>
+              </StyledTableCell>
+              <StyledTableCell align="center">
+                <Typography variant="subtitle2">{row.Netlify}</Typography>
+              </StyledTableCell>
+              <StyledTableCell align="center">
+                <Typography variant="subtitle2">{row.Vercel}</Typography>
+              </StyledTableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -174,7 +182,7 @@ const ComparisonTable = () => {
 
 const StyledDiv = styled.div`
   height: auto;
-  background-color: #111111;
+  background-color: ${props => props.theme.palette.secondary.default};
   width: 100%;
   height: auto;
   padding-top: 70px;
@@ -202,15 +210,14 @@ export default () => {
       <VerticalSpacer size={20} />
       <ComparisonTable />
       <VerticalSpacer size={24} />
-      <a href="https://kintohub.com">
-        <Typography align="center">
-          <CallToActionButton
-            variant="contained"
-            startIcon={<MapIcon />}
-            buttonTitle={"View Roadmap"}
-          />
-        </Typography>
-      </a>
+      <Typography align="center">
+        <ActionButton
+          variant="contained"
+          startIcon={<MapIcon />}
+          buttonTitle={"View Roadmap"}
+          link={"https://feedback.kintohub.com"}
+        />
+      </Typography>
       <VerticalSpacer size={38} />
     </StyledDiv>
   )

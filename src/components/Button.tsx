@@ -2,9 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import Button, { ButtonProps } from "@material-ui/core/Button"
 
-
 type Props = {
   buttonTitle: string
+  link?: string
 } & ButtonProps
 
 const StyledButton = styled(Button)`
@@ -17,10 +17,12 @@ const StyledButton = styled(Button)`
   border-radius: 8px;
 `
 
-export default ({ buttonTitle, ...props }: Props) => {
+export default ({ buttonTitle, link, ...props }: Props) => {
   return (
-    <StyledButton {...props} color="primary">
-      {buttonTitle}
-    </StyledButton>
+    <a href={link} target="_blank">
+      <StyledButton {...props} color="primary">
+        {buttonTitle}
+      </StyledButton>
+    </a>
   )
 }

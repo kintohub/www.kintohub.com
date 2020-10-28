@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Typography } from "@material-ui/core"
-import CallToActionButton from "./Button"
+import ActionButton from "./Button"
 import { ButtonProps } from "@material-ui/core/Button/Button"
 import CallToActionBg from "../images/CallToActionBg.svg"
 
@@ -46,11 +46,12 @@ export default ({
         {subtitle}
       </Typography>
       <VerticalSpacer size={42} />
-      <CallToActionButton
+      <ActionButton
         color="primary"
         variant={variant}
         startIcon={IconComponent ? <IconComponent /> : null}
         buttonTitle={buttonTitle}
+        link={"https://app.kintohub.com/auth/sign-up"}
       />
        <VerticalSpacer size={142} />
     </StyledDiv>

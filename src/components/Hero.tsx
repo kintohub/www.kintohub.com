@@ -2,11 +2,11 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import HeroBg from "../images/Hero.png"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
-import CallToActionButton from "./Button"
+import ActionButton from "./Button"
 import { TechStackCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
+import { VerticalSpacer } from "./Spacer"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
 import angular from "../images/fe/angular.svg"
 import gatsby from "../images/fe/gatsby.svg"
@@ -36,17 +36,17 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding:0px 16px;
+  padding: 0px 16px;
 
   .heading {
     font-size: 60px;
-    max-width:764px;
+    max-width: 764px;
     font-weight: 500;
   }
 
   a {
     text-decoration: none;
-    color: #6200ee;
+    color: ${props => props.theme.palette.primary.main};
   }
 
   .feature-container .feature-suggestion-container {
@@ -62,10 +62,11 @@ export default () => {
         The best way to deploy fullstack apps
       </Typography>
       <VerticalSpacer size={34} />
-      <CallToActionButton
+      <ActionButton
         variant="contained"
         buttonTitle={"Start Deploying"}
         startIcon={<PowerSettingsNewIcon />}
+        link={"https://app.kintohub.com/auth/sign-up"}
       />
       <VerticalSpacer size={20} />
       <Typography variant="caption" color="textSecondary">

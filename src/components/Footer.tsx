@@ -8,10 +8,10 @@ import { Link } from "gatsby"
 
 const StyledDiv = styled.div`
   height: auto;
-  background-color: ${props => props.theme.palette.secondary.main};
+  background-color: ${props => props.theme.palette.background.paper};
 
   .list-header {
-    color: ${props => props.theme.palette.secondary.contrastText};
+    color: ${props => props.theme.palette.text.hint};
     font-size: 18px;
     font-weight: 500;
     margin: 50px 0px 25px 0px;
@@ -55,7 +55,7 @@ export default () => {
                 <img src={KintoFooterIcon} alt="KintoHub" />
               </li>
               <li>
-                <a target="_blank" href="https://app.kintohub.com/auth/signup">
+                <a target="_blank" href="https://app.kintohub.com/auth/sign-up">
                   Create Account
                 </a>
               </li>
