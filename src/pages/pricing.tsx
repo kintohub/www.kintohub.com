@@ -187,7 +187,8 @@ const PricingDetail = () => {
 }
 
 type ExampleCardProps = {
-  cardIcon: SvgIconComponent
+  cardIcon: any
+  sleepIcon: any
   serviceName: string
   serviceType: string
   serviceDescription: string
@@ -225,6 +226,12 @@ const StyledExampleCard = styled.div`
     width: 45px;
     color: ${props => props.theme.palette.background.default};
   }
+
+  .sleep-icon {
+    color: ${props => props.theme.palette.secondary.contrastText};
+    height: 25px;
+    width: 25px;
+  }
 `
 
 const ExampleCard = ({
@@ -241,13 +248,14 @@ const ExampleCard = ({
   bandwidth,
   bandwidthPrice,
   sleep,
+  sleepIcon,
   total,
   totalPrice,
 }: ExampleCardProps) => {
   return (
     <StyledExampleCard>
       <MuiThemeProvider theme={textThemeDark}>
-        <SvgIcon>{cardIcon}</SvgIcon>
+        <SvgIcon className="example-card-icon">{cardIcon}</SvgIcon>
 
         <Typography variant="h6" color="textPrimary">
           {serviceName}
@@ -310,7 +318,9 @@ const ExampleCard = ({
               {sleep}
             </Typography>
           </Grid>
-          <Grid xs={2} item></Grid>
+          <Grid xs={2} item>
+            <SvgIcon className="sleep-icon">{sleepIcon}</SvgIcon>
+          </Grid>
           <Grid xs={12} item>
             <Divider color="primary" />
           </Grid>
@@ -375,7 +385,8 @@ const PayAsYouGoExample = () => {
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
             <ExampleCard
-              cardIcon={WebRoundedIcon}
+              cardIcon={<WebRoundedIcon />}
+              sleepIcon={<SnoozeRoundedIcon />}
               serviceName={"Example Dev"}
               serviceType={"Web App"}
               serviceDescription={"Simple Backend Node"}
@@ -394,7 +405,8 @@ const PayAsYouGoExample = () => {
           </Grid>
           <Grid item>
             <ExampleCard
-              cardIcon={DataUsageRoundedIcon}
+              cardIcon={<DataUsageRoundedIcon />}
+              sleepIcon={<SnoozeRoundedIcon />}
               serviceName={"Example Dev"}
               serviceType={"MongoDB"}
               serviceDescription={"Simple Database"}
@@ -413,7 +425,8 @@ const PayAsYouGoExample = () => {
           </Grid>
           <Grid item>
             <ExampleCard
-              cardIcon={CategoryRoundedIcon}
+              cardIcon={<CategoryRoundedIcon />}
+              sleepIcon={<WbSunnyRoundedIcon />}
               serviceName={"Example Prod"}
               serviceType={"Backend API"}
               serviceDescription={"Heavy-duty Business Logic"}
