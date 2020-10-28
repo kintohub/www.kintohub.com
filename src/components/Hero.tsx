@@ -60,7 +60,7 @@ const StyledDiv = styled.div`
 export default () => {
   return (
     <StyledDiv>
-      <VerticalSpacer size={100} />
+      <VerticalSpacer size={200} />
       <Typography align="center" className="heading" color="textPrimary">
         The best way to deploy fullstack apps
       </Typography>

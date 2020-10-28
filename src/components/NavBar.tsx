@@ -1,4 +1,11 @@
-import { AppBar, Divider, Grid, MuiThemeProvider } from "@material-ui/core"
+import {
+  AppBar,
+  Divider,
+  Grid,
+  makeStyles,
+  MuiThemeProvider,
+  useScrollTrigger,
+} from "@material-ui/core"
 import Box from "@material-ui/core/Box/Box"
 import Toolbar from "@material-ui/core/Toolbar/Toolbar"
 import Typography from "@material-ui/core/Typography/Typography"
@@ -62,19 +69,17 @@ const Drawer = () => {
   )
 }
 
-const StyledContainer = styled.div`
+const StyledNavContainer = styled.div`
   a {
     text-decoration: none;
   }
 
   .solidNav {
     background-color: ${props => props.theme.palette.background.paper};
-
     a {
       color: ${props => props.theme.palette.text.hint};
     }
   }
-
   .transparentNav {
     background-color: transparent;
     box-shadow: none;
@@ -83,34 +88,36 @@ const StyledContainer = styled.div`
     }
   }
 
+  .fade {
+    transition: 0.3s;
+  }
+
   .active {
     text-decoration: underline;
   }
 `
 
-export default () => {
-  const [navbar, setNavbar] = useState(false)
+interface Props {
+  window?: () => Window
+}
 
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 120) {
-      setNavbar(true)
-    } else {
-      setNavbar(false)
-    }
-  }
-
-  window.addEventListener("scroll", changeNavbarColor)
+export default (props: Props) => {
+  const { window } = props
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 50,
+    target: window ? window() : undefined,
+  })
 
   return (
-    <StyledContainer>
-      <AppBar className={navbar ? "solidNav" : "transparentNav"}>
-        
+    <StyledNavContainer>
+      <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
         <Toolbar>
           <Grid container alignItems="center" justify="center">
             <Box mx="auto">
               <Link to="/" activeClassName="active">
                 <img
-                  src={navbar ? KintoBlackLogo : KintoWhiteLogo}
+                  src={trigger ? KintoBlackLogo : KintoWhiteLogo}
                   alt="logo"
                 />
               </Link>
@@ -159,6 +166,6 @@ export default () => {
           </Grid>
         </Toolbar>
       </AppBar>
-    </StyledContainer>
+    </StyledNavContainer>
   )
 }
