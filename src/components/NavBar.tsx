@@ -92,7 +92,7 @@ export default () => {
   const [navbar, setNavbar] = useState(false)
 
   const changeNavbarColor = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 120) {
       setNavbar(true)
     } else {
       setNavbar(false)

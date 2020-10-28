@@ -28,15 +28,18 @@ import redis from "../images/catalog/redis.svg"
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  background-image: url(${HeroBg});
-  background-position: center;
+  background: url(${HeroBg}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   padding: 0px 16px;
+  background-color: ${props => props.theme.palette.background.paper};
 
   .heading {
     font-size: 60px;
@@ -46,7 +49,7 @@ const StyledDiv = styled.div`
 
   a {
     text-decoration: none;
-    color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.primary.light};
   }
 
   .feature-container .feature-suggestion-container {
@@ -57,7 +60,7 @@ const StyledDiv = styled.div`
 export default () => {
   return (
     <StyledDiv>
-      <VerticalSpacer size={200} />
+      <VerticalSpacer size={100} />
       <Typography align="center" className="heading" color="textPrimary">
         The best way to deploy fullstack apps
       </Typography>
@@ -80,9 +83,7 @@ export default () => {
         <div>developers by fullstack developers</div>
       </Typography>
       <VerticalSpacer size={90} />
-      <Typography variant="body1">
-        ALL YOUR APPS'S NEEDS IN ONE PLACE
-      </Typography>
+      <Typography variant="body1">ALL YOUR APP'S NEEDS IN ONE PLACE</Typography>
 
       <VerticalSpacer size={70} />
       <Grid container direction="row" justify="center" alignItems="center">
@@ -112,44 +113,43 @@ export default () => {
         />
       </Grid>
 
-      <MuiThemeProvider theme={textThemeDark}>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className="feature-container"
-        >
-          <div className="feature-suggestion-container">
-            <Typography variant="h6" color="textPrimary">
-              Deploy an Existing Project with Git
-            </Typography>
-            <Typography color="textPrimary">
-              Use our Git integrations with{" "}
-              <a href="https://docs.kintohub.com/repository/github-apps">
-                GitHub
-              </a>
-              or use an
-              <a href="https://docs.kintohub.com/repository/import%20url">
-                import url.
-              </a>
-            </Typography>
-          </div>
-          <div className="feature-suggestion-container">
-            <Typography variant="h6" color="textPrimary">
-              Connect Your Custom Domains
-            </Typography>
-            <Typography color="textPrimary">
-              Once deployed, your projects can be assigned to a custom domain.
-            </Typography>
-            <Typography color="textPrimary">
-              <a href="https://docs.kintohub.com/anatomy/domains">
-                Learn more →
-              </a>
-            </Typography>
-          </div>
-        </Grid>
-      </MuiThemeProvider>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className="feature-container"
+      >
+        <div className="feature-suggestion-container">
+          <Typography variant="h6" color="textPrimary">
+            Deploy an Existing Project with Git
+          </Typography>
+          <Typography color="textPrimary">
+            Use our Git integrations with{" "}
+            <a href="https://docs.kintohub.com/repository/github-apps">
+              <b>GitHub </b>
+            </a>{" "}
+            or use an
+            <a href="https://docs.kintohub.com/repository/import%20url">
+              {" "}
+              <b>import url.</b>
+            </a>
+          </Typography>
+        </div>
+        <div className="feature-suggestion-container">
+          <Typography variant="h6" color="textPrimary">
+            Connect Your Custom Domains
+          </Typography>
+          <Typography color="textPrimary">
+            Once deployed, your projects can be assigned to a custom domain.
+          </Typography>
+          <Typography color="textPrimary">
+            <a href="https://docs.kintohub.com/anatomy/domains">
+              <b>Learn more →</b>{" "}
+            </a>
+          </Typography>
+        </div>
+      </Grid>
     </StyledDiv>
   )
 }
