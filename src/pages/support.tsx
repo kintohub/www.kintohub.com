@@ -13,9 +13,10 @@ import ActionButton from "../components/Button"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import SendIcon from "@material-ui/icons/Send"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
-import { VerticalSpacer } from "../components/Spacer"
+import { HorizontalSpacer, VerticalSpacer } from "../components/Spacer"
 import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
+import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
 
 const StyledHeaderContainer = styled.div`
   width: 100%;
@@ -47,18 +48,21 @@ const SupportHeader = () => {
 
 const StyledFormContainer = styled.div`
   height: auto;
-  width: 500px;
-  background: ${props => props.theme.palette.background.paper};
+
+  background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   text-align: left;
+  margin-top: -24px;
 
   .form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 30px;
+    width: 500px;
+    min-width: auto;
   }
 
   .message-button {
@@ -125,7 +129,8 @@ const StyledNextActionContainer = styled.div`
   flex-direction: column;
   align-content: left;
   text-align: left;
-  margin: 64px;
+  height: auto;
+  margin-top: 48px;
 
   a {
     text-decoration: none;
@@ -141,20 +146,106 @@ const StyledNextActionContainer = styled.div`
     color: ${props => props.theme.palette.divider};
   }
 
-  .contact-option-icon {
-    position: absolute;
-    color: ${props => props.theme.palette.text.disabled};
+  .explore-option-icon {
+    color: ${props => props.theme.palette.secondary.dark};
     width: 40px;
     height: 40px;
-    top: 0;
-    left: 0;
   }
 `
-const NextAction = () => {
+const ExploreOptions = () => {
   return (
     <StyledNextActionContainer>
       <MuiThemeProvider theme={textThemeDark}>
-        ok
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          alignItems="flex-start"
+        >
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              spacing={6}
+            >
+              <Grid item xs={1}>
+                <ForumRoundedIcon className="explore-option-icon" />
+              </Grid>
+              <Grid item xs={11}>
+                <Typography variant="h6" color="textPrimary">
+                  Discord chat support
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  Need help with your deployment? Chat with the Kinto dev team
+                  to solve your issues.
+                </Typography>
+                <a href="https://kintohub.com/discord" target="_blank">
+                  <Typography variant="subtitle2" color="primary">
+                    Join KintoHub Discord →
+                  </Typography>
+                </a>
+              </Grid>
+            </Grid>
+          </Grid>
+          <VerticalSpacer size={44} />
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              spacing={6}
+            >
+              <Grid item xs={1}>
+                <LibraryBooksRoundedIcon className="explore-option-icon" />
+              </Grid>
+              <Grid item xs={11}>
+                <Typography variant="h6" color="textPrimary">
+                  Read our documentation
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  Explore all KintoHub has to offer by sifting through our
+                  features and our simple code examples.
+                </Typography>
+                <a href="https://docs.kintohub.com" target="_blank">
+                  <Typography variant="subtitle2" color="primary">
+                    Go to docs →
+                  </Typography>
+                </a>
+              </Grid>
+            </Grid>
+          </Grid>
+          <VerticalSpacer size={44} />
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="center"
+              spacing={6}
+            >
+              <Grid item xs={1}>
+                <ContactSupportRoundedIcon className="explore-option-icon" />
+              </Grid>
+              <Grid item xs={11}>
+                <Typography variant="h6" color="textPrimary">
+                  Frequently Asked Questions
+                </Typography>
+                <Typography variant="subtitle2" color="textSecondary">
+                  Asking a general question? There’s a good chance that someone
+                  else did too.
+                </Typography>
+                <a href="https://kintohub.com" target="_blank">
+                  <Typography variant="subtitle2" color="primary">
+                    Go to FAQ →
+                  </Typography>
+                </a>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </MuiThemeProvider>
     </StyledNextActionContainer>
   )
@@ -164,10 +255,9 @@ const StyledContactUsBodyContainer = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
-  background-color: ${props => props.theme.palette.divider};
+  background-color: ${props => props.theme.palette.background.paper};
 
   .contact-div {
     margin: 0px auto;
@@ -181,12 +271,16 @@ const ContactUsBody = () => {
         <Grid
           container
           direction="row"
-          justify="space-around"
+          justify="center"
           alignItems="flex-start"
-          spacing={6}
+          spacing={8}
         >
-          <ContactForm />
-          <NextAction />
+          <Grid item>
+            <ContactForm />
+          </Grid>
+          <Grid item>
+            <ExploreOptions />
+          </Grid>
         </Grid>
       </div>
       <VerticalSpacer size={124} />
