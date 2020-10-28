@@ -1,5 +1,5 @@
 import Footer from "../components/Footer"
-import CallToAction from "../components/CallToAction"
+import CallToAction from "../components/Calltoaction"
 import SEO from "../components/seo"
 import React, { Component } from "react"
 import Helmet from "react-helmet"

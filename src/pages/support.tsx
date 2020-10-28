@@ -1,6 +1,6 @@
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
-import CallToAction from "../components/CallToAction"
+import CallToAction from "../components/Calltoaction"
 import SEO from "../components/seo"
 import React from "react"
 import Helmet from "react-helmet"
