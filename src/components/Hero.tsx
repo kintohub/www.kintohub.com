@@ -1,13 +1,12 @@
 import React from "react"
-import styled, { ThemeProvider } from "styled-components"
-import HeroBg from "../images/Hero.png"
-import { MuiThemeProvider, Typography } from "@material-ui/core"
+import styled from "styled-components"
+import HeroBg from "../images/Hero2.png"
+import { Box, Typography } from "@material-ui/core"
 import ActionButton from "./Button"
 import { TechStackCard } from "./Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import { VerticalSpacer } from "./Spacer"
-import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import { AutoGrowSpacer, VerticalSpacer } from "./Spacer"
 import angular from "../images/fe/angular.svg"
 import gatsby from "../images/fe/gatsby.svg"
 import hugo from "../images/fe/hugo.svg"
@@ -24,6 +23,8 @@ import mongo from "../images/catalog/mongo.svg"
 import mysql from "../images/catalog/mysql.svg"
 import postgresql from "../images/catalog/postgresql.svg"
 import redis from "../images/catalog/redis.svg"
+import GitHubIcon from "@material-ui/icons/GitHub"
+import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -54,6 +55,12 @@ const StyledDiv = styled.div`
 
   .feature-container .feature-suggestion-container {
     margin: 20px;
+  }
+
+  .icons {
+    width: 30px;
+    height: 30px;
+    margin-right:16px
   }
 `
 
@@ -113,14 +120,11 @@ export default () => {
         />
       </Grid>
 
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        className="feature-container"
-      >
-        <div className="feature-suggestion-container">
+      <VerticalSpacer size={20} />
+
+      <Grid container direction="row" justify="center" alignItems="flex-start">
+        {" "}
+        <Grid item>
           <Typography variant="h6" color="textPrimary">
             Deploy an Existing Project with Git
           </Typography>
@@ -135,8 +139,21 @@ export default () => {
               <b>import url.</b>
             </a>
           </Typography>
-        </div>
-        <div className="feature-suggestion-container">
+          <VerticalSpacer size={8} />
+
+          <a href="https://docs.kintohub.com/repository/github-apps">
+            <GitHubIcon className="icons" color="secondary" />
+          </a>
+
+          <a
+            className="import"
+            href="https://docs.kintohub.com/repository/import%20url"
+          >
+            <LinkRoundedIcon className="icons" color="secondary" />
+          </a>
+        </Grid>
+        <AutoGrowSpacer size={0.15} />
+        <Grid item>
           <Typography variant="h6" color="textPrimary">
             Connect Your Custom Domains
           </Typography>
@@ -145,11 +162,12 @@ export default () => {
           </Typography>
           <Typography color="textPrimary">
             <a href="https://docs.kintohub.com/anatomy/domains">
-              <b>Learn more →</b>{" "}
+              <b>Learn more →</b>
             </a>
           </Typography>
-        </div>
+        </Grid>
       </Grid>
+      <VerticalSpacer size={82} />
     </StyledDiv>
   )
 }
