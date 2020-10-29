@@ -184,8 +184,6 @@ const StyledDiv = styled.div`
   height: auto;
   background-color: ${props => props.theme.palette.secondary.default};
   width: 100%;
-  height: auto;
-  padding-top: 70px;
 
   a {
     text-decoration: none;
@@ -199,6 +197,7 @@ const StyledDiv = styled.div`
 export default () => {
   return (
     <StyledDiv>
+      <VerticalSpacer size={70} />
       <Typography align="center" variant="h1" color="textPrimary">
         Get more features with KintoHub
       </Typography>
@@ -207,7 +206,7 @@ export default () => {
         Don't sacrifice your app's stack due to the platform you choose.
         KintoHub empowers choice.
       </Typography>
-      <VerticalSpacer size={20} />
+      <VerticalSpacer size={26} />
       <ComparisonTable />
       <VerticalSpacer size={24} />
       <Typography align="center">

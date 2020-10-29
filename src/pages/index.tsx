@@ -21,6 +21,7 @@ import Showcase from "../components/Showcase"
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
   height: auto;
+
   background-color: ${props => props.theme.palette.background.paper};
   overflow: hidden;
 
@@ -148,7 +149,7 @@ class HomePage extends React.Component {
         <Hero />
         <FeatureDescription />
         <Comparison />
-        <Showcase/>
+        <Showcase />
         <Testimonial />
         <CallToAction
           title={"Ready to start deploying your app?"}

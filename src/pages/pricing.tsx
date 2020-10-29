@@ -345,7 +345,6 @@ const StyledPayAsYouGoExampleContainer = styled.div`
   height: auto;
   background-color: ${props => props.theme.palette.background.default};
   display: flex;
-  z-index: -999;
   flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
@@ -355,14 +354,13 @@ const StyledPayAsYouGoExampleContainer = styled.div`
     height: 100%;
     width: 100%;
     left: 0;
-    z-index: -1;
     bottom: 0;
     background-size: contain;
   }
 
   .example-card {
     position: relative;
-    z-index: 10;
+
   }
 `
 

@@ -59,10 +59,6 @@ const StyledDiv = styled.div`
       height: 100%;
     }
 
-    .divider {
-      margin-left: -16px;
-      margin-right: -16px;
-    }
     .mobile-divider {
       width: calc(100% + 32px);
       margin-left: -16px;
@@ -336,7 +332,7 @@ export default () => {
                 </Grid>
               </Grid>
               <SizedVBox size={32} />
-              <Divider className="divider" />
+              <Divider />
               <SizedVBox size={32} />
               <Grid container item xs={12}>
                 <Grid item md={3}>
@@ -352,7 +348,7 @@ export default () => {
                 </Grid>
               </Grid>
               <SizedVBox size={32} />
-              <Divider className="divider" />
+              <Divider />
               <SizedVBox size={32} />
               <Grid container item xs={12}>
                 <Hidden smDown>
@@ -407,7 +403,7 @@ export default () => {
               </Grid>
 
               <SizedVBox size={32} />
-              <Divider className="divider" />
+              <Divider />
               <SizedVBox size={32} />
 
               <Grid container item xs={12}>
@@ -435,7 +431,7 @@ export default () => {
               </Grid>
 
               <SizedVBox size={32} />
-              <Divider className="divider" />
+              <Divider />
               <SizedVBox size={32} />
 
               <div className="free-resources">
@@ -475,7 +471,7 @@ export default () => {
               </div>
 
               <SizedVBox size={32} />
-              <Divider className="divider" />
+              <Divider />
               <SizedVBox size={32} />
 
               <Grid container item xs={12}>

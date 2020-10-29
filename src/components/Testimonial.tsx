@@ -57,7 +57,7 @@ export default () => {
             }
           />
         </Grid>
-        <VerticalSpacer size={64} />
+        <VerticalSpacer size={100} />
       </MuiThemeProvider>
     </StyledDiv>
   )

@@ -16,7 +16,9 @@ import { AutoGrowSpacer, VerticalSpacer } from "./Spacer"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import CreditCardRoundedIcon from "@material-ui/icons/CreditCardRounded"
-import CustomResourceVid from "../images/video/custom_resources.gif"
+import CustomResourceVid from "../images/video/custom_resource.gif"
+import BillingVid from "../images/video/billing.gif"
+import SleepModeVid from "../images/video/sleep_mode.gif"
 import ActionButton from "../components/Button"
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
 
@@ -107,16 +109,14 @@ const VideoTab = () => {
       info:
         "Experience true cost savings with dev environments that automatically sleep when they are not in use!",
       icon: <SnoozeRoundedIcon />,
-      src:
-        "https://images.unsplash.com/photo-1603880008872-0572a0ae2f66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      src: SleepModeVid,
     },
     {
       id: "3",
       name: "Transparent Billing",
       info: "Understand your maximum monthly cost before deploying anything!",
       icon: <CreditCardRoundedIcon />,
-      src:
-        "https://images.unsplash.com/photo-1603852452378-a4e8d84324a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      src: BillingVid,
     },
   ]
 
