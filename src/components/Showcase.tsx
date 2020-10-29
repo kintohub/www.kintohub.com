@@ -60,9 +60,16 @@ const StyledVideoTabContainer = styled.div`
     height: 200px;
     background-image: cover;
   }
-  .icon {
+  .disabledIcon {
     width: 40px;
     height: 40px;
+    color: ${props => props.theme.palette.text.disabled};
+  }
+
+  .activeIcon {
+    width: 40px;
+    height: 40px;
+    background: ${props => props.theme.palette.primary.light};
   }
 
   .videoTextList {
@@ -116,7 +123,12 @@ const VideoTab = () => {
   return (
     <StyledVideoTabContainer>
       <MuiThemeProvider theme={textThemeDark}>
-        <Grid container direction="row" justify="center" alignItems="flex-start">
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+        >
           <Grid item>
             {tabData.map((item, index) => (
               <Card elevation={0}>
@@ -131,24 +143,33 @@ const VideoTab = () => {
                     alignItems="flex-start"
                   >
                     <Grid item className="videoTextList">
+                      <VerticalSpacer size={20} />
                       <Grid
                         container
                         direction="row"
                         justify="flex-start"
-                        alignItems="center"
+                        alignItems="flex-start"
                       >
                         <Grid item xs={2}>
-                          <SvgIcon className="icon">{item.icon}</SvgIcon>
+                          <SvgIcon
+                            className={
+                              index.toString() == item.id
+                                ? "activeIcon"
+                                : "disabledIcon"
+                            }
+                          >
+                            {item.icon}
+                          </SvgIcon>
                         </Grid>
                         <Grid item xs={10}>
                           <Typography variant="subtitle1" color="textPrimary">
                             {item.name}
                           </Typography>
-                          <VerticalSpacer size={5} />
+                          <VerticalSpacer size={2} />
                           <Typography variant="subtitle2" color="textSecondary">
                             {item.info}
                           </Typography>
-                          <VerticalSpacer size={5} />
+                          <VerticalSpacer size={20} />
                         </Grid>
                       </Grid>
                       <Divider />
