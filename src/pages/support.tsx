@@ -48,25 +48,14 @@ const SupportHeader = () => {
 
 const StyledFormContainer = styled.div`
   height: auto;
-
   background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  text-align: left;
   margin-top: -24px;
 
   .form {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 30px;
-    width: 500px;
-    min-width: auto;
-  }
-
-  .message-button {
-    width: 180px;
+    padding: 32px;
   }
 `
 
@@ -75,56 +64,67 @@ const ContactForm = () => {
     <StyledFormContainer>
       <MuiThemeProvider theme={textThemeDark}>
         <form noValidate autoComplete="off" className="form">
-          <TextField
-            id="outlined-basic"
-            label="Message Type"
-            variant="outlined"
-          />
-          <VerticalSpacer size={24} />
-          <TextField
-            id="outlined-basic"
-            label="First Name"
-            variant="outlined"
-          />
-          <VerticalSpacer size={24} />
-          <TextField
-            id="outlined-basic"
-            label="Laste Name"
-            variant="outlined"
-          />
-          <VerticalSpacer size={24} />
-          <TextField
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-          />{" "}
-          <VerticalSpacer size={24} />
-          <TextField
-            id="outlined-basic"
-            rows={6}
-            multiline
-            label="How can we help?"
-            variant="outlined"
-          />
-          <VerticalSpacer size={24} />
-          <ActionButton
-            className="message-button"
-            buttonTitle={"Send Message"}
-            startIcon={<SendIcon />}
-            variant="contained"
-          />
-          <VerticalSpacer size={24} />
-          <Typography align="left" variant="subtitle2" color="textSecondary">
-            Make sure the email is correct so we can reach you.
-            <div>Usually we respond within 24 hours.</div>
-          </Typography>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="flex-start"
+          >
+            <TextField
+              id="outlined-basic"
+              label="Message Type"
+              variant="outlined"
+              fullWidth
+            />
+            <VerticalSpacer size={24} />
+            <TextField
+              id="outlined-basic"
+              label="First Name"
+              variant="outlined"
+              fullWidth
+            />
+            <VerticalSpacer size={24} />
+            <TextField
+              id="outlined-basic"
+              label="Laste Name"
+              variant="outlined"
+              fullWidth
+            />
+            <VerticalSpacer size={24} />
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              fullWidth
+            />
+            <VerticalSpacer size={24} />
+            <TextField
+              id="outlined-basic"
+              rows={6}
+              multiline
+              label="How can we help?"
+              variant="outlined"
+              fullWidth
+            />
+            <VerticalSpacer size={24} />
+            <ActionButton
+              buttonTitle={"Send Message"}
+              startIcon={<SendIcon />}
+              variant="contained"
+            />
+            <VerticalSpacer size={24} />
+            <Typography align="left" variant="subtitle2" color="textSecondary">
+              Make sure the email is correct so we can reach you.
+              <div>Usually we respond within 24 hours.</div>
+            </Typography>
+          </Grid>
         </form>
       </MuiThemeProvider>
     </StyledFormContainer>
   )
 }
 
-const StyledNextActionContainer = styled.div`
+const StyledExploreOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-content: left;
@@ -154,7 +154,7 @@ const StyledNextActionContainer = styled.div`
 `
 const ExploreOptions = () => {
   return (
-    <StyledNextActionContainer>
+    <StyledExploreOptionsContainer>
       <MuiThemeProvider theme={textThemeDark}>
         <Grid
           container
@@ -247,7 +247,7 @@ const ExploreOptions = () => {
           </Grid>
         </Grid>
       </MuiThemeProvider>
-    </StyledNextActionContainer>
+    </StyledExploreOptionsContainer>
   )
 }
 
