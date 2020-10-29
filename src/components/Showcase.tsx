@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid/Grid"
-import { textThemeDark } from "theme/index"
+import { bps, textThemeDark } from "theme/index"
 import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
@@ -22,46 +22,7 @@ import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRoun
 
 const StyledVideoTabContainer = styled.div`
   background-color: ${props => props.theme.palette.background.paper};
-  .tab {
-    float: left;
-    background-color: ${props => props.theme.palette.background.paper};
-    height: auto;
-  }
 
-  .tab button {
-    display: block;
-    background-color: inherit;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 17px;
-  }
-
-  .tab button:hover {
-    background-color: #ddd;
-  }
-
-  .tab button.active {
-    background-color: #ccc;
-  }
-
-  .tabcontent {
-    float: left;
-    background: ${props => props.theme.palette.background.paper};
-    padding: 0px 12px;
-
-    height: auto;
-  }
-
-  .videoContainer {
-    width: 200px;
-    height: 200px;
-    background-image: cover;
-  }
   .disabledIcon {
     width: 40px;
     height: 40px;
@@ -86,8 +47,19 @@ const StyledVideoTabContainer = styled.div`
     width: auto;
     height: 450px;
     border-radius: 8px;
+    margin:0px 16px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+    ${bps.down("sm")} {
+      max-height: auto;
+      max-width: 550px;
+    }
+    
+    ${bps.down("xs")} {
+      max-height: auto;
+      max-width: 400px;
+    }
   }
 `
 
@@ -199,7 +171,11 @@ const VideoTab = () => {
           <AutoGrowSpacer size={0.05} />
 
           <Grid item>
-            <img className="videoSrc" src={tabData[tabIndex].src} alt="showcase"></img>
+            <img
+              className="videoSrc"
+              src={tabData[tabIndex].src}
+              alt="showcase"
+            ></img>
           </Grid>
         </Grid>
         <VerticalSpacer size={90} />
@@ -211,6 +187,7 @@ const VideoTab = () => {
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
+  padding: 0px 16px;
   background: ${props => props.theme.palette.background.paper};
 
   box-sizing: border-box;

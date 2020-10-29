@@ -25,6 +25,7 @@ import postgresql from "resources/icons/catalog/postgresql.svg"
 import redis from "resources/icons/catalog/redis.svg"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
+import { bps } from "theme"
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -38,7 +39,6 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   padding: 0px 16px;
   background-color: ${props => props.theme.palette.background.paper};
 
@@ -55,6 +55,15 @@ const StyledDiv = styled.div`
 
   .feature-container .feature-suggestion-container {
     margin: 20px;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: row;
+    ${bps.down("md")} {
+      justify-items: space-evenly;
+      flex-direction: column;
+    }
   }
 
   .icons {
@@ -93,37 +102,48 @@ export default () => {
       <Typography variant="body1">ALL YOUR APP'S NEEDS IN ONE PLACE</Typography>
 
       <VerticalSpacer size={70} />
-      <Grid container direction="row" justify="center" alignItems="center">
-        <TechStackCard
-          TechStackTitle={"Frontend"}
-          TechStackDescription={
-            "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
-          }
-          Category={"popular frameworks"}
-          AvatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
-        />
-        <TechStackCard
-          TechStackTitle={"Backend"}
-          TechStackDescription={
-            "Scale APIs, consume messages with background workers or create repeatable jobs."
-          }
-          Category={"popular Languages"}
-          AvatarSrc={[docker, node, golang, ruby, python, more]}
-        />
-        <TechStackCard
-          TechStackTitle={"Data & Storage"}
-          TechStackDescription={
-            "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
-          }
-          Category={"popular catalogs"}
-          AvatarSrc={[mongo, postgresql, mysql, redis]}
-        />
+      <Grid
+        container
+        className="grid-container"
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item>
+          <TechStackCard
+            TechStackTitle={"Frontend"}
+            TechStackDescription={
+              "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
+            }
+            Category={"popular frameworks"}
+            AvatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
+          />
+        </Grid>
+        <Grid item>
+          <TechStackCard
+            TechStackTitle={"Backend"}
+            TechStackDescription={
+              "Scale APIs, consume messages with background workers or create repeatable jobs."
+            }
+            Category={"popular Languages"}
+            AvatarSrc={[docker, node, golang, ruby, python, more]}
+          />
+        </Grid>
+        <Grid item>
+          <TechStackCard
+            TechStackTitle={"Data & Storage"}
+            TechStackDescription={
+              "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
+            }
+            Category={"popular catalogs"}
+            AvatarSrc={[mongo, postgresql, mysql, redis]}
+          />
+        </Grid>
       </Grid>
 
       <VerticalSpacer size={20} />
 
-      <Grid container direction="row" justify="center" alignItems="flex-start">
-        {" "}
+      <Grid container justify="center">
         <Grid item>
           <Typography variant="h6" color="textPrimary">
             Deploy an Existing Project with Git
@@ -135,7 +155,6 @@ export default () => {
             </a>{" "}
             or use an
             <a href="https://docs.kintohub.com/repository/import%20url">
-              {" "}
               <b>import url.</b>
             </a>
           </Typography>

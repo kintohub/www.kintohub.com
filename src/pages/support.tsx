@@ -7,14 +7,20 @@ import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "components/Layout"
 import HeroBg from "resources/background/contact.svg"
-import { Grid, MuiThemeProvider, Typography } from "@material-ui/core"
+import {
+  Divider,
+  Grid,
+  Hidden,
+  MuiThemeProvider,
+  Typography,
+} from "@material-ui/core"
 import TextField from "@material-ui/core/TextField/TextField"
 import ActionButton from "components/Button"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import SendIcon from "@material-ui/icons/Send"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
-import { VerticalSpacer } from "components/Spacer"
-import { textThemeDark } from "theme/index"
+import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
+import { bps, textThemeDark } from "theme/index"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
 
@@ -25,9 +31,9 @@ const StyledHeaderContainer = styled.div`
   background-image: url(${HeroBg});
   background-size: cover;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
+  overflow: hidden;
 `
 const SupportHeader = () => {
   return (
@@ -47,12 +53,20 @@ const SupportHeader = () => {
 }
 
 const StyledFormContainer = styled.div`
+  width: 500px;
   height: auto;
+  overflow: hidden;
+
+  ${bps.down("sm")} {
+    width: auto;
+    margin: -32px 16px 0px 16px;
+  }
+
   background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  margin-top: -24px;
+  margin-top: -44px;
 
   .form {
     padding: 32px;
@@ -130,20 +144,20 @@ const StyledExploreOptionsContainer = styled.div`
   align-content: left;
   text-align: left;
   height: auto;
-  margin-top: 48px;
+  overflow: hidden;
 
   a {
     text-decoration: none;
-  }
-
-  .grid-container {
-    position: relative;
   }
 
   .divider {
     height: 1px;
     width: 100%;
     color: ${props => props.theme.palette.divider};
+  }
+
+  ${bps.down("sm")} {
+    margin: 48px 16px 0px 16px;
   }
 
   .explore-option-icon {
@@ -156,93 +170,88 @@ const ExploreOptions = () => {
   return (
     <StyledExploreOptionsContainer>
       <MuiThemeProvider theme={textThemeDark}>
-        <Grid
-          container
-          direction="column"
-          justify="flex-start"
-          alignItems="flex-start"
-        >
-          <Grid item>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              spacing={6}
-            >
+        <VerticalSpacer size={40} />
+        <Grid container direction="column" justify="center" alignItems="center">
+          <Grid container>
+            <Hidden smDown>
               <Grid item xs={1}>
                 <ForumRoundedIcon className="explore-option-icon" />
               </Grid>
-              <Grid item xs={11}>
-                <Typography variant="h6" color="textPrimary">
-                  Discord chat support
+            </Hidden>
+
+            <Grid item xs={11}>
+              <Typography variant="h6" color="textPrimary">
+                Discord chat support
+              </Typography>
+              <VerticalSpacer size={5} />
+              <Typography variant="subtitle2" color="textSecondary">
+                Need help with your deployment? Chat with the Kinto dev team to
+                solve your issues.
+              </Typography>
+              <VerticalSpacer size={5} />
+              <a href="https://kintohub.com/discord" target="_blank">
+                <Typography variant="subtitle2" color="primary">
+                  Join KintoHub Discord →
                 </Typography>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Need help with your deployment? Chat with the Kinto dev team
-                  to solve your issues.
-                </Typography>
-                <a href="https://kintohub.com/discord" target="_blank">
-                  <Typography variant="subtitle2" color="primary">
-                    Join KintoHub Discord →
-                  </Typography>
-                </a>
-              </Grid>
+              </a>
             </Grid>
           </Grid>
-          <VerticalSpacer size={44} />
-          <Grid item>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              spacing={6}
-            >
+          <VerticalSpacer size={22} />
+          <Divider className="divider" />
+
+          <VerticalSpacer size={22} />
+
+          <Grid container>
+            <Hidden smDown>
+              {" "}
               <Grid item xs={1}>
                 <LibraryBooksRoundedIcon className="explore-option-icon" />
               </Grid>
-              <Grid item xs={11}>
-                <Typography variant="h6" color="textPrimary">
-                  Read our documentation
+            </Hidden>
+
+            <Grid item xs={11}>
+              <Typography variant="h6" color="textPrimary">
+                Read our documentation
+              </Typography>
+              <VerticalSpacer size={5} />
+              <Typography variant="subtitle2" color="textSecondary">
+                Explore all KintoHub has to offer by sifting through our
+                features and our simple code examples.
+              </Typography>
+              <VerticalSpacer size={5} />
+              <a href="https://docs.kintohub.com" target="_blank">
+                <Typography variant="subtitle2" color="primary">
+                  Go to docs →
                 </Typography>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Explore all KintoHub has to offer by sifting through our
-                  features and our simple code examples.
-                </Typography>
-                <a href="https://docs.kintohub.com" target="_blank">
-                  <Typography variant="subtitle2" color="primary">
-                    Go to docs →
-                  </Typography>
-                </a>
-              </Grid>
+              </a>
             </Grid>
           </Grid>
-          <VerticalSpacer size={44} />
-          <Grid item>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="center"
-              spacing={6}
-            >
+          <VerticalSpacer size={22} />
+          <Divider className="divider" />
+          <VerticalSpacer size={22} />
+
+          <Grid container>
+            <Hidden smDown>
               <Grid item xs={1}>
                 <ContactSupportRoundedIcon className="explore-option-icon" />
               </Grid>
-              <Grid item xs={11}>
-                <Typography variant="h6" color="textPrimary">
-                  Frequently Asked Questions
+            </Hidden>
+
+            <Grid item xs={11}>
+              <Typography variant="h6" color="textPrimary">
+                Frequently Asked Questions
+              </Typography>
+              <VerticalSpacer size={5} />
+              <Typography variant="subtitle2" color="textSecondary">
+                Asking a general question? There’s a good chance that someone
+                else did too.
+              </Typography>
+              <VerticalSpacer size={5} />
+              <a href="https://kintohub.com" target="_blank">
+                <Typography variant="subtitle2" color="primary">
+                  Go to FAQ →
                 </Typography>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Asking a general question? There’s a good chance that someone
-                  else did too.
-                </Typography>
-                <a href="https://kintohub.com" target="_blank">
-                  <Typography variant="subtitle2" color="primary">
-                    Go to FAQ →
-                  </Typography>
-                </a>
-              </Grid>
+              </a>
             </Grid>
           </Grid>
         </Grid>
@@ -254,35 +263,39 @@ const ExploreOptions = () => {
 const StyledContactUsBodyContainer = styled.div`
   width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: ${props => props.theme.palette.background.paper};
 
-  .contact-div {
-    margin: 0px auto;
+  .contact {
+    align-items: flex-start;
+    flex-direction: row;
+
+    ${bps.down("sm")} {
+      flex-direction: column;
+      align-items: center;
+    }
   }
+
+  background-color: ${props => props.theme.palette.background.paper};
 `
 
 const ContactUsBody = () => {
   return (
     <StyledContactUsBodyContainer>
-      <div className="contact-div">
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="flex-start"
-          spacing={8}
-        >
-          <Grid item>
-            <ContactForm />
-          </Grid>
-          <Grid item>
-            <ExploreOptions />
-          </Grid>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className="contact"
+        spacing={4}
+      >
+        <Grid item>
+          <ContactForm />
         </Grid>
-      </div>
+
+        <Grid item>
+          <ExploreOptions />
+        </Grid>
+      </Grid>
+
       <VerticalSpacer size={124} />
     </StyledContactUsBodyContainer>
   )

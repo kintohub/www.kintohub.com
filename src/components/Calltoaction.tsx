@@ -26,6 +26,7 @@ const StyledDiv = styled.div`
   border-radius: 0px;
   display: flex;
   flex-direction: column;
+  padding: 0px 16px; 
 `
 
 export default ({

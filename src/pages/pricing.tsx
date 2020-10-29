@@ -84,8 +84,8 @@ const StyledPricingHeroContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
-  border-radius: 0px;
   display: flex;
+  padding: 0px 16px;
   flex-direction: column;
 `
 
@@ -93,11 +93,11 @@ const PricingHero = () => {
   return (
     <StyledPricingHeroContainer>
       <VerticalSpacer size={150} />
-      <Typography variant="h2" color="textPrimary">
+      <Typography align="center" variant="h2" color="textPrimary">
         Start for free, then pay to scale.
       </Typography>
       <VerticalSpacer size={16} />
-      <Typography variant="body2" color="textSecondary">
+      <Typography align="center" variant="body2" color="textSecondary">
         Flexible pay-as-you-go. Simple and no hidden costs.
       </Typography>
       <VerticalSpacer size={120} />
@@ -111,6 +111,7 @@ const StyledPricingDetailContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 0px 16px;
   background-color: ${props => props.theme.palette.primary.contrastText};
 
   .divider {
@@ -350,7 +351,7 @@ const StyledPayAsYouGoExampleContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  text-align: center;
+  padding: 0px 16px;
 
   .bg-wrapper {
     position: absolute;
@@ -364,21 +365,47 @@ const StyledPayAsYouGoExampleContainer = styled.div`
   .example-card {
     position: relative;
   }
+
+  span {
+    color: ${props => props.theme.palette.primary.light};
+  }
+
+  a {
+    text-decoration: none;
+  }
 `
 
 const PayAsYouGoExample = () => {
   return (
     <StyledPayAsYouGoExampleContainer>
       <VerticalSpacer size={86} />
-      <Typography variant="h1" color="textPrimary">
+      <Typography align="center" variant="h1" color="textPrimary">
         Pay-as-you-go examples
       </Typography>
       <VerticalSpacer size={12} />
-      <Typography variant="body1" color="textSecondary">
-        Free Plan discounts included and cost optimization is enabled in service
-        examples. Once you input your credit card your free resources become
-        flexible within Advanced Options.
+      <Typography align="center" variant="body1" color="textSecondary">
+        Free Plan discounts included and{" "}
+        <span>
+          <a
+            target="_blank"
+            href="https://docs.kintohub.com/anatomy/advanced#cost-optimization"
+          >
+            cost optimization 
+          </a>
+        </span>
+         {" "}is enabled in service examples.
       </Typography>
+      <Typography align="center" variant="body1" color="textSecondary">
+        Once you input your credit card your free resources become flexible
+        within{" "}
+        <span>
+          <a target="_blank" href="https://docs.kintohub.com/anatomy/advanced/">
+            Advanced Options
+          </a>
+        </span>
+        .
+      </Typography>
+
       <VerticalSpacer size={62} />
       <div className="example-card">
         <img src={PayAsYouGoBg} className="bg-wrapper" alt="background"></img>

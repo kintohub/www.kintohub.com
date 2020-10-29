@@ -12,11 +12,16 @@ const StyledDiv = styled.div`
   height: auto;
   align-items: center;
   display: flex;
+  padding: 0px 16px;
   flex-direction: column;
   background-image: url(${TestimonialBg});
 
   span {
     color: ${props => props.theme.palette.primary.main};
+  }
+
+  a {
+    text-decoration: none;
   }
 `
 
@@ -33,8 +38,13 @@ export default () => {
         </Typography>
         <VerticalSpacer size={12} />
         <Typography align="center" variant="body2" color="textSecondary">
-          Real responses from our <span>Discord support</span> channel from our
-          members.
+          Real responses from our{" "}
+          <span>
+            <a target="_blank" href="https://kintohub.com/discord">
+            <b> Discord support</b> 
+            </a>
+          </span>{" "}
+          channel from our members.
         </Typography>
         <VerticalSpacer size={32} />
         <Grid container direction="row" justify="center" alignItems="center">

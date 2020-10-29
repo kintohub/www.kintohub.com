@@ -28,19 +28,37 @@ const StyledFeatureDescriptionContainer = styled.div`
   .grid-container {
     flex-direction: row;
     align-content: center;
-    ${bps.down("xs")} {
+    ${bps.down("sm")} {
+      flex-direction: column;
+    }
+  }
+
+  .developer-features {
+    ${bps.down("sm")} {
       flex-direction: column;
     }
   }
 
   .grid-box {
     width: 500px;
+    ${bps.down("xs")} {
+      max-width: 400px;
+    }
+  }
+
+  .dev-tools {
+    ${bps.down("sm")} {
+      max-height: auto;
+      max-width: 400px;
+      align-items: center;
+    }
   }
 `
 const FeatureDescription = () => {
   return (
     <StyledFeatureDescriptionContainer>
       <MuiThemeProvider theme={textThemeDark}>
+        <VerticalSpacer size={84} />
         <Grid
           container
           className="grid-container"
@@ -48,8 +66,7 @@ const FeatureDescription = () => {
           alignItems="flex-start"
           spacing={4}
         >
-          <Grid item className="grid-box">
-            <VerticalSpacer size={84} />
+          <Grid item container className="grid-box">
             <Typography color="primary" variant="subtitle1">
               DESIGNED BY DEVELOPERS
             </Typography>
@@ -57,15 +74,10 @@ const FeatureDescription = () => {
             <Typography color="textPrimary" variant="h1">
               Powerful developer tools with a simple user-experience
             </Typography>
-            <VerticalSpacer size={30} />
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="flex-start"
-              spacing={2}
-            >
+
+            <Grid container className="developer-features">
               <Grid item xs>
+                <VerticalSpacer size={30} />
                 <Typography color="textPrimary" variant="subtitle1">
                   Easy Build & Deployment
                 </Typography>
@@ -83,6 +95,7 @@ const FeatureDescription = () => {
               </Grid>
 
               <Grid item xs>
+                <VerticalSpacer size={30} />
                 <Typography color="textPrimary" variant="subtitle1">
                   Advanced Configurations
                 </Typography>
@@ -97,9 +110,10 @@ const FeatureDescription = () => {
                 <Typography color="textSecondary" variant="subtitle2">
                   Use our CLI tools to connect tunnel to your secure databases.
                 </Typography>
+                <VerticalSpacer size={30} />
               </Grid>
             </Grid>
-            <VerticalSpacer size={32} />
+
             <ActionButton
               variant="contained"
               color="primary"
@@ -109,10 +123,14 @@ const FeatureDescription = () => {
           </Grid>
 
           <Grid item>
-            <VerticalSpacer size={84} />
-            <img src={KintoDeveloperTools} alt="developer tools"></img>
+            <img
+              className="dev-tools"
+              src={KintoDeveloperTools}
+              alt="developer tools"
+            ></img>
           </Grid>
         </Grid>
+        <VerticalSpacer size={48} />
       </MuiThemeProvider>
     </StyledFeatureDescriptionContainer>
   )

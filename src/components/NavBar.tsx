@@ -25,6 +25,7 @@ import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import LiveHelpRoundedIcon from "@material-ui/icons/LiveHelpRounded"
 import MailRoundedIcon from "@material-ui/icons/MailRounded"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const Drawer = () => {
   const itemList = [
@@ -110,61 +111,63 @@ export default (props: Props) => {
 
   return (
     <StyledNavContainer>
-      <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
-        <Toolbar>
-          <Grid container alignItems="center" justify="center">
-            <Box mx="auto">
-              <Link to="/" activeClassName="active">
-                <img
-                  src={trigger ? KintoBlackLogo : KintoWhiteLogo}
-                  alt="logo"
-                />
-              </Link>
-            </Box>
-            <Box mx="auto">
-              <Grid container>
-                <HorizontalSpacer size={28} />
-                <Box>
-                  <Link to="/pricing" activeClassName="active">
-                    <Typography variant="subtitle2">Pricing</Typography>
-                  </Link>
-                </Box>
-                <HorizontalSpacer size={28} />
-                <Box>
-                  <a href="https://docs.kintohub.com">
-                    <Typography variant="subtitle2">Docs</Typography>
-                  </a>
-                </Box>
-                <HorizontalSpacer size={28} />
-                <Box>
-                  <Link to="/support" activeClassName="active">
-                    <Typography variant="subtitle2">Support</Typography>
-                  </Link>
-                </Box>
-              </Grid>
-            </Box>
-            <Box mx="auto">
-              <Grid container>
-                <Box>
-                  <ActionButton
-                    color="inherit"
-                    buttonTitle={"Login"}
-                    link={"https://app.kintohub.com/auth/login"}
+      <Hidden smDown>
+        <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
+          <Toolbar>
+            <Grid container alignItems="center" justify="center">
+              <Box mx="auto">
+                <Link to="/" activeClassName="active">
+                  <img
+                    src={trigger ? KintoBlackLogo : KintoWhiteLogo}
+                    alt="logo"
                   />
-                </Box>
-                <HorizontalSpacer size={16} />
-                <Box>
-                  <ActionButton
-                    variant="contained"
-                    buttonTitle={"Signup Free"}
-                    link={"https://app.kintohub.com/auth/sign-up"}
-                  />
-                </Box>
-              </Grid>
-            </Box>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+                </Link>
+              </Box>
+              <Box mx="auto">
+                <Grid container>
+                  <HorizontalSpacer size={28} />
+                  <Box>
+                    <Link to="/pricing" activeClassName="active">
+                      <Typography variant="subtitle2">Pricing</Typography>
+                    </Link>
+                  </Box>
+                  <HorizontalSpacer size={28} />
+                  <Box>
+                    <a href="https://docs.kintohub.com">
+                      <Typography variant="subtitle2">Docs</Typography>
+                    </a>
+                  </Box>
+                  <HorizontalSpacer size={28} />
+                  <Box>
+                    <Link to="/support" activeClassName="active">
+                      <Typography variant="subtitle2">Support</Typography>
+                    </Link>
+                  </Box>
+                </Grid>
+              </Box>
+              <Box mx="auto">
+                <Grid container>
+                  <Box>
+                    <ActionButton
+                      color="inherit"
+                      buttonTitle={"Login"}
+                      link={"https://app.kintohub.com/auth/login"}
+                    />
+                  </Box>
+                  <HorizontalSpacer size={16} />
+                  <Box>
+                    <ActionButton
+                      variant="contained"
+                      buttonTitle={"Signup Free"}
+                      link={"https://app.kintohub.com/auth/sign-up"}
+                    />
+                  </Box>
+                </Grid>
+              </Box>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+      </Hidden>
     </StyledNavContainer>
   )
 }
