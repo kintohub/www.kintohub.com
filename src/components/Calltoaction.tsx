@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Typography } from "@material-ui/core"
 import ActionButton from "./Button"
 import { ButtonProps } from "@material-ui/core/Button/Button"
-import CallToActionBg from "../images/CallToActionBg.svg"
+import CallToActionBg from "../images/background/calltoaction.svg"
 
 import { VerticalSpacer } from "./Spacer"
 

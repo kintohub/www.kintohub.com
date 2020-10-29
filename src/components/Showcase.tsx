@@ -17,9 +17,27 @@ const StyledDiv = styled.div`
   flex-direction: column;
   background-color: ${props => props.theme.palette.background.paper};
 
-  span {
-    color: ${props => props.theme.palette.primary.main};
+  .container {
+    display: flex;
+    flex-grow: 1;
   }
+
+  .showcase {
+    width: 200px;
+    height: 200px;
+  }
+
+  .tabs {
+    height: auto;
+    background-color: #f55555;
+    font-size:43px;
+  }
+
+  .tab {
+    background-color: #424242;
+  }
+
+  
 `
 interface TabPanelProps {
   children?: React.ReactNode
@@ -49,7 +67,6 @@ function TabPanel(props: TabPanelProps) {
   )
 }
 
-
 function a11yProps(index: any) {
   return {
     id: `vertical-tab-${index}`,
@@ -57,35 +74,9 @@ function a11yProps(index: any) {
   }
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    display: "flex",
-    height: 240,
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
-  },
-
-  tab: {
-    height: 90,
-    fontSize: 18, 
-  }
-
-}))
-
-
-const StyledTab = styled(Tab)`
-    font-size:12px;
-    text-decoration:none;
-    margin:0;
-    padding:0;
-    `
-
 export default () => {
   const [value, setValue] = React.useState(0)
-  const classes = useStyles()
+
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue)
   }
@@ -103,60 +94,52 @@ export default () => {
         </Typography>
         <VerticalSpacer size={40} />
 
-        <Grid
-          container
-          direction="row"
-          justify="space-around"
-          alignItems="center"
-        >
-          <Grid item>
-            <Grid
-              container
-              direction="row"
-              justify="space-evenly"
-              alignItems="center"
-            >
-              <Tabs
-                orientation="vertical"
-                variant="scrollable"
-                value={value}
-                onChange={handleChange}
-                aria-label="Vertical tabs example"
-                className={classes.tabs}
-              >
-                <StyledTab
-                className={classes.tab}
-                  label="Scale down to a single shared 32 Mb instance or up multi-instance, multi-CPU workloads."
-                  {...a11yProps(0)}
-                />
-                <StyledTab
-                className={classes.tab}
-                  label="Experience true cost savings with dev environments that automatically sleep when they are not in use!"
-                  {...a11yProps(1)}
-                />
-                <StyledTab
-                className={classes.tab}
-                  label="Understand your maximum monthly cost before deploying anything!"
-                  {...a11yProps(2)}
-                />
-              </Tabs>
-              <TabPanel value={value} index={0}>
-                a single shared 32 Mb instance or up multi-instance, multi-CPU
-                workloads.
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                Scale down to a single shared 32 Mb instance or up
-                multi-instance,
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                p multi-instance, multi-CPU workloads.
-              </TabPanel>
-            </Grid>
-          </Grid>
-          <Grid item>
-              </Grid>
-        </Grid>
+        <div className="container">
+          <Tabs
+            orientation="vertical"
+            variant="scrollable"
+            value={value}
+            onChange={handleChange}
+            aria-label="Vertical tabs example"
+            className="tabs"
+          >
+            <Tab
+              className="tab"
+              label="Scale down to a single shared 32 Mb instance or up multi-instance, multi-CPU workloads."
+              {...a11yProps(0)}
+            />
+            <Tab
+              className="tab"
+              label="Experience true cost savings with dev environments that automatically sleep when they are not in use!"
+              {...a11yProps(1)}
+            />
+            <Tab
+              className="tab"
+              label="Understand your maximum monthly cost before deploying anything!"
+              {...a11yProps(2)}
+            />
+          </Tabs>
+          <TabPanel value={value} index={0}>
+            <img
+              className="showcase"
+              src="http://static.simpledesktops.com/uploads/desktops/2020/09/02/60s_Lightning.png"
+            ></img>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <img
+              className="showcase"
+              src="http://static.simpledesktops.com/uploads/desktops/2020/09/15/Day_at_Camp.png"
+            ></img>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <img
+              className="showcase"
+              src="http://static.simpledesktops.com/uploads/desktops/2020/07/07/chain_circle.png"
+            ></img>
+          </TabPanel>
+        </div>
       </MuiThemeProvider>
+      <VerticalSpacer size={96} />
     </StyledDiv>
   )
 }
