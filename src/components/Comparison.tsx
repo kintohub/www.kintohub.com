@@ -12,9 +12,9 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core"
-import ActionButton from "./Button"
-import { VerticalSpacer } from "./Spacer"
-import { bps } from "../../plugins/custom-mui-theme/theme"
+import ActionButton from "components/Button"
+import { VerticalSpacer } from "components/Spacer"
+import { bps } from "theme/index"
 
 const StyledTableContainer = styled(TableContainer)`
   background-color: ${props => props.theme.palette.background.paper};

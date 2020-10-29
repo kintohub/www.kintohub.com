@@ -9,9 +9,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import sharingImage from "../images/logo/kintohub-og.png"
+import sharingImage from "images/logo/share.png"
 
-function SEO({ description, lang, meta, keywords, title }) {
+type SeoProps = {
+  description: any
+  lang: any
+  meta: any
+  keywords: any
+  title: any
+}
+
+function SEO({ description, lang, meta, keywords, title }: SeoProps) {
   const { site } = useStaticQuery(
     graphql`
       query {

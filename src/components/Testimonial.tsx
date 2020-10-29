@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
-import { TestimonialCard } from "./Card"
+import { TestimonialCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
-import TestimonialBg from "../images/background/testimonial.png"
-import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import { VerticalSpacer } from "./Spacer"
+import TestimonialBg from "images/background/testimonial.png"
+import { textThemeDark } from "theme/index"
+import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
   width: 100%;

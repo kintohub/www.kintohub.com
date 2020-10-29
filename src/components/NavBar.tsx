@@ -2,25 +2,24 @@ import {
   AppBar,
   Divider,
   Grid,
-  makeStyles,
   MuiThemeProvider,
   useScrollTrigger,
 } from "@material-ui/core"
 import Box from "@material-ui/core/Box/Box"
 import Toolbar from "@material-ui/core/Toolbar/Toolbar"
 import Typography from "@material-ui/core/Typography/Typography"
-import KintoBlackLogo from "../images/logo/black.svg"
-import React, { useState } from "react"
+import KintoBlackLogo from "images/logo/black.svg"
+import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import ActionButton from "./Button"
-import KintoWhiteLogo from "../images/logo/white.svg"
-import { HorizontalSpacer } from "./Spacer"
+import ActionButton from "components/Button"
+import KintoWhiteLogo from "images/logo/white.svg"
+import { HorizontalSpacer } from "components/Spacer"
 import { Drawer as MUIDrawer } from "@material-ui/core"
 import ListItem from "@material-ui/core/ListItem/ListItem"
 import List from "@material-ui/core/List/List"
 import ListItemText from "@material-ui/core/ListItemText/ListItemText"
-import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import { textThemeDark } from "theme/index"
 import ListItemIcon from "@material-ui/core/ListItemIcon/ListItemIcon"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
@@ -148,7 +147,7 @@ export default (props: Props) => {
               <Grid container>
                 <Box>
                   <ActionButton
-                    color="secondary"
+                    color="inherit"
                     buttonTitle={"Login"}
                     link={"https://app.kintohub.com/auth/login"}
                   />

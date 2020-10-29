@@ -1,6 +1,0 @@
-{
-  "name": "custom-mui-theme",
-  "devDependencies": {
-    "@types/styled-components": "^5.1.4"
-  }
-}

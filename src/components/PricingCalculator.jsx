@@ -6,10 +6,7 @@ import Slider from "@material-ui/core/Slider"
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import Card from "@material-ui/core/Card"
-import {
-  pricingCaculatorTheme,
-  bps,
-} from "../../plugins/custom-mui-theme/theme/index"
+import { pricingCaculatorTheme, bps } from "theme/index"
 import RotateLeftRoundedIcon from "@material-ui/icons/RotateLeftRounded"
 import CloudIcon from "@material-ui/icons/CloudCircle"
 import AccessTimeIcon from "@material-ui/icons/AccessTimeRounded"
@@ -20,8 +17,8 @@ import WebIcon from "@material-ui/icons/WebRounded"
 import CardGiftcardIcon from "@material-ui/icons/CardGiftcardRounded"
 import ExtrasIcon from "@material-ui/icons/AddToPhotosRounded"
 import { Hidden } from "@material-ui/core"
-import ActionButton from "./Button"
-import { VerticalSpacer } from "./Spacer"
+import ActionButton from "components/Button"
+import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
   width: auto;
@@ -29,7 +26,9 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  ${bps.down("md")} {
+    margin: 0px 16px;
+  }
   a {
     text-decoration: none;
   }
@@ -40,7 +39,7 @@ const StyledDiv = styled.div`
     margin-right: 8px;
   }
   .card {
-    border-radius: 16px;
+    border-radius: 12px;
     position: relative;
     min-width: 1180px;
     ${bps.down("xl")} {
@@ -67,7 +66,7 @@ const StyledDiv = styled.div`
     .main {
       position: relative;
       .right-col {
-        padding-left: 32px;
+        padding-left: 42px;
         text-align: center;
         color: ${props =>
           props.theme.palette.getContrastText(
@@ -321,11 +320,13 @@ export default () => {
                   </Grid>
                 </Hidden>
                 <Grid item container md={9}>
+                  {" "}
                   <RightColumns>
                     <Typography variant="h4" color="textPrimary">
                       Pay-as-you-go Calculator
                     </Typography>
-                    <Typography variant="body2">
+
+                    <Typography variant="body2" align="center">
                       Accounts are billed monthly
                     </Typography>
                   </RightColumns>
@@ -481,7 +482,9 @@ export default () => {
                   <RightColumns>
                     <></>
                     <div className="column">
-                      <Typography variant="body1">Estimated Monthly</Typography>
+                      <Typography variant="body1" align="center">
+                        Estimated Monthly
+                      </Typography>
                       <Typography variant="h6">
                         {`$${Math.max(
                           0,

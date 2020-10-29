@@ -1,22 +1,22 @@
-import Footer from "../components/Footer"
-import Header from "../components/NavBar"
-import Hero from "../components/Hero"
-import CallToAction from "../components/Calltoaction"
-import SEO from "../components/seo"
-import Testimonial from "../components/Testimonial"
+import Footer from "components/Footer"
+import NavBar from "components/NavBar"
+import Hero from "components/Hero"
+import CallToAction from "components/Calltoaction"
+import SEO from "components/seo"
+import Testimonial from "components/Testimonial"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
-import Comparison from "../components/Comparison"
+import Comparison from "components/Comparison"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import Layout from "../components/Layout"
-import KintoDeveloperTools from "../images/icons/developertools.svg"
+import Layout from "components/Layout"
+import KintoDeveloperTools from "images/icons/developertools.svg"
 import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
-import { VerticalSpacer } from "../components/Spacer"
-import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import ActionButton from "../components/Button"
-import Showcase from "../components/Showcase"
+import { VerticalSpacer } from "components/Spacer"
+import { bps, textThemeDark } from "theme/index"
+import ActionButton from "components/Button"
+import Showcase from "components/Showcase"
 
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
@@ -145,7 +145,7 @@ class HomePage extends React.Component {
           ]}
           title={"Kintohub"}
         />
-        <Header />
+        <NavBar />
         <Hero />
         <FeatureDescription />
         <Comparison />

@@ -12,7 +12,6 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `custom-mui-theme`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-typescript`,
 
@@ -45,21 +44,17 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Change plugin default options here, e.g.:
-        // ssr: false
-        // displayName: false,
-        // minify: false
-      },
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@components": path.resolve(__dirname, "src/components"),
-          "@": path.resolve(__dirname, "src"),
+          "@": path.resolve(__filename, "src"),
+          components: path.resolve(__dirname, "src/components"),
+          images: path.resolve(__dirname, "src/images"),
+          pages: path.resolve(__dirname, "src/pages"),
+          theme: path.resolve(__dirname, "src/theme"),
         },
-        extensions: [],
       },
     },
     {

@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Typography } from "@material-ui/core"
-import ActionButton from "./Button"
+import ActionButton from "components/Button"
 import { ButtonProps } from "@material-ui/core/Button/Button"
-import CallToActionBg from "../images/background/calltoaction.svg"
+import CallToActionBg from "images/background/calltoaction.svg"
 
-import { VerticalSpacer } from "./Spacer"
+import { VerticalSpacer } from "components/Spacer"
 
 type Props = {
   title: string

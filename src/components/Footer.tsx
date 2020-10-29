@@ -1,9 +1,9 @@
 import React, { Props } from "react"
 import styled from "styled-components"
 import { Grid, MuiThemeProvider, Typography } from "@material-ui/core"
-import KintoFooterIcon from "../images/logo/footer.svg"
-import { HorizontalSpacer, VerticalSpacer } from "./Spacer"
-import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
+import KintoFooterIcon from "images/logo/footer.svg"
+import { HorizontalSpacer, VerticalSpacer } from "components/Spacer"
+import { bps, textThemeDark } from "theme/index"
 import { Link } from "gatsby"
 
 const StyledDiv = styled.div`

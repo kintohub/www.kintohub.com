@@ -5,11 +5,10 @@ import styled, { ThemeProvider } from "styled-components"
 import Chip from "@material-ui/core/Chip/Chip"
 import Typography from "@material-ui/core/Typography/Typography"
 import Avatar from "@material-ui/core/Avatar/Avatar"
-import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import { VerticalSpacer } from "./Spacer"
+import { textThemeDark } from "theme/index"
+import { VerticalSpacer } from "components/Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
 
-import deepPurple from "@material-ui/core/colors/deepPurple"
 
 const StyledCard = styled(Card)`
   width: 350px;
@@ -35,7 +34,7 @@ const StyledCard = styled(Card)`
   .feature-avatar {
     width: 50px;
     height: 50px;
-    background-color: ${props => props.theme.palette.primary.main};
+    background-color: ${props => props.theme.palette.secondary.main};      
     color: ${props => props.theme.palette.secondary.main};
   }
 

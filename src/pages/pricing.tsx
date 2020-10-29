@@ -1,31 +1,30 @@
-import Footer from "../components/Footer"
-import CallToAction from "../components/Calltoaction"
-import SEO from "../components/seo"
-import React, { Component } from "react"
+import Footer from "components/Footer"
+import CallToAction from "components/Calltoaction"
+import SEO from "components/seo"
+import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
-import Layout from "../components/Layout"
+import Layout from "components/Layout"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import Typography from "@material-ui/core/Typography/Typography"
-import NavBar from "../components/NavBar"
+import NavBar from "components/NavBar"
 import Card from "@material-ui/core/Card/Card"
-import PricingHeroBg from "../images/background/pricing.svg"
-import { VerticalSpacer } from "../components/Spacer"
+import PricingHeroBg from "images/background/pricing.svg"
+import { VerticalSpacer } from "components/Spacer"
 import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider } from "@material-ui/core"
-import { bps, textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import ActionButton from "../components/Button"
+import { bps, textThemeDark } from "theme/index"
+import ActionButton from "components/Button"
 import Divider from "@material-ui/core/Divider/Divider"
-import PayAsYouGoBg from "../images/background/example.svg"
+import PayAsYouGoBg from "images/background/example.svg"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import DataUsageRoundedIcon from "@material-ui/icons/DataUsageRounded"
 import WebRoundedIcon from "@material-ui/icons/WebRounded"
 import CategoryRoundedIcon from "@material-ui/icons/CategoryRounded"
 import SvgIcon from "@material-ui/core/SvgIcon/SvgIcon"
-import PricingCalculator from "../components/PricingCalculator"
+import PricingCalculator from "components/PricingCalculator"
 import Box from "@material-ui/core/Box/Box"
 import WbSunnyRoundedIcon from "@material-ui/icons/WbSunnyRounded"
-import { SvgIconComponent } from "@material-ui/icons"
 
 type PricingCardProps = {
   serviceType: string
@@ -34,15 +33,13 @@ type PricingCardProps = {
 }
 
 const StyledPricingCard = styled(Card)`
-  width: 500px;
-  min-width: 500;
   ${bps.down("xs")} {
-    max-width: 500px;
+    max-width: 400px;
     min-width: auto;
     min-height: auto;
   }
   height: 170px;
-  margin: 16px 12px;
+  margin: 12px;
   padding: 22px;
   border-radius: 8px;
   text-align: left;
@@ -360,7 +357,6 @@ const StyledPayAsYouGoExampleContainer = styled.div`
 
   .example-card {
     position: relative;
-
   }
 `
 

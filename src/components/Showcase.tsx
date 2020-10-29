@@ -1,25 +1,23 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import {
-  Box,
   Card,
   CardActionArea,
-  CardContent,
   Divider,
   MuiThemeProvider,
   SvgIcon,
   Typography,
 } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid/Grid"
-import { textThemeDark } from "../../plugins/custom-mui-theme/theme"
-import { AutoGrowSpacer, VerticalSpacer } from "./Spacer"
+import { textThemeDark } from "theme/index"
+import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import CreditCardRoundedIcon from "@material-ui/icons/CreditCardRounded"
-import CustomResourceVid from "../images/video/custom_resource.gif"
-import BillingVid from "../images/video/billing.gif"
-import SleepModeVid from "../images/video/sleep_mode.gif"
-import ActionButton from "../components/Button"
+import CustomResourceVid from "images/video/custom_resource.gif"
+import BillingVid from "images/video/billing.gif"
+import SleepModeVid from "images/video/sleep_mode.gif"
+import ActionButton from "components/Button"
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
 
 const StyledVideoTabContainer = styled.div`
