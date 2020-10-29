@@ -121,7 +121,6 @@ const VideoTab = () => {
   const [tabIndex, setTabIndex] = useState(0)
 
   const handleClick = (index: any) => {
-    console.log(index)
     setTabIndex(index)
   }
 

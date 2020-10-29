@@ -21,12 +21,13 @@ import ActionButton from "components/Button"
 import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
-  width: auto;
+  width: 70%;
   display: flex;
+  margin: 0px auto;
   flex-direction: column;
   align-items: center;
   ${bps.down("md")} {
-    margin: 0px 16px;
+    width: 90%;
   }
   a {
     text-decoration: none;
@@ -77,7 +78,7 @@ const StyledDiv = styled.div`
       .row {
         width: 100%;
         display: flex;
-        padding: 0px 16px;
+        padding: 0px 22px;
         flex-direction: row;
         justify-content: start;
       }

@@ -29,14 +29,14 @@ import WbSunnyRoundedIcon from "@material-ui/icons/WbSunnyRounded"
 type PricingCardProps = {
   serviceType: string
   allowedUsage: string
+  isBlue?: Boolean
   serviceDescription: string
 }
 
 const StyledPricingCard = styled(Card)`
+  width: 500px;
   ${bps.down("xs")} {
-    max-width: 400px;
-    min-width: auto;
-    min-height: auto;
+    max-width: 350px;
   }
   height: 170px;
   margin: 12px;
@@ -49,21 +49,26 @@ const StyledPricingCard = styled(Card)`
 
 const PricingCard = ({
   serviceType,
+  isBlue,
   allowedUsage,
   serviceDescription,
 }: PricingCardProps) => {
   return (
     <StyledPricingCard>
       <MuiThemeProvider theme={textThemeDark}>
-        <Typography variant="h6" color="textPrimary">
+        <Typography variant="h6" align="left" color="textPrimary">
           {serviceType}
         </Typography>
         <VerticalSpacer size={5} />
-        <Typography variant="h3" color="textPrimary">
+        <Typography
+          variant="h3"
+          align="left"
+          color={isBlue ? "primary" : "textPrimary"}
+        >
           {allowedUsage}
         </Typography>{" "}
         <VerticalSpacer size={10} />
-        <Typography variant="subtitle2" color="textPrimary">
+        <Typography variant="subtitle2" align="left" color="textPrimary">
           {serviceDescription}
         </Typography>
       </MuiThemeProvider>
@@ -122,6 +127,7 @@ const PricingDetail = () => {
           <Grid item>
             <PricingCard
               serviceType={"Static Websites"}
+              isBlue={true}
               allowedUsage={"FREE"}
               serviceDescription={
                 "HTML, Javascript, Gatsby, React, Vue & more."
@@ -169,7 +175,7 @@ const PricingDetail = () => {
       <VerticalSpacer size={54} />
 
       <MuiThemeProvider theme={textThemeDark}>
-        <Typography variant="h1" color="textPrimary" align="center">
+        <Typography variant="h2" color="textPrimary" align="center">
           Get full control of your cloud resources.
         </Typography>
         <VerticalSpacer size={20} />
