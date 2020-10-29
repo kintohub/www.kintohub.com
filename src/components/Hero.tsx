@@ -60,7 +60,7 @@ const StyledDiv = styled.div`
   .icons {
     width: 30px;
     height: 30px;
-    margin-right:16px
+    margin-right: 16px;
   }
 `
 

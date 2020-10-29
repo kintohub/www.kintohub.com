@@ -121,9 +121,8 @@ export const mainTheme = createMuiTheme({
   palette: createPalette(palette),
 })
 
-
 export const textThemeDark = createMuiTheme({
-  typography:{
+  typography: {
     ...typography,
     h1: {
       fontFamily: headingFontFamily,
@@ -157,17 +156,17 @@ export const pricingCaculatorTheme = createMuiTheme({
       fontSize: 14,
       lineHeight: 1.5,
       letterSpacing: 0.25,
-    }
+    },
   },
   palette: createPalette({
     ...palette,
     secondary: {
-      main: 'rgb(6, 0, 45)',
+      main: "rgb(6, 0, 45)",
     },
     text: {
       primary: "rgba(0,0,0,.87)",
       secondary: "rgba(0,0,0,0.6)",
     },
-    divider: 'rgb(185, 213, 236)'
-  })
-});
+    divider: "rgb(185, 213, 236)",
+  }),
+})

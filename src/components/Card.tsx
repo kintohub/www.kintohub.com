@@ -9,7 +9,6 @@ import { textThemeDark } from "theme/index"
 import { VerticalSpacer } from "components/Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
 
-
 const StyledCard = styled(Card)`
   width: 350px;
   height: 245px;
@@ -34,7 +33,7 @@ const StyledCard = styled(Card)`
   .feature-avatar {
     width: 50px;
     height: 50px;
-    background-color: ${props => props.theme.palette.secondary.main};      
+    background-color: ${props => props.theme.palette.secondary.main};
     color: ${props => props.theme.palette.secondary.main};
   }
 
@@ -92,7 +91,12 @@ const TechStackCard = ({
         >
           {AvatarSrc &&
             AvatarSrc.map((item, index) => (
-              <Avatar className="avatar" variant="square" src={item} key={index} />
+              <Avatar
+                className="avatar"
+                variant="square"
+                src={item}
+                key={index}
+              />
             ))}
         </Grid>
       </CardContent>

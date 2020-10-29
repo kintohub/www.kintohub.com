@@ -53,7 +53,7 @@ export default ({
         buttonTitle={buttonTitle}
         link={"https://app.kintohub.com/auth/sign-up"}
       />
-       <VerticalSpacer size={142} />
+      <VerticalSpacer size={142} />
     </StyledDiv>
   )
 }

@@ -24,7 +24,7 @@ export default () => {
   return (
     <StyledDiv>
       <MuiThemeProvider theme={textThemeDark}>
-        <VerticalSpacer size={80}/>
+        <VerticalSpacer size={80} />
         <Typography align="center" variant="subtitle1" color="primary">
           DEV COMMUNITY
         </Typography>
