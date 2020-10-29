@@ -14,9 +14,9 @@ import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import CreditCardRoundedIcon from "@material-ui/icons/CreditCardRounded"
-import CustomResourceVid from "resources/video/custom_resources.mp4"
-import BillingVid from "resources/video/billing.mp4"
-import SleepModeVid from "resources/video/sleep_mode.mp4"
+import CustomResourceVid from "resources/video/custom_resource.gif"
+import BillingVid from "resources/video/billing.gif"
+import SleepModeVid from "resources/video/sleep_mode.gif"
 import ActionButton from "components/Button"
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
 
@@ -121,7 +121,7 @@ const VideoTab = () => {
   const [tabIndex, setTabIndex] = useState(0)
 
   const handleClick = (index: any) => {
-    console.log(index,tabData[tabIndex].src)
+    console.log(index)
     setTabIndex(index)
   }
 
@@ -200,11 +200,7 @@ const VideoTab = () => {
           <AutoGrowSpacer size={0.05} />
 
           <Grid item>
-            <video autoPlay loop muted playsInline className="videoSrc">
-              <source src={tabData[tabIndex].src} type="video/mp4">
-
-              </source>
-            </video>
+            <img className="videoSrc" src={tabData[tabIndex].src} alt="showcase"></img>
           </Grid>
         </Grid>
         <VerticalSpacer size={90} />
