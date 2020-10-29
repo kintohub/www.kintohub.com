@@ -9,14 +9,14 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import Typography from "@material-ui/core/Typography/Typography"
 import NavBar from "components/NavBar"
 import Card from "@material-ui/core/Card/Card"
-import PricingHeroBg from "images/background/pricing.svg"
+import PricingHeroBg from "resources/background/pricing.svg"
 import { VerticalSpacer } from "components/Spacer"
 import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider } from "@material-ui/core"
 import { bps, textThemeDark } from "theme/index"
 import ActionButton from "components/Button"
 import Divider from "@material-ui/core/Divider/Divider"
-import PayAsYouGoBg from "images/background/example.svg"
+import PayAsYouGoBg from "resources/background/example.svg"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import DataUsageRoundedIcon from "@material-ui/icons/DataUsageRounded"
 import WebRoundedIcon from "@material-ui/icons/WebRounded"
@@ -375,7 +375,7 @@ const PayAsYouGoExample = () => {
       </Typography>
       <VerticalSpacer size={62} />
       <div className="example-card">
-        <img src={PayAsYouGoBg} className="bg-wrapper"></img>
+        <img src={PayAsYouGoBg} className="bg-wrapper" alt="background"></img>
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
             <ExampleCard

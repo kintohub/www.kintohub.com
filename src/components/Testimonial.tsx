@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { TestimonialCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
-import TestimonialBg from "images/background/testimonial.png"
+import TestimonialBg from "resources/background/testimonial.png"
 import { textThemeDark } from "theme/index"
 import { VerticalSpacer } from "components/Spacer"
 

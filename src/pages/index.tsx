@@ -10,7 +10,7 @@ import styled from "styled-components"
 import Comparison from "components/Comparison"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import Layout from "components/Layout"
-import KintoDeveloperTools from "images/icons/developertools.svg"
+import KintoDeveloperTools from "resources/icons/developertools.svg"
 import Grid from "@material-ui/core/Grid/Grid"
 import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { VerticalSpacer } from "components/Spacer"
@@ -110,7 +110,7 @@ const FeatureDescription = () => {
 
           <Grid item>
             <VerticalSpacer size={84} />
-            <img src={KintoDeveloperTools}></img>
+            <img src={KintoDeveloperTools} alt="developer tools"></img>
           </Grid>
         </Grid>
       </MuiThemeProvider>

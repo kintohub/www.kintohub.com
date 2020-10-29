@@ -22,7 +22,6 @@ import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
   width: auto;
-  margin: 0px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
