@@ -6,7 +6,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "components/Layout"
-import HeroBg from "resources/background/contact.svg"
+import HeroBg from "resources/background/contact_compressed.svg"
 import {
   Divider,
   Grid,
