@@ -54,7 +54,7 @@ export const typography = {
   },
   h2: {
     fontFamily: headingFontFamily,
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: 700,
   },
   h3: {
@@ -123,7 +123,14 @@ export const mainTheme = createMuiTheme({
 
 
 export const textThemeDark = createMuiTheme({
-  typography,
+  typography:{
+    ...typography,
+    h1: {
+      fontFamily: headingFontFamily,
+      fontSize: 34,
+      fontWeight: 300,
+    },
+  },
   palette: createPalette({
     ...palette,
     text: {

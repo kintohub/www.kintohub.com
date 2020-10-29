@@ -17,6 +17,8 @@ import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import CreditCardRoundedIcon from "@material-ui/icons/CreditCardRounded"
 import CustomResourceVid from "../images/video/custom_resources.gif"
+import ActionButton from "../components/Button"
+import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
 
 const StyledVideoTabContainer = styled.div`
   background-color: ${props => props.theme.palette.background.paper};
@@ -76,9 +78,14 @@ const StyledVideoTabContainer = styled.div`
     max-width: 400px;
   }
 
+  .pricing-btn {
+    margin-left: 20px;
+  }
+
   .videoSrc {
-    width: 634px;
-    height: 386px;
+    width: 100%;
+    height: 450px;
+
     border-radius: 8px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -178,6 +185,19 @@ const VideoTab = () => {
                 </CardActionArea>
               </Card>
             ))}
+            <VerticalSpacer size={20} />
+            <ActionButton
+              buttonTitle={"Start Free"}
+              variant="contained"
+              startIcon={<PowerSettingsNewRoundedIcon />}
+              link={"https://app.kintohub.com/auth/sign-up"}
+            />
+            <ActionButton
+              className="pricing-btn"
+              buttonTitle={"See Pricing"}
+              variant="outlined"
+              link={"/pricing"}
+            />
           </Grid>
 
           <AutoGrowSpacer size={0.04} />
@@ -186,7 +206,7 @@ const VideoTab = () => {
             <img className="videoSrc" src={tabData[tabIndex].src}></img>
           </Grid>
         </Grid>
-        <VerticalSpacer size={160} />
+        <VerticalSpacer size={90} />
       </MuiThemeProvider>
     </StyledVideoTabContainer>
   )
@@ -205,7 +225,7 @@ export default () => {
     <StyledDiv>
       <MuiThemeProvider theme={textThemeDark}>
         <VerticalSpacer size={96} />
-        <Typography align="center" variant="h1" color="textPrimary">
+        <Typography align="center" variant="h2" color="textPrimary">
           Control your costs down to the second
         </Typography>
         <VerticalSpacer size={20} />
@@ -214,7 +234,7 @@ export default () => {
         </Typography>
         <VerticalSpacer size={40} />
       </MuiThemeProvider>
-      <VerticalSpacer size={96} />
+      <VerticalSpacer size={40} />
       <VideoTab />
     </StyledDiv>
   )
