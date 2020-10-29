@@ -71,7 +71,7 @@ const StyledVideoTabContainer = styled.div`
   .activeIcon {
     width: 40px;
     height: 40px;
-    background: ${props => props.theme.palette.primary.light};
+    color: ${props => props.theme.palette.primary.main};
   }
 
   .videoTextList {
@@ -83,9 +83,8 @@ const StyledVideoTabContainer = styled.div`
   }
 
   .videoSrc {
-    width: 100%;
+    width: auto;
     height: 450px;
-
     border-radius: 8px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -124,6 +123,7 @@ const VideoTab = () => {
   const [tabIndex, setTabIndex] = useState(0)
 
   const handleClick = (index: any) => {
+    console.log(index)
     setTabIndex(index)
   }
 
@@ -138,11 +138,8 @@ const VideoTab = () => {
         >
           <Grid item>
             {tabData.map((item, index) => (
-              <Card elevation={0}>
-                <CardActionArea
-                  key={item.name}
-                  onClick={() => handleClick(index)}
-                >
+              <Card elevation={0} key={item.id}>
+                <CardActionArea onClick={() => handleClick(index)}>
                   <Grid
                     container
                     direction="column"
@@ -159,8 +156,9 @@ const VideoTab = () => {
                       >
                         <Grid item xs={2}>
                           <SvgIcon
+                            key={item.id}
                             className={
-                              index.toString() == item.id
+                              index == Number(tabData[tabIndex].id) - 1
                                 ? "activeIcon"
                                 : "disabledIcon"
                             }
@@ -198,9 +196,10 @@ const VideoTab = () => {
               variant="outlined"
               link={"/pricing"}
             />
+            <VerticalSpacer size={40} />
           </Grid>
 
-          <AutoGrowSpacer size={0.04} />
+          <AutoGrowSpacer size={0.05} />
 
           <Grid item>
             <img className="videoSrc" src={tabData[tabIndex].src}></img>
