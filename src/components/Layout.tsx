@@ -4,14 +4,18 @@ import styled from "styled-components"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ReactNode } from "react"
 
-const StyledDiv = styled.div``
+const StyledDiv = styled.div`
+  a {
+    text-decoration: none;
+  }
+`
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
   // any other props that come into the component
 }
 
-const Layout = ({ children }:Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <StyledDiv>
       <CssBaseline />

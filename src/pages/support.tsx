@@ -122,6 +122,7 @@ const ContactForm = () => {
             />
             <VerticalSpacer size={24} />
             <ActionButton
+              color="primary"
               buttonTitle={"Send Message"}
               startIcon={<SendIcon />}
               variant="contained"

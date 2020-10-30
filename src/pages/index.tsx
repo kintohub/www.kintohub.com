@@ -78,7 +78,7 @@ const FeatureDescription = () => {
               DESIGNED BY DEVELOPERS
             </Typography>
             <VerticalSpacer size={12} />
-            <Typography color="textPrimary" variant="h1">
+            <Typography color="textPrimary" variant="h2">
               Powerful developer tools with a simple user-experience
             </Typography>
 

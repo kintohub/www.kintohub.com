@@ -9,7 +9,7 @@ import { bps, textThemeDark } from "theme/index"
 import { VerticalSpacer } from "components/Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
 
-const StyledCard = styled(Card)`
+const StyledTechStackCard = styled(Card)`
   width: 350px;
   height: 245px;
   margin: 16px;
@@ -21,10 +21,9 @@ const StyledCard = styled(Card)`
   align-items: center;
   text-align: left;
 
-  ${bps.down("xs")} {
+  ${bps.down("md")} {
+    max-width: 600px;
     width: auto;
-    min-height:240px;
-    padding: 16px;
   }
 
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
@@ -34,13 +33,6 @@ const StyledCard = styled(Card)`
     width: 30px;
     height: 30px;
     margin-right: 9px;
-  }
-
-  .feature-avatar {
-    width: 50px;
-    height: 50px;
-    background-color: ${props => props.theme.palette.primary.main};
-    color: ${props => props.theme.palette.secondary.main};
   }
 
   .pill-wrapper {
@@ -69,7 +61,7 @@ const TechStackCard = ({
   Category,
   AvatarSrc,
 }: TechStackCardprops) => (
-  <StyledCard>
+  <StyledTechStackCard>
     <MuiThemeProvider theme={textThemeDark}>
       <CardContent>
         <Typography variant="h3" color="textPrimary" align="center">
@@ -106,9 +98,36 @@ const TechStackCard = ({
             ))}
         </Grid>
       </CardContent>
+      <VerticalSpacer size={16} />
     </MuiThemeProvider>
-  </StyledCard>
+  </StyledTechStackCard>
 )
+
+const StyledTestimonialCard = styled(Card)`
+  width: 350px;
+  height: 240px;
+  margin: 16px;
+  padding: 0px 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${bps.down("md")} {
+    max-width: 600px;
+    width: auto;
+  }
+
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    background-color: ${props => props.theme.palette.primary.main};
+    color: ${props => props.theme.palette.secondary.main};
+  }
+`
 
 type TestimonialCardProps = {
   avatarText?: string
@@ -119,16 +138,17 @@ const TestimonialCard = ({
   avatarText,
   testimonialText,
 }: TestimonialCardProps) => (
-  <StyledCard>
+  <StyledTestimonialCard>
     <ThemeProvider theme={textThemeDark}>
       <VerticalSpacer size={16} />
-      <Avatar className="feature-avatar">{avatarText}</Avatar>
+      <Avatar className="avatar">{avatarText}</Avatar>
       <VerticalSpacer size={18} />
-      <Typography variant="body1" color="textPrimary">
+      <Typography align="center" variant="body1" color="textPrimary">
         {testimonialText}
       </Typography>
+      <VerticalSpacer size={18} />
     </ThemeProvider>
-  </StyledCard>
+  </StyledTestimonialCard>
 )
 
 export { TechStackCard, TestimonialCard }

@@ -153,6 +153,7 @@ const VideoTab = () => {
             <ActionButton
               buttonTitle={"Start Free"}
               variant="contained"
+              color="primary"
               startIcon={<PowerSettingsNewRoundedIcon />}
               link={"https://app.kintohub.com/auth/sign-up"}
             />
@@ -160,6 +161,7 @@ const VideoTab = () => {
               className="pricing-btn"
               buttonTitle={"See Pricing"}
               variant="outlined"
+              color="primary"
               link={"/pricing"}
             />
             <VerticalSpacer size={40} />

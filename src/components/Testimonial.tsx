@@ -4,7 +4,7 @@ import { MuiThemeProvider, Typography } from "@material-ui/core"
 import { TestimonialCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import TestimonialBg from "resources/background/testimonial.png"
-import { textThemeDark } from "theme/index"
+import { bps, textThemeDark } from "theme/index"
 import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
@@ -20,8 +20,10 @@ const StyledDiv = styled.div`
     color: ${props => props.theme.palette.primary.main};
   }
 
-  a {
-    text-decoration: none;
+  ${bps.down("md")} {
+    .grid-container {
+      flex-direction: column;
+    }
   }
 `
 
@@ -41,13 +43,19 @@ export default () => {
           Real responses from our{" "}
           <span>
             <a target="_blank" href="https://kintohub.com/discord">
-            <b> Discord support</b> 
+              <b> Discord support</b>
             </a>
           </span>{" "}
           channel from our members.
         </Typography>
         <VerticalSpacer size={32} />
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid
+          container
+          direction="row"
+          className="grid-container"
+          justify="center"
+          alignItems="center"
+        >
           <TestimonialCard
             avatarText={"N"}
             testimonialText={

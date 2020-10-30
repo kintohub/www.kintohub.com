@@ -31,11 +31,6 @@ const StyledDiv = styled.div`
   width: 100%;
   height: auto;
   background: url(${HeroBg}) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,8 +55,8 @@ const StyledDiv = styled.div`
   .grid-container {
     display: flex;
     flex-direction: row;
+
     ${bps.down("md")} {
-      justify-items: space-evenly;
       flex-direction: column;
     }
   }
@@ -82,6 +77,7 @@ export default () => {
       </Typography>
       <VerticalSpacer size={34} />
       <ActionButton
+        color="primary"
         variant="contained"
         buttonTitle={"Start Deploying"}
         startIcon={<PowerSettingsNewIcon />}
@@ -155,7 +151,7 @@ export default () => {
             </a>{" "}
             or use an
             <a href="https://docs.kintohub.com/repository/import%20url">
-              <b>import url.</b>
+              <b> {" "}import url.</b>
             </a>
           </Typography>
           <VerticalSpacer size={8} />

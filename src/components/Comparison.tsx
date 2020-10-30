@@ -212,6 +212,7 @@ export default () => {
       <VerticalSpacer size={24} />
       <Typography align="center">
         <ActionButton
+        color="primary"
           variant="contained"
           startIcon={<MapIcon />}
           buttonTitle={"View Roadmap"}

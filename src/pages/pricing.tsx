@@ -166,6 +166,7 @@ const PricingDetail = () => {
       </Box>
       <VerticalSpacer size={96} />
       <ActionButton
+        color="primary"
         variant="contained"
         buttonTitle="Try for Free"
         startIcon={<PowerSettingsNewIcon />}

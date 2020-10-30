@@ -82,6 +82,7 @@ const StyledNavContainer = styled.div`
   }
   .transparentNav {
     background-color: transparent;
+    
     box-shadow: none;
     a {
       color: ${props => props.theme.palette.text.primary};
@@ -149,7 +150,6 @@ export default (props: Props) => {
                 <Grid container>
                   <Box>
                     <ActionButton
-                      color="inherit"
                       buttonTitle={"Login"}
                       link={"https://app.kintohub.com/auth/login"}
                     />
@@ -157,6 +157,7 @@ export default (props: Props) => {
                   <HorizontalSpacer size={16} />
                   <Box>
                     <ActionButton
+                    color="primary"
                       variant="contained"
                       buttonTitle={"Signup Free"}
                       link={"https://app.kintohub.com/auth/sign-up"}
