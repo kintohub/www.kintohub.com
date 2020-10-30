@@ -45,16 +45,20 @@ const StyledFeatureDescriptionContainer = styled.div`
   }
 
   .grid-box {
+    display: flex;
+    flex-direction: column;
     width: 500px;
-    ${bps.down("xs")} {
-      padding:0px 16px;
+    ${bps.down("sm")} {
+      padding: 0px 16px;
       width: 100%;
+      text-align: center;
+      align-items: center;
     }
   }
 
   .dev-tools {
     ${bps.down("sm")} {
-      padding:16px;
+      padding: 16px;
       max-height: auto;
       max-width: 100%;
       align-items: center;

@@ -33,6 +33,7 @@ const StyledHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding:0px 16px;
 `
 const SupportHeader = () => {
   return (

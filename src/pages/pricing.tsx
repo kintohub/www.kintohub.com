@@ -223,6 +223,13 @@ const StyledExampleCard = styled.div`
   padding: 16px 20px;
   position: relative;
 
+  ${bps.down("md")} {
+    margin:0px 36px 28px 36px;
+    max-width:600px;
+    width:auto;
+  }
+
+
   .example-card-icon {
     margin: 8px 18px;
     right: 0;
@@ -363,16 +370,19 @@ const StyledPayAsYouGoExampleContainer = styled.div`
     background-size: contain;
   }
 
+  ${bps.down("md")} {
+    .grid-container {
+      flex-direction: column;
+    }
+  }
+
   .example-card {
     position: relative;
   }
 
-  span {
-    color: ${props => props.theme.palette.primary.light};
-  }
-
   a {
     text-decoration: none;
+    color: ${props => props.theme.palette.primary.main};
   }
 `
 
@@ -391,10 +401,10 @@ const PayAsYouGoExample = () => {
             target="_blank"
             href="https://docs.kintohub.com/anatomy/advanced#cost-optimization"
           >
-            cost optimization 
+            cost optimization
           </a>
-        </span>
-         {" "}is enabled in service examples.
+        </span>{" "}
+        is enabled in service examples.
       </Typography>
       <Typography align="center" variant="body1" color="textSecondary">
         Once you input your credit card your free resources become flexible
@@ -410,7 +420,7 @@ const PayAsYouGoExample = () => {
       <VerticalSpacer size={62} />
       <div className="example-card">
         <img src={PayAsYouGoBg} className="bg-wrapper" alt="background"></img>
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container className="grid-container" direction="row" justify="center" alignItems="center">
           <Grid item>
             <ExampleCard
               cardIcon={<WebRoundedIcon />}
