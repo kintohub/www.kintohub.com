@@ -31,7 +31,7 @@ import Hidden from "@material-ui/core/Hidden/Hidden"
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  background: url(${HeroBg}) no-repeat center center;
+  background: url(${HeroBg}) no-repeat center center fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
