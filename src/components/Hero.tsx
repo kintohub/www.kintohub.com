@@ -26,6 +26,7 @@ import redis from "resources/icons/catalog/redis.svg"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
 import { bps } from "theme"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -71,7 +72,13 @@ const StyledDiv = styled.div`
 export default () => {
   return (
     <StyledDiv>
-      <VerticalSpacer size={200} />
+      <Hidden smDown>
+        <VerticalSpacer size={200} />
+      </Hidden>
+      <Hidden mdUp>
+        <VerticalSpacer size={80} />
+      </Hidden>
+
       <Typography align="center" className="heading" color="textPrimary">
         The best way to deploy fullstack apps
       </Typography>
@@ -151,7 +158,7 @@ export default () => {
             </a>{" "}
             or use an
             <a href="https://docs.kintohub.com/repository/import%20url">
-              <b> {" "}import url.</b>
+              <b> import url.</b>
             </a>
           </Typography>
           <VerticalSpacer size={8} />

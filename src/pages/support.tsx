@@ -33,7 +33,6 @@ const StyledHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  overflow: hidden;
 `
 const SupportHeader = () => {
   return (
@@ -55,7 +54,6 @@ const SupportHeader = () => {
 const StyledFormContainer = styled.div`
   width: 500px;
   height: auto;
-  overflow: hidden;
 
   ${bps.down("sm")} {
     width: auto;
@@ -66,7 +64,7 @@ const StyledFormContainer = styled.div`
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  margin-top: -44px;
+  margin-top: -32px;
 
   .form {
     padding: 32px;
@@ -145,6 +143,7 @@ const StyledExploreOptionsContainer = styled.div`
   align-content: left;
   text-align: left;
   height: auto;
+  width: 100%;
   overflow: hidden;
 
   a {
@@ -159,6 +158,7 @@ const StyledExploreOptionsContainer = styled.div`
 
   ${bps.down("sm")} {
     margin: 48px 16px 0px 16px;
+    width: auto;
   }
 
   .explore-option-icon {
@@ -256,6 +256,7 @@ const ExploreOptions = () => {
             </Grid>
           </Grid>
         </Grid>
+        <VerticalSpacer size={64}/>
       </MuiThemeProvider>
     </StyledExploreOptionsContainer>
   )
@@ -281,23 +282,19 @@ const StyledContactUsBodyContainer = styled.div`
 const ContactUsBody = () => {
   return (
     <StyledContactUsBodyContainer>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        className="contact"
-        spacing={4}
-      >
+      <Grid container justify="center" alignItems="center" className="contact">
         <Grid item>
           <ContactForm />
         </Grid>
-
+        <AutoGrowSpacer size={0.08} />
         <Grid item>
           <ExploreOptions />
         </Grid>
       </Grid>
 
-      <VerticalSpacer size={124} />
+      <Hidden smDown>
+        <VerticalSpacer size={124} />
+      </Hidden>
     </StyledContactUsBodyContainer>
   )
 }

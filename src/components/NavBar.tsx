@@ -2,78 +2,185 @@ import {
   AppBar,
   Divider,
   Grid,
+  IconButton,
   MuiThemeProvider,
+  SvgIcon,
   useScrollTrigger,
 } from "@material-ui/core"
 import Box from "@material-ui/core/Box/Box"
 import Toolbar from "@material-ui/core/Toolbar/Toolbar"
 import Typography from "@material-ui/core/Typography/Typography"
 import KintoBlackLogo from "resources/logo/black.svg"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import ActionButton from "components/Button"
 import KintoWhiteLogo from "resources/logo/white.svg"
-import { HorizontalSpacer } from "components/Spacer"
-import { Drawer as MUIDrawer } from "@material-ui/core"
-import ListItem from "@material-ui/core/ListItem/ListItem"
-import List from "@material-ui/core/List/List"
-import ListItemText from "@material-ui/core/ListItemText/ListItemText"
+import {
+  AutoExpandSpacer,
+  HorizontalSpacer,
+  VerticalSpacer,
+} from "components/Spacer"
 import { textThemeDark } from "theme/index"
-import ListItemIcon from "@material-ui/core/ListItemIcon/ListItemIcon"
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
-import LiveHelpRoundedIcon from "@material-ui/icons/LiveHelpRounded"
 import MailRoundedIcon from "@material-ui/icons/MailRounded"
 import Hidden from "@material-ui/core/Hidden/Hidden"
+import MenuRoundedIcon from "@material-ui/icons/MenuRounded"
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded"
+import List from "@material-ui/core/List/List"
+import ListItem from "@material-ui/core/ListItem/ListItem"
 
-const Drawer = () => {
-  const itemList = [
-    { text: "Pricing", icon: <TuneRoundedIcon /> },
-    { text: "Documentation", icon: <LibraryBooksRoundedIcon /> },
-    { text: "Support", icon: <LiveHelpRoundedIcon /> },
-    { text: "Contact Us", icon: <MailRoundedIcon /> },
-  ]
+const StyledMobileDrawerContainer = styled.div`
+  .sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: ${props => props.theme.palette.background.paper};
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .items {
+    width: 100%;
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-decoration: none;
+    font-size: 25px;
+    text-align: left;
+    transition: 0.3s;
+  }
+
+  a {
+    color: ${props => props.theme.palette.background.default};
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 36px;
+    color: ${props => props.theme.palette.background.default};
+  }
+
+  .mobile-logo {
+    position: absolute;
+    display: inline-block;
+    top: 25px;
+    left: 25px;
+  }
+
+  .menu-item {
+    display: inline-flex;
+  }
+
+  .open {
+    width: 100%;
+  }
+  .closed {
+    width: 0%;
+  }
+`
+
+const MobileDrawer = () => {
+  const [drawer, setDrawer] = useState(false)
+  const openNav = () => {
+    setDrawer(true)
+  }
+
+  const closeNav = () => {
+    setDrawer(false)
+  }
 
   return (
     <MuiThemeProvider theme={textThemeDark}>
-      <MUIDrawer style={{ width: "900px" }}>
-        <ActionButton
-          buttonTitle="Login"
-          variant="outlined"
-          link={"https://app.kintohub.com/auth/login"}
-        />
-        <ActionButton
-          buttonTitle="Signup Free"
-          variant="contained"
-          color="primary"
-          link={"https://app.kintohub.com/auth/sign-up"}
-        />
-        <List>
-          {itemList.map((item, index) => {
-            const { text, icon } = item
+      <StyledMobileDrawerContainer>
+        <AppBar position="static">
+          <Toolbar>
+            <Box>
+              <MenuRoundedIcon onClick={openNav} />
+            </Box>
 
-            return (
-              <>
-                <ListItem button key={text}>
-                  <ListItemText primary={text} />
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <Divider />
-                </ListItem>
-              </>
-            )
-          })}
-        </List>
-      </MUIDrawer>
+            <Box mx="auto">
+              <Link to="/" activeClassName="active">
+                <img src={KintoWhiteLogo} alt="logo" />
+              </Link>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <div className={`sidenav navbar ${drawer ? "open" : "closed"}`}>
+          <VerticalSpacer size={64} />
+          <img className="mobile-logo" src={KintoBlackLogo} alt="logo" />
+          <CloseRoundedIcon className="closebtn" onClick={closeNav} />
+
+          <div className="items">
+            <ActionButton
+              fullWidth
+              buttonTitle={"Login"}
+              variant="outlined"
+              color="primary"
+              link={"https://app.kintohub.com/login"}
+            />
+            <VerticalSpacer size={16} />
+            <ActionButton
+              fullWidth
+              color="primary"
+              variant="contained"
+              buttonTitle={"Signup Free"}
+              link={"https://app.kintohub.com/auth/sign-up"}
+            />
+            <VerticalSpacer size={32} />
+            <List>
+              <ListItem button className="menu-item">
+                <Typography variant="subtitle1" color="textPrimary">
+                  <Link to="/">Home</Link>
+                </Typography>
+                <AutoExpandSpacer />
+                <HomeRoundedIcon color="primary" />
+              </ListItem>
+              <Divider />
+              <ListItem button className="menu-item">
+                <Typography variant="subtitle1" color="textPrimary">
+                  <Link to="/">Pricing</Link>
+                </Typography>
+                <AutoExpandSpacer />
+                <TuneRoundedIcon color="primary" />
+              </ListItem>
+              <Divider />
+              <ListItem button className="menu-item">
+                <Typography variant="subtitle1" color="textPrimary">
+                  <Link to="/">Documentation</Link>
+                </Typography>
+                <AutoExpandSpacer />
+                <LibraryBooksRoundedIcon color="primary" />
+              </ListItem>
+              <Divider />
+              <ListItem button className="menu-item">
+                <Typography variant="subtitle1" color="textPrimary">
+                  <Link to="/">Support</Link>
+                </Typography>
+                <AutoExpandSpacer />
+                <MailRoundedIcon color="primary" />
+              </ListItem>
+              <Divider />
+            </List>
+          </div>
+        </div>
+      </StyledMobileDrawerContainer>
     </MuiThemeProvider>
   )
 }
 
 const StyledNavContainer = styled.div`
-  a {
-    text-decoration: none;
-  }
-
   .solidNav {
     background-color: ${props => props.theme.palette.background.paper};
     a {
@@ -82,7 +189,6 @@ const StyledNavContainer = styled.div`
   }
   .transparentNav {
     background-color: transparent;
-    
     box-shadow: none;
     a {
       color: ${props => props.theme.palette.text.primary};
@@ -112,6 +218,9 @@ export default (props: Props) => {
 
   return (
     <StyledNavContainer>
+      <Hidden mdUp>
+        <MobileDrawer />
+      </Hidden>
       <Hidden smDown>
         <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
           <Toolbar>
@@ -150,6 +259,7 @@ export default (props: Props) => {
                 <Grid container>
                   <Box>
                     <ActionButton
+                      color="inherit"
                       buttonTitle={"Login"}
                       link={"https://app.kintohub.com/auth/login"}
                     />
@@ -157,7 +267,7 @@ export default (props: Props) => {
                   <HorizontalSpacer size={16} />
                   <Box>
                     <ActionButton
-                    color="primary"
+                      color="primary"
                       variant="contained"
                       buttonTitle={"Signup Free"}
                       link={"https://app.kintohub.com/auth/sign-up"}
