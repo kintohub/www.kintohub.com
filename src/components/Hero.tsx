@@ -93,7 +93,7 @@ export default () => {
         <VerticalSpacer size={200} />
       </Hidden>
       <Hidden mdUp>
-        <VerticalSpacer size={80} />
+        <VerticalSpacer size={100} />
       </Hidden>
 
       <Typography align="center" className="heading" color="textPrimary">

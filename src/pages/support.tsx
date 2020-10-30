@@ -33,7 +33,7 @@ const StyledHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding:0px 16px;
+  padding: 0px 16px;
 `
 const SupportHeader = () => {
   return (
@@ -53,11 +53,11 @@ const SupportHeader = () => {
 }
 
 const StyledFormContainer = styled.div`
-  width: 500px;
+  min-width: 500px;
   height: auto;
 
-  ${bps.down("sm")} {
-    width: auto;
+  ${bps.down("md")} {
+    min-width: auto;
     margin: -32px 16px 0px 16px;
   }
 
@@ -146,6 +146,7 @@ const StyledExploreOptionsContainer = styled.div`
   height: auto;
   width: 100%;
   overflow: hidden;
+  margin-left:16px;
 
   a {
     text-decoration: none;
@@ -155,6 +156,11 @@ const StyledExploreOptionsContainer = styled.div`
     height: 1px;
     width: 100%;
     color: ${props => props.theme.palette.divider};
+  }
+
+  ${bps.down("md")} {
+    max-width:600px;
+    width: auto;
   }
 
   ${bps.down("sm")} {
@@ -205,7 +211,6 @@ const ExploreOptions = () => {
 
           <Grid container>
             <Hidden smDown>
-              {" "}
               <Grid item xs={1}>
                 <LibraryBooksRoundedIcon className="explore-option-icon" />
               </Grid>
@@ -257,7 +262,7 @@ const ExploreOptions = () => {
             </Grid>
           </Grid>
         </Grid>
-        <VerticalSpacer size={64}/>
+        <VerticalSpacer size={64} />
       </MuiThemeProvider>
     </StyledExploreOptionsContainer>
   )
@@ -266,7 +271,7 @@ const ExploreOptions = () => {
 const StyledContactUsBodyContainer = styled.div`
   width: 100%;
   height: auto;
-
+  padding:0 24px;
   .contact {
     align-items: flex-start;
     flex-direction: row;

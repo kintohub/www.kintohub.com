@@ -32,13 +32,44 @@ import CloseRoundedIcon from "@material-ui/icons/CloseRounded"
 import List from "@material-ui/core/List/List"
 import ListItem from "@material-ui/core/ListItem/ListItem"
 
-const StyledMobileDrawerContainer = styled.div`
+const StyledNavContainer = styled.div`
+  .solidNav {
+    z-index: 10;
+    background-color: ${props => props.theme.palette.background.paper};
+    a {
+      color: ${props => props.theme.palette.text.hint};
+    }
+  }
+
+  .Nav {
+    z-index: 10;
+    background-color: ${props => props.theme.palette.primary.main};
+    a {
+      color: ${props => props.theme.palette.text.hint};
+    }
+  }
+
+  .transparentNav {
+    z-index: 10;
+    background-color: transparent;
+    box-shadow: none;
+    a {
+      color: ${props => props.theme.palette.text.primary};
+    }
+  }
+
+  .fade {
+    transition: 0.3s;
+  }
+
+  .active {
+    text-decoration: underline;
+  }
+
   .sidenav {
     height: 100%;
     position: fixed;
     z-index: 100;
-    top: 0;
-    left: 0;
     background-color: ${props => props.theme.palette.background.paper};
     overflow-x: hidden;
     transition: 0.3s;
@@ -91,7 +122,18 @@ const StyledMobileDrawerContainer = styled.div`
   }
 `
 
-const MobileDrawer = () => {
+interface Props {
+  window?: () => Window
+}
+
+export default (props: Props) => {
+  const { window } = props
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 50,
+    target: window ? window() : undefined,
+  })
+
   const [drawer, setDrawer] = useState(false)
   const openNav = () => {
     setDrawer(true)
@@ -102,17 +144,23 @@ const MobileDrawer = () => {
   }
 
   return (
-    <MuiThemeProvider theme={textThemeDark}>
-      <StyledMobileDrawerContainer>
-        <AppBar position="static">
+    <StyledNavContainer>
+      <Hidden mdUp>
+        <AppBar className={trigger ? "solidNav fade" : "Nav fade"}>
           <Toolbar>
             <Box>
-              <MenuRoundedIcon onClick={openNav} />
+              <MenuRoundedIcon
+                color={trigger ? "primary" : "secondary"}
+                onClick={openNav}
+              />
             </Box>
 
             <Box mx="auto">
               <Link to="/" activeClassName="active">
-                <img src={KintoWhiteLogo} alt="logo" />
+                <img
+                  src={trigger ? KintoBlackLogo : KintoWhiteLogo}
+                  alt="logo"
+                />
               </Link>
             </Box>
           </Toolbar>
@@ -175,51 +223,6 @@ const MobileDrawer = () => {
             </List>
           </div>
         </div>
-      </StyledMobileDrawerContainer>
-    </MuiThemeProvider>
-  )
-}
-
-const StyledNavContainer = styled.div`
-  .solidNav {
-    background-color: ${props => props.theme.palette.background.paper};
-    a {
-      color: ${props => props.theme.palette.text.hint};
-    }
-  }
-  .transparentNav {
-    background-color: transparent;
-    box-shadow: none;
-    a {
-      color: ${props => props.theme.palette.text.primary};
-    }
-  }
-
-  .fade {
-    transition: 0.3s;
-  }
-
-  .active {
-    text-decoration: underline;
-  }
-`
-
-interface Props {
-  window?: () => Window
-}
-
-export default (props: Props) => {
-  const { window } = props
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 50,
-    target: window ? window() : undefined,
-  })
-
-  return (
-    <StyledNavContainer>
-      <Hidden mdUp>
-        <MobileDrawer />
       </Hidden>
       <Hidden smDown>
         <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
