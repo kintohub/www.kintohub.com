@@ -166,7 +166,7 @@ export default () => {
           </Grid>
           <HorizontalSpacer size={32} />
           <Grid item>
-            <a target="_blank" href="https://www.kintohub.com/terms-of-service">
+            <Link target="_blank" to="/terms-of-service">
               <Typography
                 display="inline"
                 align="center"
@@ -175,7 +175,7 @@ export default () => {
               >
                 Terms of Service
               </Typography>
-            </a>
+            </Link>
           </Grid>
           <HorizontalSpacer size={16} />
 
@@ -192,7 +192,7 @@ export default () => {
 
           <HorizontalSpacer size={16} />
           <Grid item>
-            <a target="_blank" href="https://www.kintohub.com/privacy-policy">
+            <Link target="_blank" to="/privacy-policy">
               <Typography
                 display="inline"
                 align="center"
@@ -201,7 +201,7 @@ export default () => {
               >
                 Privacy Policy
               </Typography>
-            </a>
+            </Link>
           </Grid>
         </MuiThemeProvider>
       </Grid>

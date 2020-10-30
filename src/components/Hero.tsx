@@ -2,13 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import HeroBgMobile from "resources/background/landing_mobile.webp"
 import HeroBgDesktop from "resources/background/landing_desktop.png"
-import { MuiThemeProvider, Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import ActionButton from "components/Button"
 import { TechStackCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import {
-  AutoExpandSpacer,
   AutoGrowSpacer,
   VerticalSpacer,
 } from "components/Spacer"
@@ -30,7 +29,7 @@ import postgresql from "resources/icons/catalog/postgresql.svg"
 import redis from "resources/icons/catalog/redis.svg"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
-import { bps, textThemeDark } from "theme"
+import { bps } from "theme"
 import Hidden from "@material-ui/core/Hidden/Hidden"
 import Box from "@material-ui/core/Box/Box"
 
@@ -45,7 +44,7 @@ const StyledDiv = styled.div`
   background-color: ${props => props.theme.palette.background.paper};
 
   ${bps.down("xs")} {
-    background-size: 100% 100%;
+    background-size: 80% 100%;
     background-position: center;
     background: url(${HeroBgMobile}) no-repeat;
     background-color: ${props => props.theme.palette.background.paper};

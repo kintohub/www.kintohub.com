@@ -12,8 +12,8 @@ const palette: PaletteOptions = {
   primary: {
     light: "rgb(122, 104, 232)",
     main: "#6200ee",
-    dark: "rgb(122, 104, 232)",
-    contrastText: "#f7f9ff",
+    dark: "#0e1949;",
+    contrastText: "#edf3fd",
   },
   secondary: {
     main: "#ffffff",
