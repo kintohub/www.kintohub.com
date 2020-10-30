@@ -27,7 +27,7 @@ const StyledFeatureDescriptionContainer = styled.div`
     width: auto;
   }
 
-  background-color: ${props => props.theme.palette.background.paper};
+  background-color: ${props => props.theme.palette.secondary.light};
   overflow: hidden;
 
   .grid-container {

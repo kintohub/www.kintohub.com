@@ -1,12 +1,17 @@
 import React from "react"
 import styled from "styled-components"
-import HeroBg from "resources/background/Hero.webp"
-import { Typography } from "@material-ui/core"
+import HeroBgMobile from "resources/background/landing_mobile.webp"
+import HeroBgDesktop from "resources/background/landing_desktop.png"
+import { MuiThemeProvider, Typography } from "@material-ui/core"
 import ActionButton from "components/Button"
 import { TechStackCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
+import {
+  AutoExpandSpacer,
+  AutoGrowSpacer,
+  VerticalSpacer,
+} from "components/Spacer"
 import angular from "resources/icons/fe/angular.svg"
 import gatsby from "resources/icons/fe/gatsby.svg"
 import hugo from "resources/icons/fe/hugo.svg"
@@ -25,18 +30,26 @@ import postgresql from "resources/icons/catalog/postgresql.svg"
 import redis from "resources/icons/catalog/redis.svg"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
-import { bps } from "theme"
+import { bps, textThemeDark } from "theme"
 import Hidden from "@material-ui/core/Hidden/Hidden"
+import Box from "@material-ui/core/Box/Box"
 
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  background: url(${HeroBg}) no-repeat center center fixed;
+  background: url(${HeroBgDesktop}) no-repeat center center fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0px 16px;
   background-color: ${props => props.theme.palette.background.paper};
+
+  ${bps.down("xs")} {
+    background-size: 100% 100%;
+    background-position: center;
+    background: url(${HeroBgMobile}) no-repeat;
+    background-color: ${props => props.theme.palette.background.paper};
+  }
 
   .heading {
     font-size: 60px;
@@ -49,16 +62,17 @@ const StyledDiv = styled.div`
     color: ${props => props.theme.palette.primary.light};
   }
 
-  .feature-container .feature-suggestion-container {
-    margin: 20px;
-  }
-
   .grid-container {
+    align-items: center;
     display: flex;
     flex-direction: row;
 
     ${bps.down("md")} {
+      text-align: center;
       flex-direction: column;
+    }
+    ${bps.down("xs")} {
+      color: ${props => props.theme.palette.common.black};
     }
   }
 
@@ -66,6 +80,10 @@ const StyledDiv = styled.div`
     width: 30px;
     height: 30px;
     margin-right: 16px;
+    color: ${props => props.theme.palette.common.white};
+    ${bps.down("xs")} {
+      color: ${props => props.theme.palette.common.black};
+    }
   }
 `
 
@@ -146,47 +164,57 @@ export default () => {
 
       <VerticalSpacer size={20} />
 
-      <Grid container justify="center">
+      <Grid
+        container
+        className="grid-container"
+        direction="row"
+        justify="center"
+        alignItems="flex-start"
+      >
         <Grid item>
-          <Typography variant="h6" color="textPrimary">
+          <Typography variant="h6">
             Deploy an Existing Project with Git
           </Typography>
-          <Typography color="textPrimary">
+          <Typography>
             Use our Git integrations with{" "}
             <a href="https://docs.kintohub.com/repository/github-apps">
-              <b>GitHub </b>
+              GitHub
             </a>{" "}
-            or use an
+            or use an{" "}
             <a href="https://docs.kintohub.com/repository/import%20url">
-              <b> import url.</b>
+              import url
             </a>
           </Typography>
           <VerticalSpacer size={8} />
 
           <a href="https://docs.kintohub.com/repository/github-apps">
-            <GitHubIcon className="icons" color="secondary" />
+            <GitHubIcon className="icons" />
           </a>
 
           <a
             className="import"
             href="https://docs.kintohub.com/repository/import%20url"
           >
-            <LinkRoundedIcon className="icons" color="secondary" />
+            <LinkRoundedIcon className="icons" />
           </a>
         </Grid>
+
         <AutoGrowSpacer size={0.15} />
+
+        <VerticalSpacer size={60} />
+
         <Grid item>
-          <Typography variant="h6" color="textPrimary">
-            Connect Your Custom Domains
-          </Typography>
-          <Typography color="textPrimary">
-            Once deployed, your projects can be assigned to a custom domain.
-          </Typography>
-          <Typography color="textPrimary">
-            <a href="https://docs.kintohub.com/anatomy/domains">
-              <b>Learn more →</b>
-            </a>
-          </Typography>
+          <Box my={-6}>
+            <Typography variant="h6">Connect Your Custom Domains</Typography>
+            <Typography>
+              Once deployed, your projects can be assigned to a custom domain.
+            </Typography>
+            <Typography>
+              <a href="https://docs.kintohub.com/anatomy/domains">
+                Learn more →
+              </a>
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
       <VerticalSpacer size={82} />
