@@ -22,6 +22,11 @@ const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
   height: auto;
 
+  ${bps.down("sm")} {
+    padding: 0px 16px;
+    width: auto;
+  }
+
   background-color: ${props => props.theme.palette.background.paper};
   overflow: hidden;
 
@@ -42,14 +47,16 @@ const StyledFeatureDescriptionContainer = styled.div`
   .grid-box {
     width: 500px;
     ${bps.down("xs")} {
-      max-width: 400px;
+      padding:0px 16px;
+      width: 100%;
     }
   }
 
   .dev-tools {
     ${bps.down("sm")} {
+      padding:16px;
       max-height: auto;
-      max-width: 400px;
+      max-width: 100%;
       align-items: center;
     }
   }

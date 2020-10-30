@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from "styled-components"
 import Chip from "@material-ui/core/Chip/Chip"
 import Typography from "@material-ui/core/Typography/Typography"
 import Avatar from "@material-ui/core/Avatar/Avatar"
-import { textThemeDark } from "theme/index"
+import { bps, textThemeDark } from "theme/index"
 import { VerticalSpacer } from "components/Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
 
@@ -21,6 +21,12 @@ const StyledCard = styled(Card)`
   align-items: center;
   text-align: left;
 
+  ${bps.down("xs")} {
+    width: auto;
+    min-height:240px;
+    padding: 16px;
+  }
+
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
 
@@ -33,7 +39,7 @@ const StyledCard = styled(Card)`
   .feature-avatar {
     width: 50px;
     height: 50px;
-    background-color: ${props => props.theme.palette.secondary.main};
+    background-color: ${props => props.theme.palette.primary.main};
     color: ${props => props.theme.palette.secondary.main};
   }
 

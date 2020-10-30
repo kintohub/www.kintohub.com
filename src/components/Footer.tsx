@@ -5,6 +5,7 @@ import KintoFooterIcon from "resources/logo/footer.svg"
 import { HorizontalSpacer, VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
 import { Link } from "gatsby"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledDiv = styled.div`
   height: auto;
@@ -25,7 +26,7 @@ const StyledDiv = styled.div`
   .footer {
     flex-direction: row;
 
-    ${bps.down("md")} {
+    ${bps.down("sm")} {
       flex-direction: column;
     }
   }
@@ -177,14 +178,18 @@ export default () => {
             </a>
           </Grid>
           <HorizontalSpacer size={16} />
-          <Typography
-            display="inline"
-            align="center"
-            color="textSecondary"
-            variant="subtitle2"
-          >
-            |
-          </Typography>
+
+          <Hidden smDown>
+            <Typography
+              display="inline"
+              align="center"
+              color="textSecondary"
+              variant="subtitle2"
+            >
+              |
+            </Typography>{" "}
+          </Hidden>
+
           <HorizontalSpacer size={16} />
           <Grid item>
             <a target="_blank" href="https://www.kintohub.com/privacy-policy">

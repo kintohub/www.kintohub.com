@@ -47,18 +47,15 @@ const StyledVideoTabContainer = styled.div`
     width: auto;
     height: 450px;
     border-radius: 8px;
-    margin:0px 16px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
 
-    ${bps.down("sm")} {
-      max-height: auto;
-      max-width: 550px;
-    }
-    
-    ${bps.down("xs")} {
-      max-height: auto;
-      max-width: 400px;
+    ${bps.down("md")} {
+      padding: 0px 16px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
     }
   }
 `
