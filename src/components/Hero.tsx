@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import HeroBg from "resources/background/landing_compressed.png"
+import HeroBg from "resources/background/Hero.webp"
 import { Typography } from "@material-ui/core"
 import ActionButton from "components/Button"
 import { TechStackCard } from "components/Card"
