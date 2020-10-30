@@ -36,12 +36,12 @@ const StyledMobileDrawerContainer = styled.div`
   .sidenav {
     height: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     top: 0;
     left: 0;
     background-color: ${props => props.theme.palette.background.paper};
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -150,7 +150,7 @@ const MobileDrawer = () => {
               <Divider />
               <ListItem button className="menu-item">
                 <Typography variant="subtitle1" color="textPrimary">
-                  <Link to="/">Pricing</Link>
+                  <Link to="/pricing">Pricing</Link>
                 </Typography>
                 <AutoExpandSpacer />
                 <TuneRoundedIcon color="primary" />
@@ -158,7 +158,7 @@ const MobileDrawer = () => {
               <Divider />
               <ListItem button className="menu-item">
                 <Typography variant="subtitle1" color="textPrimary">
-                  <Link to="/">Documentation</Link>
+                  <a href="https://docs.kintohub.com">Documentation</a>
                 </Typography>
                 <AutoExpandSpacer />
                 <LibraryBooksRoundedIcon color="primary" />
@@ -166,7 +166,7 @@ const MobileDrawer = () => {
               <Divider />
               <ListItem button className="menu-item">
                 <Typography variant="subtitle1" color="textPrimary">
-                  <Link to="/">Support</Link>
+                  <Link to="/support">Support</Link>
                 </Typography>
                 <AutoExpandSpacer />
                 <MailRoundedIcon color="primary" />
