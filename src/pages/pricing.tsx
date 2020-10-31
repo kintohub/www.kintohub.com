@@ -497,7 +497,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-          <Helmet
+        <Helmet
           htmlAttributes={{ lang: "en" }}
           meta={[
             {

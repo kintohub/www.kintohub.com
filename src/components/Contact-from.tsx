@@ -67,6 +67,8 @@ export default (data: any) => {
   const [inquirytype, setinquirytype] = useState("Enterprise")
   const [formStatus, setformStatus] = useState(false)
 
+  const isBrowser = () => typeof window !== "undefined"
+
   const formData = {
     submittedAt: Date.now(),
     fields: [
@@ -97,8 +99,8 @@ export default (data: any) => {
     ],
 
     context: {
-      pageUri: location.href,
-      pageName: location.pathname,
+      pageUri: isBrowser() && window.location.href,
+      pageName: isBrowser() && window.location.pathname,
     },
   }
 
