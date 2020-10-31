@@ -1,7 +1,6 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
 import CallToAction from "components/Calltoaction"
-import SEO from "components/seo"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
@@ -15,7 +14,7 @@ import {
   Typography,
 } from "@material-ui/core"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import ContactForm from "components/Contact-from"
+import ContactForm from "components/Contact-form"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"

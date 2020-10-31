@@ -11,8 +11,6 @@ import axios from "axios"
 import FormControl from "@material-ui/core/FormControl/FormControl"
 import Select from "@material-ui/core/Select/Select"
 import MenuItem from "@material-ui/core/MenuItem/MenuItem"
-import InputLabel from "@material-ui/core/InputLabel/InputLabel"
-import OutlinedInput from "@material-ui/core/OutlinedInput/OutlinedInput"
 
 const StyledFormContainer = styled.div`
   min-width: 500px;
@@ -53,9 +51,15 @@ const StyledFormSubmitContainer = styled.div`
   border-radius: 8px;
   margin-top: -32px;
 
+  ${bps.down("md")} {
+    min-width: auto;
+    margin: -32px 16px 0px 16px;
+  }
+
   .formSubmitted {
     padding: 32px;
     margin-top: 42px;
+    text-align: center;
   }
 `
 
