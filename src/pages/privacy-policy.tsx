@@ -51,6 +51,17 @@ const StyledPrivacyContainer = styled.div`
 
 const PrivacyPolicy = () => {
   return (
+    <Layout>
+        <Helmet
+          htmlAttributes={{ lang: "en" }}
+          meta={[
+            {
+              name: "KintoHub",
+              content: "Privacy Policy",
+            },
+          ]}
+          title={"Privacy Policy"}
+        />
     <StyledPrivacyContainer>
       <MuiThemeProvider theme={textThemeDark}>
         <Header />
@@ -241,7 +252,7 @@ const PrivacyPolicy = () => {
         </Card>
         <VerticalSpacer size={100} />
       </MuiThemeProvider>
-    </StyledPrivacyContainer>
+    </StyledPrivacyContainer></Layout>
   )
 }
 

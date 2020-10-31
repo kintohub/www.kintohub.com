@@ -146,6 +146,7 @@ export default () => {
         </Grid>
       </div>
 
+      <VerticalSpacer size={16} />
       <Grid
         container
         direction="row"
@@ -205,7 +206,7 @@ export default () => {
           </Grid>
         </MuiThemeProvider>
       </Grid>
-      <VerticalSpacer size={16} />
+      <VerticalSpacer size={24} />
     </StyledDiv>
   )
 }

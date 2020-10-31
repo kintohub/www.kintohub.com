@@ -221,28 +221,15 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO
-          title="KintoHub - The best way to deploy fullstack apps"
-          keywords={[
-            `kintohub`,
-            `micro-services`,
-            `backend`,
-            `api`,
-            `deployment`,
-            `vercel`,
-            `render`,
-            `heroku`,
-          ]}
-        />
         <Helmet
           htmlAttributes={{ lang: "en" }}
           meta={[
             {
               name: "KintoHub",
-              content: "Sample page",
+              content: "Support",
             },
           ]}
-          title={"Kintohub"}
+          title={"Support"}
         />
 
         <NavBar />

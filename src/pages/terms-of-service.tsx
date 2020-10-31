@@ -53,6 +53,17 @@ const StyledTosContainer = styled.div`
 
 const TermsOfService = () => {
   return (
+    <Layout>
+      <Helmet
+          htmlAttributes={{ lang: "en" }}
+          meta={[
+            {
+              name: "KintoHub",
+              content: "Terms of Service",
+            },
+          ]}
+          title={"Terms of Service"}
+        />
     <StyledTosContainer>
       <MuiThemeProvider theme={textThemeDark}>
         <Header />
@@ -439,6 +450,7 @@ const TermsOfService = () => {
         <VerticalSpacer size={100} />
       </MuiThemeProvider>
     </StyledTosContainer>
+    </Layout>
   )
 }
 
