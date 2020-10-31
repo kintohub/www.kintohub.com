@@ -184,7 +184,7 @@ const StyledDiv = styled.div`
   height: auto;
   background-color: ${props => props.theme.palette.secondary.default};
   width: 100%;
-  padding:0px 16px;
+  padding: 0px 16px;
 
   a {
     text-decoration: none;
@@ -212,7 +212,7 @@ export default () => {
       <VerticalSpacer size={24} />
       <Typography align="center">
         <ActionButton
-        color="primary"
+          color="primary"
           variant="contained"
           startIcon={<MapIcon />}
           buttonTitle={"View Roadmap"}

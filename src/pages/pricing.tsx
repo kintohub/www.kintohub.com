@@ -224,11 +224,10 @@ const StyledExampleCard = styled.div`
   position: relative;
 
   ${bps.down("md")} {
-    margin:0px 36px 28px 36px;
-    max-width:600px;
-    width:auto;
+    margin: 0px 36px 28px 36px;
+    max-width: 600px;
+    width: auto;
   }
-
 
   .example-card-icon {
     margin: 8px 18px;
@@ -420,7 +419,13 @@ const PayAsYouGoExample = () => {
       <VerticalSpacer size={62} />
       <div className="example-card">
         <img src={PayAsYouGoBg} className="bg-wrapper" alt="background"></img>
-        <Grid container className="grid-container" direction="row" justify="center" alignItems="center">
+        <Grid
+          container
+          className="grid-container"
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
           <Grid item>
             <ExampleCard
               cardIcon={<WebRoundedIcon />}

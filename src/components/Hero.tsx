@@ -7,10 +7,7 @@ import ActionButton from "components/Button"
 import { TechStackCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import {
-  AutoGrowSpacer,
-  VerticalSpacer,
-} from "components/Spacer"
+import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import angular from "resources/icons/fe/angular.svg"
 import gatsby from "resources/icons/fe/gatsby.svg"
 import hugo from "resources/icons/fe/hugo.svg"

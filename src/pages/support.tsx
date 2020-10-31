@@ -14,10 +14,8 @@ import {
   MuiThemeProvider,
   Typography,
 } from "@material-ui/core"
-import TextField from "@material-ui/core/TextField/TextField"
-import ActionButton from "components/Button"
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
-import SendIcon from "@material-ui/icons/Send"
+import ContactForm from "components/Contact-from"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
@@ -52,92 +50,6 @@ const SupportHeader = () => {
   )
 }
 
-const StyledFormContainer = styled.div`
-  min-width: 500px;
-  height: auto;
-
-  ${bps.down("md")} {
-    min-width: auto;
-    margin: -32px 16px 0px 16px;
-  }
-
-  background-color: ${props => props.theme.palette.background.paper};
-  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  margin-top: -32px;
-
-  .form {
-    padding: 32px;
-  }
-`
-
-const ContactForm = () => {
-  return (
-    <StyledFormContainer>
-      <MuiThemeProvider theme={textThemeDark}>
-        <form noValidate autoComplete="off" className="form">
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="flex-start"
-          >
-            <TextField
-              id="outlined-basic"
-              label="Message Type"
-              variant="outlined"
-              fullWidth
-            />
-            <VerticalSpacer size={24} />
-            <TextField
-              id="outlined-basic"
-              label="First Name"
-              variant="outlined"
-              fullWidth
-            />
-            <VerticalSpacer size={24} />
-            <TextField
-              id="outlined-basic"
-              label="Laste Name"
-              variant="outlined"
-              fullWidth
-            />
-            <VerticalSpacer size={24} />
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              fullWidth
-            />
-            <VerticalSpacer size={24} />
-            <TextField
-              id="outlined-basic"
-              rows={6}
-              multiline
-              label="How can we help?"
-              variant="outlined"
-              fullWidth
-            />
-            <VerticalSpacer size={24} />
-            <ActionButton
-              color="primary"
-              buttonTitle={"Send Message"}
-              startIcon={<SendIcon />}
-              variant="contained"
-            />
-            <VerticalSpacer size={24} />
-            <Typography align="left" variant="subtitle2" color="textSecondary">
-              Make sure the email is correct so we can reach you.
-              <div>Usually we respond within 24 hours.</div>
-            </Typography>
-          </Grid>
-        </form>
-      </MuiThemeProvider>
-    </StyledFormContainer>
-  )
-}
-
 const StyledExploreOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -146,7 +58,7 @@ const StyledExploreOptionsContainer = styled.div`
   height: auto;
   width: 100%;
   overflow: hidden;
-  margin-left:16px;
+  margin-left: 16px;
 
   a {
     text-decoration: none;
@@ -159,7 +71,7 @@ const StyledExploreOptionsContainer = styled.div`
   }
 
   ${bps.down("md")} {
-    max-width:600px;
+    max-width: 600px;
     width: auto;
   }
 
@@ -271,7 +183,7 @@ const ExploreOptions = () => {
 const StyledContactUsBodyContainer = styled.div`
   width: 100%;
   height: auto;
-  padding:0 24px;
+  padding: 0 24px;
   .contact {
     align-items: flex-start;
     flex-direction: row;
