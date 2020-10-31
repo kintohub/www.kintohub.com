@@ -97,8 +97,8 @@ export default (data: any) => {
     ],
 
     context: {
-      pageUri: window.location.href,
-      pageName: window.location.pathname,
+      pageUri: location.href,
+      pageName: location.pathname,
     },
   }
 
