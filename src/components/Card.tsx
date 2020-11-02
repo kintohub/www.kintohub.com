@@ -49,24 +49,24 @@ const StyledTechStackCard = styled(Card)`
   }
 `
 
-type TechStackCardprops = {
-  TechStackTitle?: string
-  TechStackDescription?: string
-  Category?: string
-  AvatarSrc?: string[]
+type TechStackCardProps = {
+  techStackTitle: string
+  techStackDescription: string
+  category: string
+  avatarSrc: string[]
 }
 
 const TechStackCard = ({
-  TechStackTitle,
-  TechStackDescription,
-  Category,
-  AvatarSrc,
-}: TechStackCardprops) => (
+  techStackTitle,
+  techStackDescription,
+  category,
+  avatarSrc,
+}: TechStackCardProps) => (
   <StyledTechStackCard>
     <MuiThemeProvider theme={textThemeDark}>
       <CardContent>
         <Typography variant="h3" color="textPrimary" align="center">
-          {TechStackTitle}
+          {techStackTitle}
         </Typography>
         <VerticalSpacer size={10} />
         <div className="pill-wrapper">
@@ -74,11 +74,11 @@ const TechStackCard = ({
         </div>
         <VerticalSpacer size={10} />
         <Typography variant="body2" color="textSecondary" align="left">
-          {TechStackDescription}
+          {techStackDescription}
         </Typography>
         <VerticalSpacer size={10} />
         <Typography variant="overline" color="textSecondary" align="left">
-          {Category}
+          {category}
         </Typography>
         <VerticalSpacer size={12} />
 
@@ -88,8 +88,8 @@ const TechStackCard = ({
           justify="flex-start"
           alignItems="center"
         >
-          {AvatarSrc &&
-            AvatarSrc.map((item, index) => (
+          {avatarSrc &&
+            avatarSrc.map((item, index) => (
               <Avatar
                 className="avatar"
                 variant="square"

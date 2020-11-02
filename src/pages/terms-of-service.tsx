@@ -1,13 +1,10 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
-import Hero from "components/Hero"
-import CallToAction from "components/Calltoaction"
-import SEO from "components/seo"
+import SEO from "components/Seo"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "components/Layout"
-import Grid from "@material-ui/core/Grid/Grid"
 import { Card, MuiThemeProvider, Typography } from "@material-ui/core"
 import { VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
@@ -54,15 +51,9 @@ const StyledTosContainer = styled.div`
 const TermsOfService = () => {
   return (
     <Layout>
-      <Helmet
-        htmlAttributes={{ lang: "en" }}
-        meta={[
-          {
-            name: "KintoHub",
-            content: "Terms of Service",
-          },
-        ]}
-        title={"Terms of Service"}
+      <SEO
+        title="Terms Of Service"
+        keywords={[`kintohub`, `terms of service`, `TOS`]}
       />
       <StyledTosContainer>
         <MuiThemeProvider theme={textThemeDark}>

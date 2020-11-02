@@ -1,6 +1,6 @@
 import Footer from "components/Footer"
 import CallToAction from "components/Calltoaction"
-import SEO from "components/seo"
+import SEO from "components/Seo"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
@@ -497,16 +497,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet
-          htmlAttributes={{ lang: "en" }}
-          meta={[
-            {
-              name: "KintoHub",
-              content: "Pricing",
-            },
-          ]}
-          title={"Pricing"}
-        />
+        <SEO title="Pricing " keywords={[`kintohub`, `pricing`]} />
         <NavBar />
         <PricingHero />
         <PricingDetail />

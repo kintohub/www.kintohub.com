@@ -128,32 +128,32 @@ export default () => {
       >
         <Grid item>
           <TechStackCard
-            TechStackTitle={"Frontend"}
-            TechStackDescription={
+            techStackTitle={"Frontend"}
+            techStackDescription={
               "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
             }
-            Category={"popular frameworks"}
-            AvatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
+            category={"popular frameworks"}
+            avatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
           />
         </Grid>
         <Grid item>
           <TechStackCard
-            TechStackTitle={"Backend"}
-            TechStackDescription={
+            techStackTitle={"Backend"}
+            techStackDescription={
               "Scale APIs, consume messages with background workers or create repeatable jobs."
             }
-            Category={"popular Languages"}
-            AvatarSrc={[docker, node, golang, ruby, python, more]}
+            category={"popular Languages"}
+            avatarSrc={[docker, node, golang, ruby, python, more]}
           />
         </Grid>
         <Grid item>
           <TechStackCard
-            TechStackTitle={"Data & Storage"}
-            TechStackDescription={
+            techStackTitle={"Data & Storage"}
+            techStackDescription={
               "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
             }
-            Category={"popular catalogs"}
-            AvatarSrc={[mongo, postgresql, mysql, redis]}
+            category={"popular catalogs"}
+            avatarSrc={[mongo, postgresql, mysql, redis]}
           />
         </Grid>
       </Grid>

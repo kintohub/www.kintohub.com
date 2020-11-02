@@ -43,7 +43,6 @@ const StyledFormSubmitContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 500px;
-  height: 679px;
 
   background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),

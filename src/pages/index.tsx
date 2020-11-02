@@ -2,7 +2,7 @@ import Footer from "components/Footer"
 import NavBar from "components/NavBar"
 import Hero from "components/Hero"
 import CallToAction from "components/Calltoaction"
-import SEO from "components/seo"
+import SEO from "components/Seo"
 import Testimonial from "components/Testimonial"
 import React from "react"
 import Helmet from "react-helmet"
@@ -151,15 +151,17 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet
-          htmlAttributes={{ lang: "en" }}
-          meta={[
-            {
-              name: "KintoHub",
-              content: "KintoHub",
-            },
+        <SEO
+          keywords={[
+            `kintohub`,
+            `micro-services`,
+            `backend`,
+            `api`,
+            `deployment`,
+            `vercel`,
+            `render`,
+            `heroku`,
           ]}
-          title={"KintoHub - A Modern Fullstack App Platform"}
         />
         <NavBar />
         <Hero />

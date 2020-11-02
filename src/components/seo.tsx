@@ -12,11 +12,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import sharingImage from "resources/logo/share.png"
 
 type SeoProps = {
-  description: any
-  lang: any
-  meta: any
-  keywords: any
-  title: any
+  description?: string
+  lang?: string
+  meta: HTMLMetaElement[]
+  keywords: string[]
+  title?: string
 }
 
 function SEO({ description, lang, meta, keywords, title }: SeoProps) {
@@ -35,6 +35,13 @@ function SEO({ description, lang, meta, keywords, title }: SeoProps) {
     `
   )
 
+  const getTitle = () => {
+    if (!title) {
+      return `${site.siteMetadata.title}`
+    } else {
+      return `${title} | ${site.siteMetadata.title}`
+    }
+  }
   const metaDescription = description || site.siteMetadata.description
 
   return (
@@ -42,7 +49,7 @@ function SEO({ description, lang, meta, keywords, title }: SeoProps) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={`${getTitle()}`}
       titleTemplate={`%s`}
       script={[
         {

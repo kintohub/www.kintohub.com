@@ -60,33 +60,33 @@ const StyledVideoTabContainer = styled.div`
   }
 `
 
-const VideoTab = () => {
-  const tabData = [
-    {
-      id: "1",
-      name: "Custom Resources",
-      info:
-        "Scale down to a single shared 32 Mb instance or up multi-instance, multi-CPU workloads.",
-      icon: <TuneRoundedIcon />,
-      src: CustomResourceVid,
-    },
-    {
-      id: "2",
-      name: "Sleep Mode",
-      info:
-        "Experience true cost savings with dev environments that automatically sleep when they are not in use!",
-      icon: <SnoozeRoundedIcon />,
-      src: SleepModeVid,
-    },
-    {
-      id: "3",
-      name: "Transparent Billing",
-      info: "Understand your maximum monthly cost before deploying anything!",
-      icon: <CreditCardRoundedIcon />,
-      src: BillingVid,
-    },
-  ]
+const tabData = [
+  {
+    id: 1,
+    name: "Custom Resources",
+    info:
+      "Scale down to a single shared 32 Mb instance or up multi-instance, multi-CPU workloads.",
+    icon: <TuneRoundedIcon />,
+    src: CustomResourceVid,
+  },
+  {
+    id: 2,
+    name: "Sleep Mode",
+    info:
+      "Experience true cost savings with dev environments that automatically sleep when they are not in use!",
+    icon: <SnoozeRoundedIcon />,
+    src: SleepModeVid,
+  },
+  {
+    id: 3,
+    name: "Transparent Billing",
+    info: "Understand your maximum monthly cost before deploying anything!",
+    icon: <CreditCardRoundedIcon />,
+    src: BillingVid,
+  },
+]
 
+const VideoTab = () => {
   const [tabIndex, setTabIndex] = useState(0)
 
   const handleClick = (index: any) => {
@@ -124,7 +124,7 @@ const VideoTab = () => {
                           <SvgIcon
                             key={item.id}
                             className={
-                              index == Number(tabData[tabIndex].id) - 1
+                              index == tabData[tabIndex].id - 1
                                 ? "activeIcon"
                                 : "disabledIcon"
                             }

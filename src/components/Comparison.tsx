@@ -39,10 +39,10 @@ const StyledTableCell = styled(TableCell)`
 const ComparisonTable = () => {
   function createData(
     Features: string,
-    KintoHub: any,
-    Heroku: any,
-    Netlify: any,
-    Vercel: any
+    KintoHub: React.ReactNode,
+    Heroku: React.ReactNode,
+    Netlify: React.ReactNode,
+    Vercel: React.ReactNode
   ) {
     return { Features, KintoHub, Heroku, Netlify, Vercel }
   }

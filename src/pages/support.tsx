@@ -2,7 +2,6 @@ import Footer from "components/Footer"
 import NavBar from "components/NavBar"
 import CallToAction from "components/Calltoaction"
 import React from "react"
-import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "components/Layout"
 import HeroBg from "resources/background/contact_compressed.svg"
@@ -20,6 +19,7 @@ import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
+import SEO from "components/Seo"
 
 const StyledHeaderContainer = styled.div`
   width: 100%;
@@ -220,15 +220,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet
-          htmlAttributes={{ lang: "en" }}
-          meta={[
-            {
-              name: "KintoHub",
-              content: "Support",
-            },
-          ]}
-          title={"Support"}
+        <SEO
+          title="Support"
+          keywords={[`kintohub`, `contact`, `support`, `correspondance`]}
         />
 
         <NavBar />

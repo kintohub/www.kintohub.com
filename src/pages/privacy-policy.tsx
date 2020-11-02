@@ -1,11 +1,10 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
-import SEO from "components/seo"
+import SEO from "components/Seo"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
 import Layout from "components/Layout"
-import Grid from "@material-ui/core/Grid/Grid"
 import { Card, MuiThemeProvider, Typography } from "@material-ui/core"
 import { VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
@@ -52,16 +51,7 @@ const StyledPrivacyContainer = styled.div`
 const PrivacyPolicy = () => {
   return (
     <Layout>
-      <Helmet
-        htmlAttributes={{ lang: "en" }}
-        meta={[
-          {
-            name: "KintoHub",
-            content: "Privacy Policy",
-          },
-        ]}
-        title={"Privacy Policy"}
-      />
+      <SEO title="Privacy Policy" keywords={[`kintohub`, `privacy policy`]} />
       <StyledPrivacyContainer>
         <MuiThemeProvider theme={textThemeDark}>
           <Header />
