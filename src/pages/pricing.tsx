@@ -1,6 +1,6 @@
 import Footer from "components/Footer"
 import CallToAction from "components/Calltoaction"
-import SEO from "components/Seo"
+import SEO from "components/seo"
 import React from "react"
 import styled from "styled-components"
 import Layout from "components/Layout"

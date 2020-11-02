@@ -19,7 +19,7 @@ import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
-import SEO from "components/Seo"
+import SEO from "components/seo"
 
 const StyledHeaderContainer = styled.div`
   width: 100%;

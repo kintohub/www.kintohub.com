@@ -1,6 +1,6 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
-import SEO from "components/Seo"
+import SEO from "components/seo"
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
