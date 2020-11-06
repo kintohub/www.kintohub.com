@@ -12,7 +12,7 @@ import { bps, textThemeDark } from "theme/index"
 const StyledHeader = styled.div`
   width: 100%;
   height: 400px;
-  background-color: ${props => props.theme.palette.primary.dark};
+  background-color: ${props => props.theme.palette.primary.light};
 `
 const Header = () => {
   return (

@@ -10,14 +10,14 @@ export const bps = createBreakpoints({})
 
 const palette: PaletteOptions = {
   primary: {
-    light: "rgb(122, 104, 232)",
+    light: "#0e1949",
     main: "#6200ee",
-    dark: "#0e1949;",
-    contrastText: "#edf3fd",
+    dark: "#7F39FB",
+    contrastText: "#f0f3f7",
   },
   secondary: {
     main: "#ffffff",
-    light: "#f1f1f1",
+    light: "#F7F9FF",
     dark: "#717275",
     contrastText: "#000",
   },
@@ -87,6 +87,8 @@ export const typography = {
     fontFamily: bodyFontFamily,
     fontSize: 14,
     letterSpacing: 0.25,
+    fontWeight: 400,
+
   },
   body1: {
     fontFamily: bodyFontFamily,
@@ -128,6 +130,11 @@ export const textThemeDark = createMuiTheme({
       fontFamily: headingFontFamily,
       fontSize: 34,
       fontWeight: 300,
+    },
+    h2: {
+      fontFamily: headingFontFamily,
+      fontSize: 34,
+      fontWeight: 500,
     },
   },
   palette: createPalette({

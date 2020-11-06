@@ -16,8 +16,8 @@ const StyledDiv = styled.div`
   flex-direction: column;
   background-image: url(${TestimonialBg});
 
-  span {
-    color: ${props => props.theme.palette.primary.main};
+  a {
+    color: ${props => props.theme.palette.primary.dark};
   }
 
   ${bps.down("md")} {
@@ -39,11 +39,11 @@ export default () => {
           Built for <b>developers</b> like you
         </Typography>
         <VerticalSpacer size={12} />
-        <Typography align="center" variant="body2" color="textSecondary">
+        <Typography align="center" variant="body1" color="textSecondary">
           Real responses from our{" "}
           <span>
             <a target="_blank" href="https://kintohub.com/discord">
-              <b> Discord support</b>
+              Discord support
             </a>
           </span>{" "}
           channel from our members.

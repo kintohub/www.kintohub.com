@@ -34,6 +34,7 @@ const StyledTechStackCard = styled(Card)`
     width: 30px;
     height: 30px;
     margin-right: 9px;
+    opacity: 50%;
   }
 
   .pill-wrapper {
@@ -45,7 +46,18 @@ const StyledTechStackCard = styled(Card)`
     height: 4px;
     border-radius: 16px;
     text-align: center;
-    background-color: ${props => props.theme.palette.primary.main};
+  }
+
+  .green {
+    background-color: #a1d566;
+  }
+
+  .blue {
+    background-color: #4dd4e5;
+  }
+
+  .yellow {
+    background-color: #f7b500;
   }
 `
 
@@ -53,6 +65,7 @@ type TechStackCardProps = {
   techStackTitle: string
   techStackDescription: string
   category: string
+  chipColor: string
   avatarSrc: string[]
 }
 
@@ -60,6 +73,7 @@ const TechStackCard = ({
   techStackTitle,
   techStackDescription,
   category,
+  chipColor,
   avatarSrc,
 }: TechStackCardProps) => (
   <StyledTechStackCard>
@@ -70,7 +84,7 @@ const TechStackCard = ({
         </Typography>
         <VerticalSpacer size={10} />
         <div className="pill-wrapper">
-          <Chip className="pill" />
+          <Chip className={`pill ${chipColor}`} />
         </div>
         <VerticalSpacer size={10} />
         <Typography variant="body2" color="textSecondary" align="left">
@@ -108,7 +122,7 @@ const StyledTestimonialCard = styled(Card)`
   width: 350px;
   height: 240px;
   margin: 16px;
-  padding: 0px 20px;
+  padding: 16px 20px 0px 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -144,7 +158,7 @@ const TestimonialCard = ({
       <VerticalSpacer size={16} />
       <Avatar className="avatar">{avatarText}</Avatar>
       <VerticalSpacer size={18} />
-      <Typography align="center" variant="body1" color="textPrimary">
+      <Typography align="left" variant="body1" color="textPrimary">
         {testimonialText}
       </Typography>
       <VerticalSpacer size={18} />

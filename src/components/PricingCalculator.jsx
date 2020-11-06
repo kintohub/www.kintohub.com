@@ -27,18 +27,19 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   ${bps.down("md")} {
-    width: 90%;
+    width: 100%;
   }
   a {
     text-decoration: none;
   }
 
   .icon {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     margin-right: 8px;
   }
   .card {
+    padding:8px 16px;
     border-radius: 12px;
     position: relative;
     min-width: 1180px;
@@ -73,12 +74,10 @@ const StyledDiv = styled.div`
             props.theme.palette.secondary.main
           )};
       }
-      padding: 16px;
 
       .row {
         width: 100%;
         display: flex;
-        padding: 0px 22px;
         flex-direction: row;
         justify-content: start;
       }
@@ -101,6 +100,10 @@ const StyledDiv = styled.div`
     }
     .wrapper {
       position: relative;
+    }
+
+    .free-resource-text {
+      color: #bb86fc;
     }
   }
 
@@ -126,7 +129,6 @@ const renderService = (Icon, text, color) => {
       <Icon className="icon" color={color || "inherit"} />
       <SizedHBox size={8} />
       <Typography variant="h6" color="secondary">
-        {" "}
         {text}
       </Typography>
     </div>
@@ -309,6 +311,7 @@ export default () => {
                 <Hidden smDown>
                   <Grid item md={3}>
                     <ActionButton
+                      className="reset-button"
                       buttonTitle={"Reset All"}
                       startIcon={<RotateLeftRoundedIcon />}
                       color="primary"
@@ -320,9 +323,8 @@ export default () => {
                   </Grid>
                 </Hidden>
                 <Grid item container md={9}>
-                  {" "}
                   <RightColumns>
-                    <Typography variant="h4" color="textPrimary">
+                    <Typography variant="h5" color="textPrimary">
                       Pay-as-you-go Calculator
                     </Typography>
 
@@ -341,9 +343,7 @@ export default () => {
                 </Grid>
                 <Grid item container md={9}>
                   <RightColumns>
-                    <Typography variant="h6">
-                      Includes Password Protection, SSL, CDN
-                    </Typography>
+                    <Typography variant="h6"></Typography>
                     <Typography variant="h6">Free</Typography>
                   </RightColumns>
                 </Grid>
@@ -463,7 +463,7 @@ export default () => {
                         </a>
                       </Typography>
                       <Typography color="primary" variant="h6">
-                        -$5.00
+                        <span className="free-resource-text"> -$5.00</span>
                       </Typography>
                     </RightColumns>
                     <SizedVBox size={12} />

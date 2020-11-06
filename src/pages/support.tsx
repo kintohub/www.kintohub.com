@@ -1,10 +1,10 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
-import CallToAction from "components/Calltoaction"
+import ActionButton from "components/Button"
 import React from "react"
 import styled from "styled-components"
 import Layout from "components/Layout"
-import HeroBg from "resources/background/contact_compressed.svg"
+import HeroBg from "resources/background/contact.svg"
 import {
   Divider,
   Grid,
@@ -31,6 +31,10 @@ const StyledHeaderContainer = styled.div`
   flex-direction: column;
   text-align: center;
   padding: 0px 16px;
+
+  a {
+    color: ${props => props.theme.palette.primary.dark};
+  }
 `
 const SupportHeader = () => {
   return (
@@ -41,8 +45,12 @@ const SupportHeader = () => {
       </Typography>
       <VerticalSpacer size={16} />
       <Typography variant="body2" color="textSecondary" align="center">
-        Let us know how we can help. If you need support, it’s best to join our
-        Discord to chat with our developers.
+        Let us know how we can help. If you need support, it’s best to{" "}
+        <span>
+          {" "}
+          <a href="https://kintohub.com/discord">join our Discord</a>{" "}
+        </span>{" "}
+        to chat with our developers.
       </Typography>
       <VerticalSpacer size={96} />
     </StyledHeaderContainer>
@@ -216,6 +224,42 @@ const ContactUsBody = () => {
   )
 }
 
+const StyledCallToActionContainer = styled.div`
+  width: 100%;
+  height: auto;
+  align-items: center;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  background-color: #06002d;
+`
+const CallToAction = () => {
+  return (
+    <StyledCallToActionContainer>
+      <VerticalSpacer size={64} />
+      <Typography align="center" variant="h2" color="textPrimary">
+        The best way to deploy full stack apps
+      </Typography>
+      <VerticalSpacer size={12} />
+      <Typography variant="body1" align="center" color="textPrimary">
+        Deploy for free. No CC required.
+      </Typography>
+      <VerticalSpacer size={40} />
+
+      <ActionButton
+        color="primary"
+        variant={"contained"}
+        startIcon={<PowerSettingsNewIcon />}
+        buttonTitle={"Try for Free"}
+        link={"https://app.kintohub.com/auth/sign-up"}
+      />
+
+      <VerticalSpacer size={75} />
+    </StyledCallToActionContainer>
+  )
+}
+
 class HomePage extends React.Component {
   render() {
     return (
@@ -228,13 +272,7 @@ class HomePage extends React.Component {
         <NavBar />
         <SupportHeader />
         <ContactUsBody />
-        <CallToAction
-          title={"The best way to deploy full stack apps"}
-          subtitle={"Deploy for free. No CC required."}
-          buttonTitle={"Try for Free"}
-          buttonIcon={PowerSettingsNewIcon}
-          variant="contained"
-        />
+        <CallToAction />
         <Footer />
       </Layout>
     )

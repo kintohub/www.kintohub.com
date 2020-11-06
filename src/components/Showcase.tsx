@@ -7,6 +7,8 @@ import {
   MuiThemeProvider,
   SvgIcon,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid/Grid"
 import { bps, textThemeDark } from "theme/index"
@@ -19,6 +21,37 @@ import BillingVid from "resources/video/billing.gif"
 import SleepModeVid from "resources/video/sleep_mode.gif"
 import ActionButton from "components/Button"
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
+import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress"
+
+const StyledVideoProgress = styled.div`
+  height: 2px;
+`
+
+const VideoProgress = () => {
+  const [progress, setProgress] = React.useState(0)
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(oldProgress => {
+        if (oldProgress === 100) {
+          return -15
+        }
+        const diff = 3
+        return Math.min(oldProgress + diff, 100)
+      })
+    }, 215)
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
+  return (
+    <StyledVideoProgress>
+      <LinearProgress variant="determinate" value={progress} />
+    </StyledVideoProgress>
+  )
+}
 
 const StyledVideoTabContainer = styled.div`
   background-color: ${props => props.theme.palette.background.paper};
@@ -39,8 +72,13 @@ const StyledVideoTabContainer = styled.div`
     max-width: 400px;
   }
 
-  .pricing-btn {
-    margin-left: 20px;
+  .progressBar {
+    height: 3px;
+    border-radius: 8px;
+  }
+
+  .disabled {
+    display: none;
   }
 
   .videoSrc {
@@ -68,6 +106,7 @@ const tabData = [
       "Scale down to a single shared 32 Mb instance or up multi-instance, multi-CPU workloads.",
     icon: <TuneRoundedIcon />,
     src: CustomResourceVid,
+    srcLength: Number(11),
   },
   {
     id: 2,
@@ -76,6 +115,7 @@ const tabData = [
       "Experience true cost savings with dev environments that automatically sleep when they are not in use!",
     icon: <SnoozeRoundedIcon />,
     src: SleepModeVid,
+    srcLength: Number(7),
   },
   {
     id: 3,
@@ -83,6 +123,7 @@ const tabData = [
     info: "Understand your maximum monthly cost before deploying anything!",
     icon: <CreditCardRoundedIcon />,
     src: BillingVid,
+    srcLength: Number(11),
   },
 ]
 
@@ -92,6 +133,11 @@ const VideoTab = () => {
   const handleClick = (index: any) => {
     setTabIndex(index)
   }
+
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
+    defaultMatches: true,
+  })
 
   return (
     <StyledVideoTabContainer>
@@ -143,6 +189,13 @@ const VideoTab = () => {
                           <VerticalSpacer size={20} />
                         </Grid>
                       </Grid>
+                      <div
+                        className={
+                          index == tabData[tabIndex].id - 1 ? "" : "disabled"
+                        }
+                      >
+                        <VideoProgress />
+                      </div>
                       <Divider />
                     </Grid>
                   </Grid>
@@ -150,24 +203,29 @@ const VideoTab = () => {
               </Card>
             ))}
             <VerticalSpacer size={20} />
-            <ActionButton
-              buttonTitle={"Start Free"}
-              variant="contained"
-              color="primary"
-              startIcon={<PowerSettingsNewRoundedIcon />}
-              link={"https://app.kintohub.com/auth/sign-up"}
-            />
-            <ActionButton
-              className="pricing-btn"
-              buttonTitle={"See Pricing"}
-              variant="outlined"
-              color="primary"
-              link={"/pricing"}
-            />
-            <VerticalSpacer size={40} />
+
+            <Grid container justify={isMobile ? "center" : "flex-start"}>
+              <ActionButton
+                buttonTitle={"Start Free"}
+                variant="contained"
+                color="primary"
+                startIcon={<PowerSettingsNewRoundedIcon />}
+                link={"https://app.kintohub.com/auth/sign-up"}
+              />
+              <AutoGrowSpacer size={0.1} />
+              <ActionButton
+                className="pricing-btn"
+                buttonTitle={"See Pricing"}
+                variant="outlined"
+                color="primary"
+                link={"/pricing"}
+              />
+            </Grid>
+
+            <VerticalSpacer size={50} />
           </Grid>
 
-          <AutoGrowSpacer size={0.05} />
+          <AutoGrowSpacer size={0.1} />
 
           <Grid item>
             <img

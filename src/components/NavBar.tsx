@@ -13,11 +13,12 @@ import Typography from "@material-ui/core/Typography/Typography"
 import KintoBlackLogo from "resources/logo/black.svg"
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import ActionButton from "components/Button"
 import KintoWhiteLogo from "resources/logo/white.svg"
 import {
   AutoExpandSpacer,
+  AutoGrowSpacer,
   HorizontalSpacer,
   VerticalSpacer,
 } from "components/Spacer"
@@ -39,13 +40,8 @@ const StyledNavContainer = styled.div`
     a {
       color: ${props => props.theme.palette.text.hint};
     }
-  }
-
-  .Nav {
-    z-index: 10;
-    background-color: ${props => props.theme.palette.primary.main};
-    a {
-      color: ${props => props.theme.palette.text.hint};
+    a:hover {
+      color: ${props => props.theme.palette.primary.dark};
     }
   }
 
@@ -55,6 +51,9 @@ const StyledNavContainer = styled.div`
     box-shadow: none;
     a {
       color: ${props => props.theme.palette.text.primary};
+    }
+    a:hover {
+      color: ${props => props.theme.palette.primary.dark};
     }
   }
 
@@ -106,12 +105,17 @@ const StyledNavContainer = styled.div`
   .mobile-logo {
     position: absolute;
     display: inline-block;
-    top: 25px;
-    left: 25px;
+    top: 20px;
+    left: 20px;
   }
 
   .menu-item {
     display: inline-flex;
+    padding: 8px 0px;
+  }
+
+  .menu-item-icon {
+    color: ${props => props.theme.palette.secondary.dark};
   }
 
   .open {
@@ -119,6 +123,10 @@ const StyledNavContainer = styled.div`
   }
   .closed {
     width: 0%;
+  }
+
+  .desktop-nav-container {
+    margin: 0 auto;
   }
 `
 
@@ -128,6 +136,12 @@ interface Props {
 
 export default (props: Props) => {
   const { window } = props
+  const isBrowser = () => typeof window !== "undefined"
+  if (isBrowser() && location.pathname) {
+    navigate(location.pathname)
+  }
+
+  
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 50,
@@ -146,22 +160,22 @@ export default (props: Props) => {
   return (
     <StyledNavContainer>
       <Hidden mdUp>
-        <AppBar className={trigger ? "solidNav fade" : "Nav fade"}>
+        <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
           <Toolbar>
             <Box>
-              <MenuRoundedIcon
-                color={trigger ? "primary" : "secondary"}
-                onClick={openNav}
-              />
-            </Box>
-
-            <Box mx="auto">
               <Link to="/" activeClassName="active">
                 <img
                   src={trigger ? KintoBlackLogo : KintoWhiteLogo}
                   alt="logo"
                 />
               </Link>
+            </Box>
+            <AutoExpandSpacer />
+            <Box>
+              <MenuRoundedIcon
+                color={trigger ? "primary" : "secondary"}
+                onClick={openNav}
+              />
             </Box>
           </Toolbar>
         </AppBar>
@@ -189,11 +203,11 @@ export default (props: Props) => {
             <VerticalSpacer size={32} />
             <List>
               <ListItem button className="menu-item">
-                <Typography variant="subtitle1" color="textPrimary">
+                <Typography variant="subtitle1" className="menu-item-icon">
                   <Link to="/">Home</Link>
                 </Typography>
                 <AutoExpandSpacer />
-                <HomeRoundedIcon color="primary" />
+                <HomeRoundedIcon className="menu-item-icon" />
               </ListItem>
               <Divider />
               <ListItem button className="menu-item">
@@ -201,7 +215,7 @@ export default (props: Props) => {
                   <Link to="/pricing">Pricing</Link>
                 </Typography>
                 <AutoExpandSpacer />
-                <TuneRoundedIcon color="primary" />
+                <TuneRoundedIcon className="menu-item-icon" />
               </ListItem>
               <Divider />
               <ListItem button className="menu-item">
@@ -209,7 +223,7 @@ export default (props: Props) => {
                   <a href="https://docs.kintohub.com">Documentation</a>
                 </Typography>
                 <AutoExpandSpacer />
-                <LibraryBooksRoundedIcon color="primary" />
+                <LibraryBooksRoundedIcon className="menu-item-icon" />
               </ListItem>
               <Divider />
               <ListItem button className="menu-item">
@@ -217,7 +231,7 @@ export default (props: Props) => {
                   <Link to="/support">Support</Link>
                 </Typography>
                 <AutoExpandSpacer />
-                <MailRoundedIcon color="primary" />
+                <MailRoundedIcon className="menu-item-icon" />
               </ListItem>
               <Divider />
             </List>
@@ -227,57 +241,53 @@ export default (props: Props) => {
       <Hidden smDown>
         <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
           <Toolbar>
-            <Grid container alignItems="center" justify="center">
-              <Box mx="auto">
+            <Grid
+              container
+              direction="row"
+              justify="space-evenly"
+              alignItems="center"
+            >
+              <Grid>
                 <Link to="/" activeClassName="active">
                   <img
                     src={trigger ? KintoBlackLogo : KintoWhiteLogo}
                     alt="logo"
                   />
                 </Link>
-              </Box>
-              <Box mx="auto">
-                <Grid container>
-                  <HorizontalSpacer size={28} />
-                  <Box>
+              </Grid>
+              <Grid>
+                <Box mx={-10}>
+                  <Grid container>
                     <Link to="/pricing" activeClassName="active">
                       <Typography variant="subtitle2">Pricing</Typography>
                     </Link>
-                  </Box>
-                  <HorizontalSpacer size={28} />
-                  <Box>
+                    <HorizontalSpacer size={24} />
                     <a href="https://docs.kintohub.com">
                       <Typography variant="subtitle2">Docs</Typography>
                     </a>
-                  </Box>
-                  <HorizontalSpacer size={28} />
-                  <Box>
+                    <HorizontalSpacer size={24} />
                     <Link to="/support" activeClassName="active">
                       <Typography variant="subtitle2">Support</Typography>
                     </Link>
-                  </Box>
-                </Grid>
-              </Box>
-              <Box mx="auto">
-                <Grid container>
-                  <Box>
-                    <ActionButton
-                      color="inherit"
-                      buttonTitle={"Login"}
-                      link={"https://app.kintohub.com/auth/login"}
-                    />
-                  </Box>
+                  </Grid>
+                </Box>
+              </Grid>
+              <Grid>
+                <Grid container direction="row">
+                  <ActionButton
+                    color="inherit"
+                    buttonTitle={"Login"}
+                    link={"https://app.kintohub.com/auth/login"}
+                  />
                   <HorizontalSpacer size={16} />
-                  <Box>
-                    <ActionButton
-                      color="primary"
-                      variant="contained"
-                      buttonTitle={"Signup Free"}
-                      link={"https://app.kintohub.com/auth/sign-up"}
-                    />
-                  </Box>
+                  <ActionButton
+                    color="primary"
+                    variant="contained"
+                    buttonTitle={"Signup Free"}
+                    link={"https://app.kintohub.com/auth/sign-up"}
+                  />
                 </Grid>
-              </Box>
+              </Grid>
             </Grid>
           </Toolbar>
         </AppBar>

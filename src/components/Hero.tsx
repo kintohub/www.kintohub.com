@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import HeroBgMobile from "resources/background/landing_mobile.webp"
-import HeroBgDesktop from "resources/background/landing_desktop.png"
-import { Typography } from "@material-ui/core"
+import HeroBgMobile from "resources/background/landing_mobile.svg"
+import HeroBgDesktop from "resources/background/landing_desktop.svg"
+import { MuiThemeProvider, Typography } from "@material-ui/core"
 import ActionButton from "components/Button"
 import { TechStackCard } from "components/Card"
 import Grid from "@material-ui/core/Grid/Grid"
@@ -20,30 +20,37 @@ import golang from "resources/icons/be/golang.svg"
 import node from "resources/icons/be/node.svg"
 import python from "resources/icons/be/python.svg"
 import ruby from "resources/icons/be/ruby.svg"
+import rust from "resources/icons/be/rust.svg"
 import mongo from "resources/icons/catalog/mongo.svg"
+import minio from "resources/icons/catalog/minio.svg"
 import mysql from "resources/icons/catalog/mysql.svg"
 import postgresql from "resources/icons/catalog/postgresql.svg"
 import redis from "resources/icons/catalog/redis.svg"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
-import { bps } from "theme"
+import { bps, textThemeDark } from "theme"
 import Hidden from "@material-ui/core/Hidden/Hidden"
 import Box from "@material-ui/core/Box/Box"
+import WhiteSlantBg from "resources/background/white-slant.svg"
 
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  background: url(${HeroBgDesktop}) no-repeat center center fixed;
+  z-index: 9;
+  background: url(${HeroBgDesktop}) no-repeat top center fixed;
+  background-size: cover;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   padding: 0px 16px;
+  position: relative;
   background-color: ${props => props.theme.palette.background.paper};
 
   ${bps.down("xs")} {
-    background-size: 80% 100%;
-    background-position: center;
-    background: url(${HeroBgMobile}) no-repeat;
+    background-size: 100%;
+    margin-top: -1px;
+    background: url(${HeroBgMobile}) no-repeat top center;
     background-color: ${props => props.theme.palette.background.paper};
   }
 
@@ -51,11 +58,16 @@ const StyledDiv = styled.div`
     font-size: 60px;
     max-width: 764px;
     font-weight: 500;
+    color: ${props => props.theme.palette.text.primary};
+  }
+
+  .mobile {
+    font-size: 46px;
   }
 
   a {
     text-decoration: none;
-    color: ${props => props.theme.palette.primary.light};
+    color: ${props => props.theme.palette.primary.dark};
   }
 
   .grid-container {
@@ -76,10 +88,18 @@ const StyledDiv = styled.div`
     width: 30px;
     height: 30px;
     margin-right: 16px;
-    color: ${props => props.theme.palette.common.white};
-    ${bps.down("xs")} {
-      color: ${props => props.theme.palette.common.black};
-    }
+    opacity: 50%;
+    color: ${props => props.theme.palette.common.black};
+  }
+
+  .white-slant-bg-wrapper {
+    background: url(${WhiteSlantBg}) no-repeat center;
+    height: 560px;
+    z-index: -1;
+    bottom: -80px;
+    position: absolute;
+    width: 100vw;
+    background-size: cover;
   }
 `
 
@@ -88,14 +108,16 @@ export default () => {
     <StyledDiv>
       <Hidden smDown>
         <VerticalSpacer size={200} />
+        <Typography align="center" className="heading">
+          The best way to deploy fullstack apps
+        </Typography>
       </Hidden>
       <Hidden mdUp>
         <VerticalSpacer size={100} />
+        <Typography align="center" className="heading mobile">
+          The best way to deploy fullstack apps
+        </Typography>
       </Hidden>
-
-      <Typography align="center" className="heading" color="textPrimary">
-        The best way to deploy fullstack apps
-      </Typography>
       <VerticalSpacer size={34} />
       <ActionButton
         color="primary"
@@ -132,6 +154,7 @@ export default () => {
             techStackDescription={
               "Static files, JAMStack sites, and dynamic web apps with SSR enabled can all be deployed with ease."
             }
+            chipColor={"blue"}
             category={"popular frameworks"}
             avatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
           />
@@ -142,8 +165,9 @@ export default () => {
             techStackDescription={
               "Scale APIs, consume messages with background workers or create repeatable jobs."
             }
+            chipColor={"green"}
             category={"popular Languages"}
-            avatarSrc={[docker, node, golang, ruby, python, more]}
+            avatarSrc={[docker, node, golang, ruby, python, rust, more]}
           />
         </Grid>
         <Grid item>
@@ -152,68 +176,68 @@ export default () => {
             techStackDescription={
               "Scalable databases, queues, image, file, and in-memory cache are all possible on KintoHub. No 3rd party clouds required."
             }
+            chipColor={"yellow"}
             category={"popular catalogs"}
-            avatarSrc={[mongo, postgresql, mysql, redis]}
+            avatarSrc={[mongo, postgresql, mysql, redis, minio]}
           />
         </Grid>
       </Grid>
 
       <VerticalSpacer size={20} />
-
-      <Grid
-        container
-        className="grid-container"
-        direction="row"
-        justify="center"
-        alignItems="flex-start"
-      >
-        <Grid item>
-          <Typography variant="h6">
-            Deploy an Existing Project with Git
-          </Typography>
-          <Typography>
-            Use our Git integrations with{" "}
-            <a href="https://docs.kintohub.com/repository/github-apps">
-              GitHub
-            </a>{" "}
-            or use an{" "}
-            <a href="https://docs.kintohub.com/repository/import%20url">
-              import url
-            </a>
-          </Typography>
-          <VerticalSpacer size={8} />
-
-          <a href="https://docs.kintohub.com/repository/github-apps">
-            <GitHubIcon className="icons" />
-          </a>
-
-          <a
-            className="import"
-            href="https://docs.kintohub.com/repository/import%20url"
-          >
-            <LinkRoundedIcon className="icons" />
-          </a>
-        </Grid>
-
-        <AutoGrowSpacer size={0.15} />
-
-        <VerticalSpacer size={60} />
-
-        <Grid item>
-          <Box my={-6}>
-            <Typography variant="h6">Connect Your Custom Domains</Typography>
-            <Typography>
-              Once deployed, your projects can be assigned to a custom domain.
+      <MuiThemeProvider theme={textThemeDark}>
+        <Grid
+          container
+          className="grid-container"
+          direction="row"
+          justify="center"
+          alignItems="flex-start"
+        >
+          <Grid item>
+            <Typography variant="h6" color="textPrimary">
+              Deploy an Existing Project with Git
             </Typography>
-            <Typography>
-              <a href="https://docs.kintohub.com/anatomy/domains">
-                Learn more →
+            <Typography variant="subtitle2" color="textSecondary">
+              Use our Git integrations with{" "}
+              <a href="https://docs.kintohub.com/repository/github-apps">
+                Github
+              </a>{" "}
+              or use an{" "}
+              <a href="https://docs.kintohub.com/repository/import%20url">
+                import url
               </a>
             </Typography>
-          </Box>
+            <VerticalSpacer size={8} />
+            <a href="https://docs.kintohub.com/repository/github-apps">
+              <GitHubIcon className="icons" />
+            </a>
+            <a
+              className="import"
+              href="https://docs.kintohub.com/repository/import%20url"
+            >
+              <LinkRoundedIcon className="icons" />
+            </a>
+          </Grid>
+          <AutoGrowSpacer size={0.15} />
+          <VerticalSpacer size={60} />
+          <Grid item>
+            <Box my={-6}>
+              <Typography variant="h6" color="textPrimary">
+                Connect Your Custom Domains
+              </Typography>
+              <Typography variant="subtitle2" color="textSecondary">
+                Once deployed, your projects can be assigned to a custom domain.
+              </Typography>
+              <Typography variant="subtitle2">
+                <a href="https://docs.kintohub.com/anatomy/domains">
+                  Learn more →
+                </a>
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-      <VerticalSpacer size={82} />
+      </MuiThemeProvider>
+      <div className="white-slant-bg-wrapper"></div>
+      <VerticalSpacer size={64} />
     </StyledDiv>
   )
 }

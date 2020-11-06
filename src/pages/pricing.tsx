@@ -1,5 +1,4 @@
 import Footer from "components/Footer"
-import CallToAction from "components/Calltoaction"
 import SEO from "components/seo"
 import React from "react"
 import styled from "styled-components"
@@ -33,13 +32,8 @@ type PricingCardProps = {
 }
 
 const StyledPricingCard = styled(Card)`
-  width: 500px;
-  ${bps.down("xs")} {
-    max-width: 350px;
-  }
-  height: 170px;
-  margin: 12px;
-  padding: 22px;
+  min-height: 170px;
+  padding: 24px;
   border-radius: 8px;
   text-align: left;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
@@ -123,8 +117,14 @@ const PricingDetail = () => {
   return (
     <StyledPricingDetailContainer>
       <Box marginY={-8}>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}
+        >
+          <Grid xs={12} md={6} item>
             <PricingCard
               serviceType={"Static Websites"}
               isBlue={true}
@@ -134,7 +134,7 @@ const PricingDetail = () => {
               }
             />
           </Grid>
-          <Grid item>
+          <Grid xs={12} md={6} item>
             <PricingCard
               serviceType={"Memory"}
               allowedUsage={"Up to 1 GB Free"}
@@ -144,8 +144,15 @@ const PricingDetail = () => {
             />
           </Grid>
         </Grid>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item>
+        <VerticalSpacer size={24} />
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}
+        >
+          <Grid xs={12} md={6} item>
             <PricingCard
               serviceType={"CPU Shared"}
               allowedUsage={"Up to 3 Shared vCPU Free"}
@@ -154,7 +161,7 @@ const PricingDetail = () => {
               }
             />
           </Grid>
-          <Grid item>
+          <Grid xs={12} md={6} item>
             <PricingCard
               serviceType={"Storage"}
               allowedUsage={"Up to 1 GB Persistent Data Free"}
@@ -223,7 +230,7 @@ const StyledExampleCard = styled.div`
   position: relative;
 
   ${bps.down("md")} {
-    margin: 0px 36px 28px 36px;
+    margin: 0px 16px 28px 16px;
     max-width: 600px;
     width: auto;
   }
@@ -356,31 +363,32 @@ const StyledPayAsYouGoExampleContainer = styled.div`
   background-color: ${props => props.theme.palette.background.default};
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   flex-direction: column;
-  padding: 0px 16px;
 
   .bg-wrapper {
     position: absolute;
+    bottom: -195px;
     height: 100%;
     width: 100%;
-    left: 0;
-    bottom: 0;
-    background-size: contain;
+    background-size: cover;
+    background: url(${PayAsYouGoBg}) no-repeat center;
+
+    ${bps.down("md")} {
+      display: none;
+    }
   }
 
-  ${bps.down("md")} {
+  ${bps.down("sm")} {
+    padding: 0px 6px;
     .grid-container {
       flex-direction: column;
     }
   }
 
-  .example-card {
-    position: relative;
-  }
-
   a {
     text-decoration: none;
-    color: ${props => props.theme.palette.primary.main};
+    color: #bb86fc;
   }
 `
 
@@ -388,6 +396,7 @@ const PayAsYouGoExample = () => {
   return (
     <StyledPayAsYouGoExampleContainer>
       <VerticalSpacer size={86} />
+      <div className="bg-wrapper"></div>
       <Typography align="center" variant="h1" color="textPrimary">
         Pay-as-you-go examples
       </Typography>
@@ -416,82 +425,121 @@ const PayAsYouGoExample = () => {
       </Typography>
 
       <VerticalSpacer size={62} />
-      <div className="example-card">
-        <img src={PayAsYouGoBg} className="bg-wrapper" alt="background"></img>
-        <Grid
-          container
-          className="grid-container"
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <Grid item>
-            <ExampleCard
-              cardIcon={<WebRoundedIcon />}
-              sleepIcon={<SnoozeRoundedIcon />}
-              serviceName={"Example Dev"}
-              serviceType={"Web App"}
-              serviceDescription={"Simple Backend Node"}
-              memory={"512 MB Memory"}
-              memoryPrice={"$0"}
-              cpu={"Shared CPU"}
-              cpuPrice={"$0"}
-              minutesOrStorage={"3000 Mins Deploy Time"}
-              minutesOrStoragePrice={"$0"}
-              bandwidth={"10 GB Bandwidth"}
-              bandwidthPrice={"$0"}
-              sleep={"Sleep Mode"}
-              total={"Monthly Total"}
-              totalPrice={"$0"}
-            />
-          </Grid>
-          <Grid item>
-            <ExampleCard
-              cardIcon={<DataUsageRoundedIcon />}
-              sleepIcon={<SnoozeRoundedIcon />}
-              serviceName={"Example Dev"}
-              serviceType={"MongoDB"}
-              serviceDescription={"Simple Database"}
-              memory={"128 MB Memory (cost opt)"}
-              memoryPrice={"$0"}
-              cpu={"0.1 vCPU (dedicated)"}
-              cpuPrice={"$1.5"}
-              minutesOrStorage={"2 GB Persistent Storage"}
-              minutesOrStoragePrice={"$0.56"}
-              bandwidth={"10 GB Bandwidth"}
-              bandwidthPrice={"$0"}
-              sleep={"Sleep Mode"}
-              total={"Monthly Total"}
-              totalPrice={"$2.06"}
-            />
-          </Grid>
-          <Grid item>
-            <ExampleCard
-              cardIcon={<CategoryRoundedIcon />}
-              sleepIcon={<WbSunnyRoundedIcon />}
-              serviceName={"Example Prod"}
-              serviceType={"Backend API"}
-              serviceDescription={"Heavy-duty Business Logic"}
-              memory={"4 GB Memory"}
-              memoryPrice={"$8"}
-              cpu={"2 vCPU (dedicated)"}
-              cpuPrice={"$30"}
-              minutesOrStorage={"4000 Mins Deploy Time"}
-              minutesOrStoragePrice={"$1"}
-              bandwidth={"120 GB Bandwidth"}
-              bandwidthPrice={"$12"}
-              sleep={"Never Sleeps"}
-              total={"Monthly Total"}
-              totalPrice={"$51"}
-            />
-          </Grid>
+
+      <Grid
+        container
+        className="grid-container"
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item>
+          <ExampleCard
+            cardIcon={<WebRoundedIcon />}
+            sleepIcon={<SnoozeRoundedIcon />}
+            serviceName={"Example Dev"}
+            serviceType={"Web App"}
+            serviceDescription={"Simple Backend Node"}
+            memory={"512 MB Memory"}
+            memoryPrice={"$0"}
+            cpu={"Shared CPU"}
+            cpuPrice={"$0"}
+            minutesOrStorage={"3000 Mins Deploy Time"}
+            minutesOrStoragePrice={"$0"}
+            bandwidth={"10 GB Bandwidth"}
+            bandwidthPrice={"$0"}
+            sleep={"Sleep Mode"}
+            total={"Monthly Total"}
+            totalPrice={"$0"}
+          />
         </Grid>
-      </div>
+        <Grid item>
+          <ExampleCard
+            cardIcon={<DataUsageRoundedIcon />}
+            sleepIcon={<SnoozeRoundedIcon />}
+            serviceName={"Example Dev"}
+            serviceType={"MongoDB"}
+            serviceDescription={"Simple Database"}
+            memory={"128 MB Memory (cost opt)"}
+            memoryPrice={"$0"}
+            cpu={"0.1 vCPU (dedicated)"}
+            cpuPrice={"$1.5"}
+            minutesOrStorage={"2 GB Persistent Storage"}
+            minutesOrStoragePrice={"$0.56"}
+            bandwidth={"10 GB Bandwidth"}
+            bandwidthPrice={"$0"}
+            sleep={"Sleep Mode"}
+            total={"Monthly Total"}
+            totalPrice={"$2.06"}
+          />
+        </Grid>
+        <Grid item>
+          <ExampleCard
+            cardIcon={<CategoryRoundedIcon />}
+            sleepIcon={<WbSunnyRoundedIcon />}
+            serviceName={"Example Prod"}
+            serviceType={"Backend API"}
+            serviceDescription={"Heavy-duty Business Logic"}
+            memory={"4 GB Memory"}
+            memoryPrice={"$8"}
+            cpu={"2 vCPU (dedicated)"}
+            cpuPrice={"$30"}
+            minutesOrStorage={"4000 Mins Deploy Time"}
+            minutesOrStoragePrice={"$1"}
+            bandwidth={"120 GB Bandwidth"}
+            bandwidthPrice={"$12"}
+            sleep={"Never Sleeps"}
+            total={"Monthly Total"}
+            totalPrice={"$51"}
+          />
+        </Grid>
+      </Grid>
+
       <VerticalSpacer size={100} />
     </StyledPayAsYouGoExampleContainer>
   )
 }
 
+const StyledCallToActionContainer = styled.div`
+  width: 100%;
+  height: auto;
+  align-items: center;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  background-color: ${props => props.theme.palette.background.paper};
+`
+const CallToAction = () => {
+  return (
+    <StyledCallToActionContainer>
+      <MuiThemeProvider theme={textThemeDark}>
+        <VerticalSpacer size={80} />
+        <Typography variant="subtitle1" align="center" color="primary">
+          BUILT FOR FULLSTACK DEVELOPERS
+        </Typography>
+        <VerticalSpacer size={14} />
+        <Typography align="center" variant="h2" color="textPrimary">
+          All your App's needs in one place. Try for Free.
+        </Typography>
+        <VerticalSpacer size={40} />
+
+        <ActionButton
+          color="primary"
+          variant={"contained"}
+          startIcon={<PowerSettingsNewIcon />}
+          buttonTitle={"Start Deploying"}
+          link={"https://app.kintohub.com/auth/sign-up"}
+        />
+        <VerticalSpacer size={14} />
+        <Typography align="center" variant="subtitle2" color="textSecondary">
+          No credit card required.
+        </Typography>
+        <VerticalSpacer size={72} />
+      </MuiThemeProvider>
+    </StyledCallToActionContainer>
+  )
+}
 class HomePage extends React.Component {
   render() {
     return (
@@ -501,13 +549,7 @@ class HomePage extends React.Component {
         <PricingHero />
         <PricingDetail />
         <PayAsYouGoExample />
-        <CallToAction
-          title={"All your App's needs in one place. Try for Free."}
-          subtitle={"Deploy for free. No CC required."}
-          buttonTitle={"Start Deploying"}
-          buttonIcon={PowerSettingsNewIcon}
-          variant="contained"
-        />
+        <CallToAction />
         <Footer />
       </Layout>
     )

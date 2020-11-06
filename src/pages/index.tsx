@@ -1,7 +1,6 @@
 import Footer from "components/Footer"
 import NavBar from "components/NavBar"
 import Hero from "components/Hero"
-import CallToAction from "components/Calltoaction"
 import SEO from "components/seo"
 import Testimonial from "components/Testimonial"
 import React from "react"
@@ -16,39 +15,83 @@ import { VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
 import ActionButton from "components/Button"
 import Showcase from "components/Showcase"
+import BlackSlantBg from "resources/background/black-slant.svg"
+import CallToActionBg from "resources/background/calltoaction.svg"
+
+const StyledCallToActionContainer = styled.div`
+  width: 100%;
+  height: auto;
+  background-image: url(${CallToActionBg});
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+`
+
+const CallToAction = () => {
+  return (
+    <StyledCallToActionContainer>
+      <VerticalSpacer size={86} />
+      <Typography align="center" variant="h1" color="textPrimary">
+        Ready to start deploying your app?
+      </Typography>
+      <VerticalSpacer size={12} />
+      <Typography variant="body1" align="center" color="textPrimary">
+        Deploy for free. No CC required.
+      </Typography>
+      <VerticalSpacer size={42} />
+      <ActionButton
+        color="primary"
+        variant="contained"
+        startIcon={<PowerSettingsNewIcon/>}
+        buttonTitle={"Start Deploying"}
+        link={"https://app.kintohub.com/auth/sign-up"}
+      />
+      <VerticalSpacer size={142} />
+    </StyledCallToActionContainer>
+  )
+}
 
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
   height: auto;
-
-  ${bps.down("sm")} {
-    padding: 0px 16px;
-    width: auto;
-  }
-
-  background-color: ${props => props.theme.palette.secondary.light};
+  border-style: none;
+  border: 0px;
+  z-index: 9;
+  position: relative;
+  margin: 0px auto;
   overflow: hidden;
+  background-color: ${props => props.theme.palette.secondary.light};
 
   .grid-container {
     flex-direction: row;
     align-content: center;
     ${bps.down("sm")} {
       flex-direction: column;
+      align-items: center;
+      padding: 0px 16px;
     }
   }
 
   .developer-features {
+    padding: auto;
     ${bps.down("sm")} {
       flex-direction: column;
+      align-self: center;
     }
   }
 
   .grid-box {
     display: flex;
     flex-direction: column;
+    padding: 0px 20px;
     width: 500px;
+    text-align: left;
     ${bps.down("sm")} {
-      padding: 0px 16px;
       width: 100%;
       text-align: center;
       align-items: center;
@@ -56,11 +99,33 @@ const StyledFeatureDescriptionContainer = styled.div`
   }
 
   .dev-tools {
-    ${bps.down("sm")} {
-      padding: 16px;
-      max-height: auto;
-      max-width: 100%;
+    position: relative;
+    z-index: 9;
+    margin-left: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    ${bps.down("md")} {
+      display: block;
+      margin-left: 0;
+      padding: 24px;
+      width: 100%;
+      text-align: center;
       align-items: center;
+    }
+  }
+
+  .black-slant-bg-wrapper {
+    background: url(${BlackSlantBg}) no-repeat center;
+    height: 560px;
+    z-index: -1;
+    bottom: -290px;
+    position: absolute;
+    width: 100vw;
+    background-size: cover;
+
+    ${bps.down("sm")} {
+      bottom: -270px;
     }
   }
 `
@@ -74,9 +139,8 @@ const FeatureDescription = () => {
           className="grid-container"
           justify="center"
           alignItems="flex-start"
-          spacing={4}
         >
-          <Grid item container className="grid-box">
+          <Grid container className="grid-box">
             <Typography color="primary" variant="subtitle1">
               DESIGNED BY DEVELOPERS
             </Typography>
@@ -84,7 +148,6 @@ const FeatureDescription = () => {
             <Typography color="textPrimary" variant="h2">
               Powerful developer tools with a simple user-experience
             </Typography>
-
             <Grid container className="developer-features">
               <Grid item xs>
                 <VerticalSpacer size={30} />
@@ -123,13 +186,13 @@ const FeatureDescription = () => {
                 <VerticalSpacer size={30} />
               </Grid>
             </Grid>
-
             <ActionButton
               variant="contained"
               color="primary"
               buttonTitle={"Try for Free"}
               link={"https://app.kintohub.com/auth/sign-up"}
             />
+            <VerticalSpacer size={20} />
           </Grid>
 
           <Grid item>
@@ -140,7 +203,8 @@ const FeatureDescription = () => {
             ></img>
           </Grid>
         </Grid>
-        <VerticalSpacer size={48} />
+        <div className="black-slant-bg-wrapper"></div>
+        <VerticalSpacer size={84} />
       </MuiThemeProvider>
     </StyledFeatureDescriptionContainer>
   )
@@ -168,13 +232,7 @@ class HomePage extends React.Component {
         <Comparison />
         <Showcase />
         <Testimonial />
-        <CallToAction
-          title={"Ready to start deploying your app?"}
-          subtitle={"Deploy for free. No CC required."}
-          buttonTitle={"Start Deploying"}
-          buttonIcon={PowerSettingsNewIcon}
-          variant="contained"
-        />
+        <CallToAction />
         <Footer />
       </Layout>
     )
