@@ -4,6 +4,6 @@
     <title>black-par</title>
     <desc>Created with Sketch.</desc>
     <g id="Templates" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="black-par" fill="#111111" points="1400 0 1400 373.095257 0 373.095257 0 186.547628"></polygon>
+        <polygon id="black-par" fill="rgba(0,0,0,1)" points="1400 0 1400 373.095257 0 373.095257 0 186.547628"></polygon>
     </g>
 </svg>

@@ -14,22 +14,15 @@ import {
   Typography,
 } from "@material-ui/core"
 import { VerticalSpacer } from "components/Spacer"
-import { bps } from "theme/index"
+
+import Grid from "@material-ui/core/Grid/Grid"
 
 const StyledTableContainer = styled(TableContainer)`
+  display: flex;
+  flex-direction: column;
   background-color: ${props => props.theme.palette.background.paper};
   color: ${props => props.theme.palette.text.hint};
   border-radius: 8px;
-  width: 60%;
-  margin: 0 auto;
-  padding: 0px 8px;
-  ${bps.down("md")} {
-    width: 80%;
-  }
-  ${bps.down("xs")} {
-    width: 90%;
-  }
-
   .closeIcon {
     color: #cecece;
   }
@@ -140,7 +133,7 @@ const ComparisonTable = () => {
 
   return (
     <StyledTableContainer>
-      <Table size="medium">
+      <Table>
         <TableHead>
           <TableRow>
             <StyledTableCell align="left">
@@ -188,10 +181,8 @@ const ComparisonTable = () => {
 
 const StyledDiv = styled.div`
   height: auto;
-  background-color: ${props => props.theme.palette.secondary.default};
-  width: 100%;
-  margin: 0 auto;
-  padding: 0px 16px;
+  padding: 0 16px;
+  background-color: ${props => props.theme.palette.background.default};
 
   a {
     text-decoration: none;
@@ -224,7 +215,21 @@ export default () => {
         KintoHub empowers choice.
       </Typography>
       <VerticalSpacer size={26} />
-      <ComparisonTable />
+
+      <Grid
+        container
+        className="grid-container"
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item xs={2}></Grid>
+        <Grid item xs>
+          <ComparisonTable />
+        </Grid>
+
+        <Grid item xs={2}></Grid>
+      </Grid>
       <VerticalSpacer size={10} />
       <VerticalSpacer size={44} />
       <Typography align="center">

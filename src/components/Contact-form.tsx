@@ -13,19 +13,18 @@ import Select from "@material-ui/core/Select/Select"
 import MenuItem from "@material-ui/core/MenuItem/MenuItem"
 
 const StyledFormContainer = styled.div`
-  min-width: 500px;
   height: auto;
 
   ${bps.down("md")} {
     min-width: auto;
-    margin: -32px 16px 0px 16px;
+    margin: -84px 16px 0px 16px;
   }
 
   background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  margin-top: -32px;
+  margin-top: -44px;
 
   .form {
     padding: 32px;
@@ -42,18 +41,10 @@ const StyledFormContainer = styled.div`
 const StyledFormSubmitContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 500px;
-
   background-color: ${props => props.theme.palette.background.paper};
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
     0px 1px 18px 0px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  margin-top: -32px;
-
-  ${bps.down("md")} {
-    min-width: auto;
-    margin: -32px 16px 0px 16px;
-  }
 
   .formSubmitted {
     padding: 32px;

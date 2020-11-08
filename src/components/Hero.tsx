@@ -30,20 +30,19 @@ import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkRoundedIcon from "@material-ui/icons/LinkRounded"
 import { bps, textThemeDark } from "theme"
 import Hidden from "@material-ui/core/Hidden/Hidden"
-import Box from "@material-ui/core/Box/Box"
 import WhiteSlantBg from "resources/background/white-slant.svg"
 
 const StyledDiv = styled.div`
   width: 100%;
   height: auto;
-  z-index: 9;
-  background: url(${HeroBgDesktop}) no-repeat top center fixed;
+  z-index: 1;
+  background: url(${HeroBgDesktop}) no-repeat top center;
   background-size: cover;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
   padding: 0px 16px;
+  margin: 0 auto;
   position: relative;
   background-color: ${props => props.theme.palette.background.paper};
 
@@ -71,12 +70,9 @@ const StyledDiv = styled.div`
   }
 
   .grid-container {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-
     ${bps.down("md")} {
       text-align: center;
+      align-items: center;
       flex-direction: column;
     }
     ${bps.down("xs")} {
@@ -94,12 +90,15 @@ const StyledDiv = styled.div`
 
   .white-slant-bg-wrapper {
     background: url(${WhiteSlantBg}) no-repeat center;
-    height: 560px;
+    height: 500px;
     z-index: -1;
-    bottom: -80px;
+    bottom: -1px;
     position: absolute;
-    width: 100vw;
+    width: 100%;
     background-size: cover;
+    ${bps.down("md")} {
+      height: 650px;
+    }
   }
 `
 
@@ -147,8 +146,10 @@ export default () => {
         direction="row"
         justify="center"
         alignItems="center"
+        spacing={4}
       >
-        <Grid item>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={12} lg>
           <TechStackCard
             techStackTitle={"Frontend"}
             techStackDescription={
@@ -159,7 +160,7 @@ export default () => {
             avatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} lg>
           <TechStackCard
             techStackTitle={"Backend"}
             techStackDescription={
@@ -170,7 +171,7 @@ export default () => {
             avatarSrc={[docker, node, golang, ruby, python, rust, more]}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} lg>
           <TechStackCard
             techStackTitle={"Data & Storage"}
             techStackDescription={
@@ -181,6 +182,7 @@ export default () => {
             avatarSrc={[mongo, postgresql, mysql, redis, minio]}
           />
         </Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
 
       <VerticalSpacer size={20} />
@@ -189,38 +191,42 @@ export default () => {
           container
           className="grid-container"
           direction="row"
-          justify="center"
+          justify="flex-start"
           alignItems="flex-start"
+          spacing={2}
         >
-          <Grid item>
-            <Typography variant="h6" color="textPrimary">
-              Deploy an Existing Project with Git
-            </Typography>
-            <Typography variant="subtitle2" color="textSecondary">
-              Use our Git integrations with{" "}
-              <a href="https://docs.kintohub.com/repository/github-apps">
-                Github
-              </a>{" "}
-              or use an{" "}
-              <a href="https://docs.kintohub.com/repository/import%20url">
-                import url
-              </a>
-            </Typography>
-            <VerticalSpacer size={8} />
-            <a href="https://docs.kintohub.com/repository/github-apps">
-              <GitHubIcon className="icons" />
-            </a>
-            <a
-              className="import"
-              href="https://docs.kintohub.com/repository/import%20url"
-            >
-              <LinkRoundedIcon className="icons" />
-            </a>
+          <Grid item xs={2}></Grid>
+          <Grid item md={12} lg={4}>
+            <Grid container direction="column">
+              <Typography variant="h6" color="textPrimary">
+                Deploy an Existing Project with Git
+              </Typography>
+              <Typography variant="subtitle2" color="textSecondary">
+                Use our Git integrations with{" "}
+                <a href="https://docs.kintohub.com/repository/github-apps">
+                  Github
+                </a>{" "}
+                or use an{" "}
+                <a href="https://docs.kintohub.com/repository/import%20url">
+                  import url
+                </a>
+              </Typography>
+              <VerticalSpacer size={8} />
+              <Grid container>
+                <a href="https://docs.kintohub.com/repository/github-apps">
+                  <GitHubIcon className="icons" />
+                </a>
+                <a
+                  className="import"
+                  href="https://docs.kintohub.com/repository/import%20url"
+                >
+                  <LinkRoundedIcon className="icons" />
+                </a>
+              </Grid>
+            </Grid>
           </Grid>
-          <AutoGrowSpacer size={0.15} />
-          <VerticalSpacer size={60} />
-          <Grid item>
-            <Box my={-6}>
+          <Grid item md={12} lg={4}>
+            <Grid container direction="column">
               <Typography variant="h6" color="textPrimary">
                 Connect Your Custom Domains
               </Typography>
@@ -232,8 +238,9 @@ export default () => {
                   Learn more →
                 </a>
               </Typography>
-            </Box>
+            </Grid>
           </Grid>
+          <Grid item xs={2}></Grid>
         </Grid>
       </MuiThemeProvider>
       <div className="white-slant-bg-wrapper"></div>

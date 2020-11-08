@@ -8,6 +8,7 @@ const StyledDiv = styled.div`
   a {
     text-decoration: none;
   }
+  z-index: 1;
 `
 
 interface Props {

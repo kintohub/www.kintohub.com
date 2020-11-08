@@ -36,7 +36,7 @@ function SEO({ description, lang, meta, keywords, title }: SeoProps) {
   )
 
   const getTitle = () => {
-    if (!title) {
+    if (title == "") {
       return `${site.siteMetadata.title}`
     } else {
       return `${title} | ${site.siteMetadata.title}`

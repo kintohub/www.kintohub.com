@@ -21,14 +21,10 @@ import ActionButton from "components/Button"
 import { VerticalSpacer } from "components/Spacer"
 
 const StyledDiv = styled.div`
-  width: 70%;
   display: flex;
-  margin: 0px auto;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  ${bps.down("md")} {
-    width: 100%;
-  }
   a {
     text-decoration: none;
   }
@@ -39,7 +35,7 @@ const StyledDiv = styled.div`
     margin-right: 8px;
   }
   .card {
-    padding:8px 16px;
+    padding: 8px 16px;
     border-radius: 12px;
     position: relative;
     min-width: 1180px;

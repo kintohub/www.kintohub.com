@@ -33,6 +33,7 @@ type PricingCardProps = {
 
 const StyledPricingCard = styled(Card)`
   min-height: 170px;
+  max-height: auto;
   padding: 24px;
   border-radius: 8px;
   text-align: left;
@@ -116,61 +117,62 @@ const StyledPricingDetailContainer = styled.div`
 const PricingDetail = () => {
   return (
     <StyledPricingDetailContainer>
-      <Box marginY={-8}>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={3}
-        >
-          <Grid xs={12} md={6} item>
-            <PricingCard
-              serviceType={"Static Websites"}
-              isBlue={true}
-              allowedUsage={"FREE"}
-              serviceDescription={
-                "HTML, Javascript, Gatsby, React, Vue & more."
-              }
-            />
-          </Grid>
-          <Grid xs={12} md={6} item>
-            <PricingCard
-              serviceType={"Memory"}
-              allowedUsage={"Up to 1 GB Free"}
-              serviceDescription={
-                "Free plan includes 3 services with 256 MB each. $2 per gb month pay-as-you-go."
-              }
-            />
-          </Grid>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={3}
+      >
+        <Grid item xs></Grid>
+        <Grid xs={12} lg={4} item>
+          <PricingCard
+            serviceType={"Static Websites"}
+            isBlue={true}
+            allowedUsage={"FREE"}
+            serviceDescription={"HTML, Javascript, Gatsby, React, Vue & more."}
+          />
         </Grid>
-        <VerticalSpacer size={24} />
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={3}
-        >
-          <Grid xs={12} md={6} item>
-            <PricingCard
-              serviceType={"CPU Shared"}
-              allowedUsage={"Up to 3 Shared vCPU Free"}
-              serviceDescription={
-                "Dedicated vCPU starting at $1.5 USD /month on pay-as-you-go."
-              }
-            />
-          </Grid>
-          <Grid xs={12} md={6} item>
-            <PricingCard
-              serviceType={"Storage"}
-              allowedUsage={"Up to 1 GB Persistent Data Free"}
-              serviceDescription={"$.028 per GB/month on pay-as-you-go."}
-            />
-          </Grid>
+        <Grid xs={12} lg={4} item>
+          <PricingCard
+            serviceType={"Memory"}
+            allowedUsage={"Up to 1 GB Free"}
+            serviceDescription={
+              "Free plan includes 3 services with 256 MB each. $2 per gb month pay-as-you-go."
+            }
+          />
         </Grid>
-      </Box>
-      <VerticalSpacer size={96} />
+        <Grid item xs></Grid>
+      </Grid>
+      <VerticalSpacer size={24} />
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={3}
+      >
+        <Grid item xs></Grid>
+        <Grid xs={12} lg={4} item>
+          <PricingCard
+            serviceType={"CPU Shared"}
+            allowedUsage={"Up to 3 Shared vCPU Free"}
+            serviceDescription={
+              "Dedicated vCPU starting at $1.5 USD /month on pay-as-you-go."
+            }
+          />
+        </Grid>
+        <Grid xs={12} lg={4} item>
+          <PricingCard
+            serviceType={"Storage"}
+            allowedUsage={"Up to 1 GB Persistent Data Free"}
+            serviceDescription={"$.028 per GB/month on pay-as-you-go."}
+          />
+        </Grid>
+        <Grid item xs></Grid>
+      </Grid>
+
+      <VerticalSpacer size={84} />
       <ActionButton
         color="primary"
         variant="contained"
@@ -191,7 +193,13 @@ const PricingDetail = () => {
           Configure your app to use the only resources you need.
         </Typography>
         <VerticalSpacer size={40} />
-        <PricingCalculator />
+        <Grid container direction="row" justify="center" alignItems="center">
+          <Grid item xs={2}></Grid>
+          <Grid item xs={12} lg>
+            <PricingCalculator />
+          </Grid>
+          <Grid item xs={2}></Grid>
+        </Grid>
       </MuiThemeProvider>
     </StyledPricingDetailContainer>
   )
@@ -217,7 +225,6 @@ type ExampleCardProps = {
 }
 
 const StyledExampleCard = styled.div`
-  width: 330px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -379,7 +386,7 @@ const StyledPayAsYouGoExampleContainer = styled.div`
     }
   }
 
-  ${bps.down("sm")} {
+  ${bps.down("md")} {
     padding: 0px 6px;
     .grid-container {
       flex-direction: column;
@@ -425,15 +432,15 @@ const PayAsYouGoExample = () => {
       </Typography>
 
       <VerticalSpacer size={62} />
-
       <Grid
-        container
         className="grid-container"
+        container
         direction="row"
         justify="center"
         alignItems="center"
       >
-        <Grid item>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={12} lg>
           <ExampleCard
             cardIcon={<WebRoundedIcon />}
             sleepIcon={<SnoozeRoundedIcon />}
@@ -453,7 +460,7 @@ const PayAsYouGoExample = () => {
             totalPrice={"$0"}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} lg>
           <ExampleCard
             cardIcon={<DataUsageRoundedIcon />}
             sleepIcon={<SnoozeRoundedIcon />}
@@ -473,7 +480,7 @@ const PayAsYouGoExample = () => {
             totalPrice={"$2.06"}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} lg>
           <ExampleCard
             cardIcon={<CategoryRoundedIcon />}
             sleepIcon={<WbSunnyRoundedIcon />}
@@ -493,6 +500,7 @@ const PayAsYouGoExample = () => {
             totalPrice={"$51"}
           />
         </Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
 
       <VerticalSpacer size={100} />

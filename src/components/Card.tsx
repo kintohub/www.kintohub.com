@@ -10,12 +10,10 @@ import { VerticalSpacer } from "components/Spacer"
 import { Grid, MuiThemeProvider } from "@material-ui/core"
 
 const StyledTechStackCard = styled(Card)`
-  width: 350px;
-  height: 245px;
-  margin: 16px;
-  padding: 0px 20px;
+  height: auto;
   border-radius: 8px;
   display: flex;
+  padding: 8px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -35,6 +33,10 @@ const StyledTechStackCard = styled(Card)`
     height: 30px;
     margin-right: 9px;
     opacity: 50%;
+  }
+
+  .description {
+    min-height: 65px;
   }
 
   .pill-wrapper {
@@ -79,23 +81,32 @@ const TechStackCard = ({
   <StyledTechStackCard>
     <MuiThemeProvider theme={textThemeDark}>
       <CardContent>
-        <Typography variant="h3" color="textPrimary" align="center">
-          {techStackTitle}
-        </Typography>
-        <VerticalSpacer size={10} />
-        <div className="pill-wrapper">
-          <Chip className={`pill ${chipColor}`} />
-        </div>
-        <VerticalSpacer size={10} />
-        <Typography variant="body2" color="textSecondary" align="left">
-          {techStackDescription}
-        </Typography>
-        <VerticalSpacer size={10} />
-        <Typography variant="overline" color="textSecondary" align="left">
-          {category}
-        </Typography>
+        <Grid container direction="column" justify="flex-start">
+          <Grid item>
+            <Typography variant="h3" color="textPrimary" align="center">
+              {techStackTitle}
+            </Typography>
+          </Grid>
+          <VerticalSpacer size={10} />
+          <Grid item>
+            <div className="pill-wrapper">
+              <Chip className={`pill ${chipColor}`} />
+            </div>
+          </Grid>
+          <VerticalSpacer size={10} />
+          <Grid item className="description">
+            <Typography variant="body2" color="textSecondary" align="left">
+              {techStackDescription}
+            </Typography>
+          </Grid>
+          <VerticalSpacer size={10} />
+          <Grid item>
+            <Typography variant="overline" color="textSecondary" align="left">
+              {category}
+            </Typography>
+          </Grid>
+        </Grid>
         <VerticalSpacer size={12} />
-
         <Grid
           container
           direction="row"
@@ -119,19 +130,12 @@ const TechStackCard = ({
 )
 
 const StyledTestimonialCard = styled(Card)`
-  width: 350px;
-  height: 240px;
-  margin: 16px;
+  height: 270px;
   padding: 16px 20px 0px 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${bps.down("md")} {
-    max-width: 600px;
-    width: auto;
-  }
 
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);

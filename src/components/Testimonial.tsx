@@ -20,8 +20,9 @@ const StyledDiv = styled.div`
     color: ${props => props.theme.palette.primary.dark};
   }
 
-  ${bps.down("md")} {
+  ${bps.down("sm")} {
     .grid-container {
+      align-items: center;
       flex-direction: column;
     }
   }
@@ -53,27 +54,36 @@ export default () => {
           container
           direction="row"
           className="grid-container"
-          justify="center"
-          alignItems="center"
+          justify="flex-start"
+          alignItems="flex-start"
+          spacing={4}
         >
-          <TestimonialCard
-            avatarText={"N"}
-            testimonialText={
-              "“I can’t believe I’m just now finding this amazing service. It’s a great alternative to Heroku.”"
-            }
-          />
-          <TestimonialCard
-            avatarText={"H"}
-            testimonialText={
-              "“KintoHub is the only next-gen cloud provider that can spin up a Mongo, Postgres or MySQL instance alongside a serverless backend API within a few clicks.”"
-            }
-          />
-          <TestimonialCard
-            avatarText={"F"}
-            testimonialText={
-              "“I’ve been looking for something Heroku-like, but where I can host a bunch of small, low-traffic apps more cheaply, so this seems super promising.”"
-            }
-          />
+          <Grid item xs={2}></Grid>
+          <Grid item xs={12} lg>
+            <TestimonialCard
+              avatarText={"N"}
+              testimonialText={
+                "“I can’t believe I’m just now finding this amazing service. It’s a great alternative to Heroku.”"
+              }
+            />
+          </Grid>
+          <Grid item xs={12} lg>
+            <TestimonialCard
+              avatarText={"H"}
+              testimonialText={
+                "“KintoHub is the only next-gen cloud provider that can spin up a Mongo, Postgres or MySQL instance alongside a serverless backend API within a few clicks.”"
+              }
+            />
+          </Grid>
+          <Grid item xs={12} lg>
+            <TestimonialCard
+              avatarText={"F"}
+              testimonialText={
+                "“I’ve been looking for something Heroku-like, but where I can host a bunch of small, low-traffic apps more cheaply, so this seems super promising.”"
+              }
+            />
+          </Grid>
+          <Grid item xs={2}></Grid>
         </Grid>
         <VerticalSpacer size={100} />
       </MuiThemeProvider>

@@ -81,9 +81,11 @@ const StyledVideoTabContainer = styled.div`
     display: none;
   }
 
+  .blue {
+  }
+
   .videoSrc {
-    width: auto;
-    height: 450px;
+    width: 100%;
     border-radius: 8px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -92,8 +94,14 @@ const StyledVideoTabContainer = styled.div`
       padding: 0px 16px;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      overflow: hidden;
+    }
+  }
+
+  .grid-container {
+    ${bps.down("md")} {
+      text-align: left;
+      align-items: center;
+      flex-direction: column;
     }
   }
 `
@@ -143,12 +151,15 @@ const VideoTab = () => {
     <StyledVideoTabContainer>
       <MuiThemeProvider theme={textThemeDark}>
         <Grid
+          className="grid-container"
           container
           direction="row"
           justify="center"
           alignItems="flex-start"
+          spacing={4}
         >
-          <Grid item>
+          <Grid item xs={2}></Grid>
+          <Grid item className="red" xs lg={3}>
             {tabData.map((item, index) => (
               <Card elevation={0} key={item.id}>
                 <CardActionArea onClick={() => handleClick(index)}>
@@ -225,15 +236,16 @@ const VideoTab = () => {
             <VerticalSpacer size={50} />
           </Grid>
 
-          <AutoGrowSpacer size={0.1} />
-
-          <Grid item>
-            <img
-              className="videoSrc"
-              src={tabData[tabIndex].src}
-              alt="showcase"
-            ></img>
+          <Grid item lg={5} className="blue">
+            <Grid container alignItems="center">
+              <img
+                className="videoSrc"
+                src={tabData[tabIndex].src}
+                alt="showcase"
+              ></img>
+            </Grid>
           </Grid>
+          <Grid item xs={2}></Grid>
         </Grid>
         <VerticalSpacer size={90} />
       </MuiThemeProvider>

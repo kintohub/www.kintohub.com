@@ -1,12 +1,4 @@
-import {
-  AppBar,
-  Divider,
-  Grid,
-  IconButton,
-  MuiThemeProvider,
-  SvgIcon,
-  useScrollTrigger,
-} from "@material-ui/core"
+import { AppBar, Divider, Grid, useScrollTrigger } from "@material-ui/core"
 import Box from "@material-ui/core/Box/Box"
 import Toolbar from "@material-ui/core/Toolbar/Toolbar"
 import Typography from "@material-ui/core/Typography/Typography"
@@ -18,11 +10,9 @@ import ActionButton from "components/Button"
 import KintoWhiteLogo from "resources/logo/white.svg"
 import {
   AutoExpandSpacer,
-  AutoGrowSpacer,
   HorizontalSpacer,
   VerticalSpacer,
 } from "components/Spacer"
-import { textThemeDark } from "theme/index"
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
@@ -35,7 +25,7 @@ import ListItem from "@material-ui/core/ListItem/ListItem"
 
 const StyledNavContainer = styled.div`
   .solidNav {
-    z-index: 10;
+    z-index: 3;
     background-color: ${props => props.theme.palette.background.paper};
     a {
       color: ${props => props.theme.palette.text.hint};
@@ -46,7 +36,7 @@ const StyledNavContainer = styled.div`
   }
 
   .transparentNav {
-    z-index: 10;
+    z-index: 3;
     background-color: transparent;
     box-shadow: none;
     a {
@@ -68,9 +58,8 @@ const StyledNavContainer = styled.div`
   .sidenav {
     height: 100%;
     position: fixed;
-    z-index: 100;
+    z-index: 3;
     background-color: ${props => props.theme.palette.background.paper};
-    overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
     display: flex;
@@ -120,13 +109,11 @@ const StyledNavContainer = styled.div`
 
   .open {
     width: 100%;
+    z-index: 5;
   }
   .closed {
     width: 0%;
-  }
-
-  .desktop-nav-container {
-    margin: 0 auto;
+    z-index: -5;
   }
 `
 
@@ -141,7 +128,6 @@ export default (props: Props) => {
     navigate(location.pathname)
   }
 
-  
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 50,
@@ -150,6 +136,7 @@ export default (props: Props) => {
 
   const [drawer, setDrawer] = useState(false)
   const openNav = () => {
+    console.log("pl")
     setDrawer(true)
   }
 
@@ -159,7 +146,7 @@ export default (props: Props) => {
 
   return (
     <StyledNavContainer>
-      <Hidden mdUp>
+      <Hidden lgUp>
         <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
           <Toolbar>
             <Box>
@@ -238,7 +225,7 @@ export default (props: Props) => {
           </div>
         </div>
       </Hidden>
-      <Hidden smDown>
+      <Hidden mdDown>
         <AppBar className={trigger ? "solidNav fade" : "transparentNav fade"}>
           <Toolbar>
             <Grid
@@ -247,7 +234,8 @@ export default (props: Props) => {
               justify="space-evenly"
               alignItems="center"
             >
-              <Grid>
+              <Grid item xs></Grid>
+              <Grid item md={2}>
                 <Link to="/" activeClassName="active">
                   <img
                     src={trigger ? KintoBlackLogo : KintoWhiteLogo}
@@ -255,25 +243,23 @@ export default (props: Props) => {
                   />
                 </Link>
               </Grid>
-              <Grid>
-                <Box mx={-10}>
-                  <Grid container>
-                    <Link to="/pricing" activeClassName="active">
-                      <Typography variant="subtitle2">Pricing</Typography>
-                    </Link>
-                    <HorizontalSpacer size={24} />
-                    <a href="https://docs.kintohub.com">
-                      <Typography variant="subtitle2">Docs</Typography>
-                    </a>
-                    <HorizontalSpacer size={24} />
-                    <Link to="/support" activeClassName="active">
-                      <Typography variant="subtitle2">Support</Typography>
-                    </Link>
-                  </Grid>
-                </Box>
+              <Grid item md={4}>
+                <Grid container justify="center">
+                  <Link to="/pricing" activeClassName="active">
+                    <Typography variant="subtitle2">Pricing</Typography>
+                  </Link>
+                  <HorizontalSpacer size={24} />
+                  <a href="https://docs.kintohub.com">
+                    <Typography variant="subtitle2">Docs</Typography>
+                  </a>
+                  <HorizontalSpacer size={24} />
+                  <Link to="/support" activeClassName="active">
+                    <Typography variant="subtitle2">Support</Typography>
+                  </Link>
+                </Grid>
               </Grid>
-              <Grid>
-                <Grid container direction="row">
+              <Grid item md={2}>
+                <Grid container direction="row" justify="flex-end">
                   <ActionButton
                     color="inherit"
                     buttonTitle={"Login"}
@@ -288,6 +274,7 @@ export default (props: Props) => {
                   />
                 </Grid>
               </Grid>
+              <Grid item xs></Grid>
             </Grid>
           </Toolbar>
         </AppBar>

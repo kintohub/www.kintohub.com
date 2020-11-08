@@ -20,6 +20,7 @@ import { bps, textThemeDark } from "theme/index"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
 import SEO from "components/seo"
+import Box from "@material-ui/core/Box/Box"
 
 const StyledHeaderContainer = styled.div`
   width: 100%;
@@ -64,8 +65,6 @@ const StyledExploreOptionsContainer = styled.div`
   text-align: left;
   height: auto;
   width: 100%;
-  overflow: hidden;
-  margin-left: 16px;
 
   a {
     text-decoration: none;
@@ -77,20 +76,11 @@ const StyledExploreOptionsContainer = styled.div`
     color: ${props => props.theme.palette.divider};
   }
 
-  ${bps.down("md")} {
-    max-width: 600px;
-    width: auto;
-  }
-
-  ${bps.down("sm")} {
-    margin: 48px 16px 0px 16px;
-    width: auto;
-  }
-
   .explore-option-icon {
     color: ${props => props.theme.palette.secondary.dark};
     width: 40px;
     height: 40px;
+    margin: 4px 10px;
   }
 `
 const ExploreOptions = () => {
@@ -101,12 +91,10 @@ const ExploreOptions = () => {
         <Grid container direction="column" justify="center" alignItems="center">
           <Grid container>
             <Hidden smDown>
-              <Grid item xs={1}>
-                <ForumRoundedIcon className="explore-option-icon" />
-              </Grid>
+              <ForumRoundedIcon className="explore-option-icon" />
             </Hidden>
 
-            <Grid item xs={11}>
+            <Grid item xs={10}>
               <Typography variant="h6" color="textPrimary">
                 Discord chat support
               </Typography>
@@ -130,12 +118,10 @@ const ExploreOptions = () => {
 
           <Grid container>
             <Hidden smDown>
-              <Grid item xs={1}>
-                <LibraryBooksRoundedIcon className="explore-option-icon" />
-              </Grid>
+              <LibraryBooksRoundedIcon className="explore-option-icon" />
             </Hidden>
 
-            <Grid item xs={11}>
+            <Grid item xs={10}>
               <Typography variant="h6" color="textPrimary">
                 Read our documentation
               </Typography>
@@ -158,12 +144,10 @@ const ExploreOptions = () => {
 
           <Grid container>
             <Hidden smDown>
-              <Grid item xs={1}>
-                <ContactSupportRoundedIcon className="explore-option-icon" />
-              </Grid>
+              <ContactSupportRoundedIcon className="explore-option-icon" />
             </Hidden>
 
-            <Grid item xs={11}>
+            <Grid item xs={10}>
               <Typography variant="h6" color="textPrimary">
                 Frequently Asked Questions
               </Typography>
@@ -193,28 +177,35 @@ const StyledContactUsBodyContainer = styled.div`
   padding: 0 24px;
   .contact {
     align-items: flex-start;
+    justify-items: center;
     flex-direction: row;
-
-    ${bps.down("sm")} {
+    ${bps.down("md")} {
       flex-direction: column;
       align-items: center;
     }
   }
 
-  background-color: ${props => props.theme.palette.background.paper};
+  background-color: ${props => props.theme.palette.secondary.light};
 `
 
 const ContactUsBody = () => {
   return (
     <StyledContactUsBodyContainer>
-      <Grid container justify="center" alignItems="center" className="contact">
-        <Grid item>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className="contact"
+        spacing={4}
+      >
+        <Grid item xs={2}></Grid>
+        <Grid item xs lg={4}>
           <ContactForm />
         </Grid>
-        <AutoGrowSpacer size={0.08} />
-        <Grid item>
+        <Grid item xs lg={4}>
           <ExploreOptions />
         </Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
 
       <Hidden smDown>
@@ -228,7 +219,6 @@ const StyledCallToActionContainer = styled.div`
   width: 100%;
   height: auto;
   align-items: center;
-  border-radius: 0px;
   display: flex;
   flex-direction: column;
   padding: 0px 16px;
