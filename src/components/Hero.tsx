@@ -60,8 +60,12 @@ const StyledDiv = styled.div`
     color: ${props => props.theme.palette.text.primary};
   }
 
-  .mobile {
-    font-size: 46px;
+  .mobile-icons {
+    ${bps.down("md")} {
+      align-items: center;
+    display: flex;
+    flex-direction: row;
+    }
   }
 
   a {
@@ -113,7 +117,7 @@ export default () => {
       </Hidden>
       <Hidden mdUp>
         <VerticalSpacer size={100} />
-        <Typography align="center" className="heading mobile">
+        <Typography align="center" className="heading">
           The best way to deploy fullstack apps
         </Typography>
       </Hidden>
@@ -149,7 +153,7 @@ export default () => {
         spacing={4}
       >
         <Grid item xs={2}></Grid>
-        <Grid item xs={12} lg>
+        <Grid item xs={12} sm={10} lg>
           <TechStackCard
             techStackTitle={"Frontend"}
             techStackDescription={
@@ -160,7 +164,7 @@ export default () => {
             avatarSrc={[angular, gatsby, hugo, nextjs, react, vue, more]}
           />
         </Grid>
-        <Grid item xs={12} lg>
+        <Grid item xs={12} sm={10} lg>
           <TechStackCard
             techStackTitle={"Backend"}
             techStackDescription={
@@ -171,7 +175,7 @@ export default () => {
             avatarSrc={[docker, node, golang, ruby, python, rust, more]}
           />
         </Grid>
-        <Grid item xs={12} lg>
+        <Grid item xs={12} sm={10} lg>
           <TechStackCard
             techStackTitle={"Data & Storage"}
             techStackDescription={
@@ -212,7 +216,7 @@ export default () => {
                 </a>
               </Typography>
               <VerticalSpacer size={8} />
-              <Grid container>
+              <Grid container >
                 <a href="https://docs.kintohub.com/repository/github-apps">
                   <GitHubIcon className="icons" />
                 </a>

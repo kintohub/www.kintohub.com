@@ -16,6 +16,7 @@ import {
 import { VerticalSpacer } from "components/Spacer"
 
 import Grid from "@material-ui/core/Grid/Grid"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledTableContainer = styled(TableContainer)`
   display: flex;
@@ -181,7 +182,7 @@ const ComparisonTable = () => {
 
 const StyledDiv = styled.div`
   height: auto;
-  padding: 0 16px;
+  padding: 0 20px;
   background-color: ${props => props.theme.palette.background.default};
 
   a {
@@ -205,7 +206,13 @@ const StyledDiv = styled.div`
 export default () => {
   return (
     <StyledDiv>
-      <VerticalSpacer size={50} />
+         <Hidden mdDown>
+  <VerticalSpacer size={50} />
+        </Hidden>
+        <Hidden smUp>
+  <VerticalSpacer size={24} />
+        </Hidden>
+    
       <Typography align="center" variant="h1" color="textPrimary">
         Get more features with KintoHub
       </Typography>
@@ -218,13 +225,12 @@ export default () => {
 
       <Grid
         container
-        className="grid-container"
         direction="row"
         justify="center"
         alignItems="center"
       >
         <Grid item xs={2}></Grid>
-        <Grid item xs>
+        <Grid item xs={12} md={8}>
           <ComparisonTable />
         </Grid>
 

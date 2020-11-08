@@ -4,10 +4,11 @@ import Grid from "@material-ui/core/Grid/Grid"
 import { bps, textThemeDark } from "theme"
 import styled from "styled-components"
 import React from "react"
-import { VerticalSpacer } from "components/Spacer"
+import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
 import { MuiThemeProvider } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography/Typography"
 import ActionButton from "components/Button"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
@@ -51,6 +52,9 @@ const StyledFeatureDescriptionContainer = styled.div`
     bottom: 0;
     position: absolute;
     background-size: cover;
+    ${bps.down("md")} {
+      height:850px;
+    }
   }
 `
 export default () => {
@@ -74,7 +78,7 @@ export default () => {
             <Typography color="textPrimary" variant="h2">
               Powerful developer tools with a simple user-experience
             </Typography>
-            <Grid container direction="row" spacing={2} className="inner-grid">
+            <Grid container direction="row" className="inner-grid">
               <Grid item xs>
                 <Grid container direction="column">
                   <VerticalSpacer size={30} />
@@ -94,6 +98,8 @@ export default () => {
                   </Typography>
                 </Grid>
               </Grid>
+
+              <AutoGrowSpacer size={0.06} />
 
               <Grid item xs>
                 <Grid container direction="column">

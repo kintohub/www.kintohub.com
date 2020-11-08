@@ -13,17 +13,11 @@ const StyledTechStackCard = styled(Card)`
   height: auto;
   border-radius: 8px;
   display: flex;
-  padding: 8px;
+  padding: 16px 20px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-
-  ${bps.down("md")} {
-    max-width: 600px;
-    width: auto;
-    height: auto;
-  }
 
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -36,7 +30,20 @@ const StyledTechStackCard = styled(Card)`
   }
 
   .description {
-    min-height: 65px;
+    min-height: 64px;
+    ${bps.down(1500)} {
+      height: 80px;
+    }
+    ${bps.down("md")} {
+      height: 0px;
+    }
+  }
+
+  .avatar-container{
+    min-height: 35px;
+    ${bps.down(1600)} {
+      height: 64px;
+    }
   }
 
   .pill-wrapper {
@@ -80,7 +87,7 @@ const TechStackCard = ({
 }: TechStackCardProps) => (
   <StyledTechStackCard>
     <MuiThemeProvider theme={textThemeDark}>
-      <CardContent>
+     
         <Grid container direction="column" justify="flex-start">
           <Grid item>
             <Typography variant="h3" color="textPrimary" align="center">
@@ -109,6 +116,7 @@ const TechStackCard = ({
         <VerticalSpacer size={12} />
         <Grid
           container
+          className="avatar-container"
           direction="row"
           justify="flex-start"
           alignItems="center"
@@ -123,7 +131,7 @@ const TechStackCard = ({
               />
             ))}
         </Grid>
-      </CardContent>
+     
       <VerticalSpacer size={16} />
     </MuiThemeProvider>
   </StyledTechStackCard>

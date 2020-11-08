@@ -20,7 +20,7 @@ const StyledDiv = styled.div`
     color: ${props => props.theme.palette.primary.dark};
   }
 
-  ${bps.down("sm")} {
+  ${bps.down("md")} {
     .grid-container {
       align-items: center;
       flex-direction: column;
@@ -59,7 +59,7 @@ export default () => {
           spacing={4}
         >
           <Grid item xs={2}></Grid>
-          <Grid item xs={12} lg>
+          <Grid item xs={12} sm={10} lg>
             <TestimonialCard
               avatarText={"N"}
               testimonialText={
@@ -67,7 +67,7 @@ export default () => {
               }
             />
           </Grid>
-          <Grid item xs={12} lg>
+          <Grid item xs={12} sm={10} lg>
             <TestimonialCard
               avatarText={"H"}
               testimonialText={
@@ -75,7 +75,7 @@ export default () => {
               }
             />
           </Grid>
-          <Grid item xs={12} lg>
+          <Grid item xs={12} sm={10} lg>
             <TestimonialCard
               avatarText={"F"}
               testimonialText={

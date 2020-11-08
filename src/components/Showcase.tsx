@@ -22,6 +22,7 @@ import SleepModeVid from "resources/video/sleep_mode.gif"
 import ActionButton from "components/Button"
 import PowerSettingsNewRoundedIcon from "@material-ui/icons/PowerSettingsNewRounded"
 import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress"
+import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledVideoProgress = styled.div`
   height: 2px;
@@ -223,7 +224,7 @@ const VideoTab = () => {
                 startIcon={<PowerSettingsNewRoundedIcon />}
                 link={"https://app.kintohub.com/auth/sign-up"}
               />
-              <AutoGrowSpacer size={0.1} />
+              <AutoGrowSpacer size={0.3} />
               <ActionButton
                 className="pricing-btn"
                 buttonTitle={"See Pricing"}
@@ -266,7 +267,7 @@ export default () => {
   return (
     <StyledDiv>
       <MuiThemeProvider theme={textThemeDark}>
-        <VerticalSpacer size={96} />
+        <VerticalSpacer size={90} />
         <Typography align="center" variant="h2" color="textPrimary">
           Control your costs down to the second
         </Typography>
@@ -274,9 +275,14 @@ export default () => {
         <Typography align="center" variant="body1" color="textPrimary">
           Only consume what you need, and always know what you’re spending.
         </Typography>
-        <VerticalSpacer size={40} />
       </MuiThemeProvider>
-      <VerticalSpacer size={40} />
+     
+      <Hidden mdDown>
+  <VerticalSpacer size={54} />
+        </Hidden>
+        <Hidden smUp>
+  <VerticalSpacer size={44} />
+        </Hidden>
       <VideoTab />
     </StyledDiv>
   )

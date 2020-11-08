@@ -21,7 +21,6 @@ import WebRoundedIcon from "@material-ui/icons/WebRounded"
 import CategoryRoundedIcon from "@material-ui/icons/CategoryRounded"
 import SvgIcon from "@material-ui/core/SvgIcon/SvgIcon"
 import PricingCalculator from "components/PricingCalculator"
-import Box from "@material-ui/core/Box/Box"
 import WbSunnyRoundedIcon from "@material-ui/icons/WbSunnyRounded"
 
 type PricingCardProps = {
@@ -108,6 +107,10 @@ const StyledPricingDetailContainer = styled.div`
   padding: 0px 16px;
   background-color: ${props => props.theme.palette.primary.contrastText};
 
+  .cards {
+    margin-top: -64px;
+  }
+
   .divider {
     height: 1px;
     background-color: ${props => props.theme.palette.divider};
@@ -118,6 +121,7 @@ const PricingDetail = () => {
   return (
     <StyledPricingDetailContainer>
       <Grid
+        className="cards"
         container
         direction="row"
         justify="center"
@@ -370,6 +374,7 @@ const StyledPayAsYouGoExampleContainer = styled.div`
   background-color: ${props => props.theme.palette.background.default};
   display: flex;
   flex-wrap: wrap;
+  padding: 0 16px;
   position: relative;
   flex-direction: column;
 
