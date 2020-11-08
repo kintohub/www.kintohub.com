@@ -58,13 +58,17 @@ const StyledDiv = styled.div`
     max-width: 764px;
     font-weight: 500;
     color: ${props => props.theme.palette.text.primary};
+
+    ${bps.down("md")} {
+      font-size: 44px;
+    }
   }
 
   .mobile-icons {
     ${bps.down("md")} {
       align-items: center;
-    display: flex;
-    flex-direction: row;
+      display: flex;
+      flex-direction: row;
     }
   }
 
@@ -103,6 +107,9 @@ const StyledDiv = styled.div`
     ${bps.down("md")} {
       height: 650px;
     }
+    ${bps.down("xs")} {
+      bottom: 100px;
+    }
   }
 `
 
@@ -133,7 +140,12 @@ export default () => {
       <Typography variant="caption" color="textSecondary">
         No credit card required.
       </Typography>
-      <VerticalSpacer size={85} />
+      <Hidden smDown>
+        <VerticalSpacer size={85} />
+      </Hidden>
+      <Hidden mdUp>
+        <VerticalSpacer size={50} />
+      </Hidden>
       <Typography variant="subtitle1" color="textPrimary" align="center">
         <div>
           KintoHub is an all-in-one deployment platform designed for fullstack
@@ -216,7 +228,7 @@ export default () => {
                 </a>
               </Typography>
               <VerticalSpacer size={8} />
-              <Grid container >
+              <Grid container>
                 <a href="https://docs.kintohub.com/repository/github-apps">
                   <GitHubIcon className="icons" />
                 </a>
