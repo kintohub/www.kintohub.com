@@ -34,6 +34,7 @@ const StyledVideoProgress = styled.div`
 `
 
 const VideoProgress = () => {
+  //increase and later on reset the width of progress bar on specific intervals
   const [progress, setProgress] = React.useState(0)
 
   React.useEffect(() => {
