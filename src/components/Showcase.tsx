@@ -12,7 +12,12 @@ import {
 } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid/Grid"
 import { bps, textThemeDark } from "theme/index"
-import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
+import {
+  AutoExpandSpacer,
+  AutoGrowSpacer,
+  HorizontalSpacer,
+  VerticalSpacer,
+} from "components/Spacer"
 import TuneRoundedIcon from "@material-ui/icons/TuneRounded"
 import SnoozeRoundedIcon from "@material-ui/icons/SnoozeRounded"
 import CreditCardRoundedIcon from "@material-ui/icons/CreditCardRounded"
@@ -214,8 +219,54 @@ const VideoTab = () => {
                 </CardActionArea>
               </Card>
             ))}
-            <VerticalSpacer size={20} />
 
+            <Hidden mdDown>
+              <VerticalSpacer size={20} />
+              <Grid container justify={isMobile ? "center" : "flex-start"}>
+                <ActionButton
+                  buttonTitle={"Start Free"}
+                  variant="contained"
+                  color="primary"
+                  startIcon={<PowerSettingsNewRoundedIcon />}
+                  link={"https://app.kintohub.com/auth/sign-up"}
+                />
+                <HorizontalSpacer size={20} />
+                <ActionButton
+                  className="pricing-btn"
+                  buttonTitle={"See Pricing"}
+                  variant="outlined"
+                  color="primary"
+                  link={"/pricing"}
+                />
+              </Grid>
+            </Hidden>
+          </Grid>
+          <Hidden mdDown>
+            <VerticalSpacer size={50} />
+            <Grid item lg={5} className="blue">
+              <Grid container alignItems="center">
+                <img
+                  className="videoSrc"
+                  src={tabData[tabIndex].src}
+                  alt="showcase"
+                ></img>
+              </Grid>
+            </Grid>
+          </Hidden>
+
+          <Hidden lgUp>
+            <VerticalSpacer size={40} />
+            <Grid item lg={5} className="blue">
+              <Grid container alignItems="center">
+                <img
+                  className="videoSrc"
+                  src={tabData[tabIndex].src}
+                  alt="showcase"
+                ></img>
+              </Grid>
+            </Grid>
+
+            <VerticalSpacer size={40} />
             <Grid container justify={isMobile ? "center" : "flex-start"}>
               <ActionButton
                 buttonTitle={"Start Free"}
@@ -224,7 +275,7 @@ const VideoTab = () => {
                 startIcon={<PowerSettingsNewRoundedIcon />}
                 link={"https://app.kintohub.com/auth/sign-up"}
               />
-              <AutoGrowSpacer size={0.3} />
+              <HorizontalSpacer size={20} />
               <ActionButton
                 className="pricing-btn"
                 buttonTitle={"See Pricing"}
@@ -233,22 +284,17 @@ const VideoTab = () => {
                 link={"/pricing"}
               />
             </Grid>
+          </Hidden>
 
-            <VerticalSpacer size={50} />
-          </Grid>
-
-          <Grid item lg={5} className="blue">
-            <Grid container alignItems="center">
-              <img
-                className="videoSrc"
-                src={tabData[tabIndex].src}
-                alt="showcase"
-              ></img>
-            </Grid>
-          </Grid>
           <Grid item xs={2}></Grid>
         </Grid>
-        <VerticalSpacer size={90} />
+
+        <Hidden smDown>
+          <VerticalSpacer size={90} />
+        </Hidden>
+        <Hidden mdUp>
+          <VerticalSpacer size={40} />
+        </Hidden>
       </MuiThemeProvider>
     </StyledVideoTabContainer>
   )
@@ -276,13 +322,13 @@ export default () => {
           Only consume what you need, and always know what you’re spending.
         </Typography>
       </MuiThemeProvider>
-     
+
       <Hidden mdDown>
-  <VerticalSpacer size={54} />
-        </Hidden>
-        <Hidden smUp>
-  <VerticalSpacer size={44} />
-        </Hidden>
+        <VerticalSpacer size={54} />
+      </Hidden>
+      <Hidden smUp>
+        <VerticalSpacer size={44} />
+      </Hidden>
       <VideoTab />
     </StyledDiv>
   )

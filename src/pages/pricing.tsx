@@ -22,6 +22,8 @@ import CategoryRoundedIcon from "@material-ui/icons/CategoryRounded"
 import SvgIcon from "@material-ui/core/SvgIcon/SvgIcon"
 import PricingCalculator from "components/PricingCalculator"
 import WbSunnyRoundedIcon from "@material-ui/icons/WbSunnyRounded"
+import Hidden from "@material-ui/core/Hidden/Hidden"
+import Box from "@material-ui/core/Box/Box"
 
 type PricingCardProps = {
   serviceType: string
@@ -148,7 +150,14 @@ const PricingDetail = () => {
         </Grid>
         <Grid item xs></Grid>
       </Grid>
-      <VerticalSpacer size={24} />
+      <Hidden mdDown>
+        <VerticalSpacer size={24} />
+      </Hidden>
+
+      <Hidden lgUp>
+        <Box my={-1.5}></Box>
+      </Hidden>
+
       <Grid
         container
         direction="row"
@@ -175,8 +184,13 @@ const PricingDetail = () => {
         </Grid>
         <Grid item xs></Grid>
       </Grid>
+      <Hidden mdDown>
+        <VerticalSpacer size={84} />
+      </Hidden>
+      <Hidden lgUp>
+        <VerticalSpacer size={32} />
+      </Hidden>
 
-      <VerticalSpacer size={84} />
       <ActionButton
         color="primary"
         variant="contained"

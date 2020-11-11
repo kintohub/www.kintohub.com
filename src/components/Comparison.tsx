@@ -19,6 +19,7 @@ import Grid from "@material-ui/core/Grid/Grid"
 import Hidden from "@material-ui/core/Hidden/Hidden"
 
 const StyledTableContainer = styled(TableContainer)`
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   background-color: ${props => props.theme.palette.background.paper};
@@ -32,6 +33,7 @@ const StyledTableContainer = styled(TableContainer)`
 const StyledTableCell = styled(TableCell)`
   color: ${props => props.theme.palette.text.hint};
   height: 40px;
+  padding-left: 25px;
 `
 
 const ComparisonTable = () => {
@@ -200,19 +202,20 @@ const StyledDiv = styled.div`
 
   .roadmap {
     margin-left: 8px;
+    color: #bb86fc;
   }
 `
 
 export default () => {
   return (
     <StyledDiv>
-         <Hidden mdDown>
-  <VerticalSpacer size={50} />
-        </Hidden>
-        <Hidden smUp>
-  <VerticalSpacer size={24} />
-        </Hidden>
-    
+      <Hidden mdDown>
+        <VerticalSpacer size={50} />
+      </Hidden>
+      <Hidden smUp>
+        <VerticalSpacer size={24} />
+      </Hidden>
+
       <Typography align="center" variant="h1" color="textPrimary">
         Get more features with KintoHub
       </Typography>
@@ -223,12 +226,7 @@ export default () => {
       </Typography>
       <VerticalSpacer size={26} />
 
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={2}></Grid>
         <Grid item xs={12} md={8}>
           <ComparisonTable />

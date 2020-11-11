@@ -66,7 +66,7 @@ export default () => {
                 </Link>
               </ListItem>
               <ListItem>
-                <a target="_blank" href="https://feedback.kintohub.com/bugs">
+                <a target="_blank" href="https://kintohub.statuspage.io/">
                   <Typography variant="body1">Status</Typography>
                 </a>
               </ListItem>
@@ -120,23 +120,12 @@ export default () => {
               </ListItem>
               <ListItem>
                 <a target="_blank" href="https://twitter.com/kintohub">
-                  <ListItemText primary="Twitter" />
+                  <Typography variant="body1"> Twitter</Typography>
                 </a>
               </ListItem>
               <ListItem>
-                <a
-                  target="_blank"
-                  href="https://feedback.kintohub.com/https://facebook.com/KintoHub"
-                >
+                <a target="_blank" href="https://facebook.com/KintoHub">
                   <Typography variant="body1">Facebook</Typography>
-                </a>
-              </ListItem>
-              <ListItem>
-                <a
-                  target="_blank"
-                  href="https://www.youtube.com/channel/UCpJJc0zcfzdHPw64BSP3GyQ"
-                >
-                  <Typography variant="body1">Youtube</Typography>
                 </a>
               </ListItem>
               <ListItem>

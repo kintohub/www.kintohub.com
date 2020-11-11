@@ -57,18 +57,12 @@ const StyledDiv = styled.div`
     font-size: 60px;
     max-width: 764px;
     font-weight: 500;
+    text-align: center;
+
     color: ${props => props.theme.palette.text.primary};
 
     ${bps.down("md")} {
       font-size: 44px;
-    }
-  }
-
-  .mobile-icons {
-    ${bps.down("md")} {
-      align-items: center;
-      display: flex;
-      flex-direction: row;
     }
   }
 
@@ -111,6 +105,14 @@ const StyledDiv = styled.div`
       bottom: 100px;
     }
   }
+  .deploy-icons {
+    ${bps.down("md")} {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 `
 
 export default () => {
@@ -118,15 +120,11 @@ export default () => {
     <StyledDiv>
       <Hidden smDown>
         <VerticalSpacer size={200} />
-        <Typography align="center" className="heading">
-          The best way to deploy fullstack apps
-        </Typography>
+        <h1 className="heading">The best way to deploy fullstack apps</h1>
       </Hidden>
       <Hidden mdUp>
         <VerticalSpacer size={100} />
-        <Typography align="center" className="heading">
-          The best way to deploy fullstack apps
-        </Typography>
+        <h1 className="heading">The best way to deploy fullstack apps</h1>
       </Hidden>
       <VerticalSpacer size={34} />
       <ActionButton
@@ -150,12 +148,22 @@ export default () => {
         <div>
           KintoHub is an all-in-one deployment platform designed for fullstack
         </div>
-        <div>developers by fullstack developers</div>
+        <div>developers by fullstack developers.</div>
       </Typography>
-      <VerticalSpacer size={90} />
+      <Hidden smDown>
+        <VerticalSpacer size={90} />
+      </Hidden>
+      <Hidden mdUp>
+        <VerticalSpacer size={50} />
+      </Hidden>
       <Typography variant="body1">ALL YOUR APP'S NEEDS IN ONE PLACE</Typography>
 
-      <VerticalSpacer size={70} />
+      <Hidden smDown>
+        <VerticalSpacer size={70} />
+      </Hidden>
+      <Hidden mdUp>
+        <VerticalSpacer size={30} />
+      </Hidden>
       <Grid
         container
         className="grid-container"
@@ -228,16 +236,19 @@ export default () => {
                 </a>
               </Typography>
               <VerticalSpacer size={8} />
-              <Grid container>
-                <a href="https://docs.kintohub.com/repository/github-apps">
-                  <GitHubIcon className="icons" />
-                </a>
-                <a
-                  className="import"
-                  href="https://docs.kintohub.com/repository/import%20url"
-                >
-                  <LinkRoundedIcon className="icons" />
-                </a>
+              <Grid container className="deploy-icons">
+                <Grid>
+                  <a href="https://docs.kintohub.com/repository/github-apps">
+                    <GitHubIcon className="icons" />
+                  </a>
+
+                  <a
+                    className="import"
+                    href="https://docs.kintohub.com/repository/import%20url"
+                  >
+                    <LinkRoundedIcon className="icons" />
+                  </a>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

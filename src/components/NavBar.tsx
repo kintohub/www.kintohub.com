@@ -206,9 +206,11 @@ export default (props: Props) => {
               </ListItem>
               <Divider />
               <ListItem button className="menu-item">
-                <Typography variant="subtitle1" color="textPrimary">
-                  <a href="https://docs.kintohub.com">Documentation</a>
-                </Typography>
+                <a target="_blank" href="https://docs.kintohub.com">
+                  <Typography variant="subtitle1" color="textPrimary">
+                    Documentation
+                  </Typography>
+                </a>
                 <AutoExpandSpacer />
                 <LibraryBooksRoundedIcon className="menu-item-icon" />
               </ListItem>
@@ -249,7 +251,7 @@ export default (props: Props) => {
                     <Typography variant="subtitle2">Pricing</Typography>
                   </Link>
                   <HorizontalSpacer size={24} />
-                  <a href="https://docs.kintohub.com">
+                  <a target="_blank" href="https://docs.kintohub.com">
                     <Typography variant="subtitle2">Docs</Typography>
                   </a>
                   <HorizontalSpacer size={24} />
