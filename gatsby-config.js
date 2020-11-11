@@ -12,26 +12,26 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `custom-mui-theme`,
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-typescript`,
 
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `resources`,
+        path: `${__dirname}/src/resources`,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `KintoHub.com`,
+        short_name: `KintoHub.com`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/resources/favicon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -44,21 +44,17 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Change plugin default options here, e.g.:
-        // ssr: false
-        // displayName: false,
-        // minify: false
-      },
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@components": path.resolve(__dirname, "src/components"),
-          "@": path.resolve(__dirname, "src"),
+          "@": path.resolve(__filename, "src"),
+          components: path.resolve(__dirname, "src/components"),
+          resources: path.resolve(__dirname, "src/resources"),
+          pages: path.resolve(__dirname, "src/pages"),
+          theme: path.resolve(__dirname, "src/theme"),
         },
-        extensions: [],
       },
     },
     {
