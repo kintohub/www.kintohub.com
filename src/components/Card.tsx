@@ -13,11 +13,15 @@ const StyledTechStackCard = styled(Card)`
   height: auto;
   border-radius: 8px;
   display: flex;
-  padding: 16px 20px;
+  padding: 16px 20px 8px 20px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
+
+  ${bps.down("md")} {
+    max-width: 580px;
+  }
 
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -30,7 +34,7 @@ const StyledTechStackCard = styled(Card)`
   }
 
   .description {
-    min-height: 64px;
+    min-height: 50px;
     ${bps.down(1500)} {
       height: 80px;
     }
@@ -39,7 +43,7 @@ const StyledTechStackCard = styled(Card)`
     }
   }
 
-  .avatar-container{
+  .avatar-container {
     min-height: 35px;
     ${bps.down(1600)} {
       height: 64px;
@@ -87,51 +91,50 @@ const TechStackCard = ({
 }: TechStackCardProps) => (
   <StyledTechStackCard>
     <MuiThemeProvider theme={textThemeDark}>
-     
-        <Grid container direction="column" justify="flex-start">
-          <Grid item>
-            <Typography variant="h3" color="textPrimary" align="center">
-              {techStackTitle}
-            </Typography>
-          </Grid>
-          <VerticalSpacer size={10} />
-          <Grid item>
-            <div className="pill-wrapper">
-              <Chip className={`pill ${chipColor}`} />
-            </div>
-          </Grid>
-          <VerticalSpacer size={10} />
-          <Grid item className="description">
-            <Typography variant="body2" color="textSecondary" align="left">
-              {techStackDescription}
-            </Typography>
-          </Grid>
-          <VerticalSpacer size={10} />
-          <Grid item>
-            <Typography variant="overline" color="textSecondary" align="left">
-              {category}
-            </Typography>
-          </Grid>
+      <Grid container direction="column" justify="flex-start">
+        <Grid item>
+          <Typography variant="h3" color="textPrimary" align="center">
+            {techStackTitle}
+          </Typography>
         </Grid>
-        <VerticalSpacer size={12} />
-        <Grid
-          container
-          className="avatar-container"
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-        >
-          {avatarSrc &&
-            avatarSrc.map((item, index) => (
-              <Avatar
-                className="avatar"
-                variant="square"
-                src={item}
-                key={index}
-              />
-            ))}
+        <VerticalSpacer size={10} />
+        <Grid item>
+          <div className="pill-wrapper">
+            <Chip className={`pill ${chipColor}`} />
+          </div>
         </Grid>
-     
+        <VerticalSpacer size={10} />
+        <Grid item className="description">
+          <Typography variant="body2" color="textSecondary" align="left">
+            {techStackDescription}
+          </Typography>
+        </Grid>
+        <VerticalSpacer size={10} />
+        <Grid item>
+          <Typography variant="overline" color="textSecondary" align="left">
+            {category}
+          </Typography>
+        </Grid>
+      </Grid>
+      <VerticalSpacer size={12} />
+      <Grid
+        container
+        className="avatar-container"
+        direction="row"
+        justify="flex-start"
+        alignItems="center"
+      >
+        {avatarSrc &&
+          avatarSrc.map((item, index) => (
+            <Avatar
+              className="avatar"
+              variant="square"
+              src={item}
+              key={index}
+            />
+          ))}
+      </Grid>
+
       <VerticalSpacer size={16} />
     </MuiThemeProvider>
   </StyledTechStackCard>

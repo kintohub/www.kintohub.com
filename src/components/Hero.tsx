@@ -70,7 +70,6 @@ const StyledDiv = styled.div`
     text-decoration: none;
     color: ${props => props.theme.palette.primary.dark};
   }
-
   .grid-container {
     ${bps.down("md")} {
       text-align: center;
@@ -111,6 +110,12 @@ const StyledDiv = styled.div`
       display: flex;
       flex-direction: column;
       text-align: center;
+    }
+  }
+
+  .card{
+    ${bps.down("md")} {
+      max-width:800px;
     }
   }
 `
