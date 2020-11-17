@@ -13,12 +13,12 @@ import Hidden from "@material-ui/core/Hidden/Hidden"
 const StyledFeatureDescriptionContainer = styled.div`
   width: 100%;
   height: auto;
-
+  z-index: 2;
   position: relative;
   background-color: ${props => props.theme.palette.secondary.light};
 
   .dev-tools-image {
-    z-index: 2;
+    z-index: 3;
     width: 90%;
     height: 90%;
     ${bps.down("sm")} {
@@ -46,7 +46,7 @@ const StyledFeatureDescriptionContainer = styled.div`
 
   .black-slant-bg-wrapper {
     background: url(${BlackSlantBg}) no-repeat center;
-    z-index: 0;
+    z-index: -1;
     height: 100%;
     width: 100%;
     bottom: 0;

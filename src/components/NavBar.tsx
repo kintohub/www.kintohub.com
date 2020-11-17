@@ -206,11 +206,12 @@ export default (props: Props) => {
               </ListItem>
               <Divider />
               <ListItem button className="menu-item">
-                <a target="_blank" href="https://docs.kintohub.com">
-                  <Typography variant="subtitle1" color="textPrimary">
-                    Documentation
-                  </Typography>
-                </a>
+                <Typography variant="subtitle1" color="textPrimary">
+                  <a target="_blank" href="https://docs.kintohub.com">
+                    Documentation{" "}
+                  </a>
+                </Typography>
+
                 <AutoExpandSpacer />
                 <LibraryBooksRoundedIcon className="menu-item-icon" />
               </ListItem>

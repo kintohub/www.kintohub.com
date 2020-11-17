@@ -17,7 +17,7 @@ const StyledFormContainer = styled.div`
 
   ${bps.down("md")} {
     min-width: auto;
-    margin: -84px 16px 0px 16px;
+    margin: -84px 0px 0px 0px;
   }
 
   background-color: ${props => props.theme.palette.background.paper};

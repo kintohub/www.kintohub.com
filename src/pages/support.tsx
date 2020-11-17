@@ -15,12 +15,11 @@ import {
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew"
 import ContactForm from "components/Contact-form"
 import LibraryBooksRoundedIcon from "@material-ui/icons/LibraryBooksRounded"
-import { AutoGrowSpacer, VerticalSpacer } from "components/Spacer"
+import { VerticalSpacer } from "components/Spacer"
 import { bps, textThemeDark } from "theme/index"
 import ContactSupportRoundedIcon from "@material-ui/icons/ContactSupportRounded"
 import ForumRoundedIcon from "@material-ui/icons/ForumRounded"
 import SEO from "components/seo"
-import Box from "@material-ui/core/Box/Box"
 
 const StyledHeaderContainer = styled.div`
   width: 100%;

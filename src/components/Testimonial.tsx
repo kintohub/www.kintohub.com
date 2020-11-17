@@ -22,6 +22,7 @@ const StyledDiv = styled.div`
 
   ${bps.down("md")} {
     .grid-container {
+      max-width:800px;
       align-items: center;
       flex-direction: column;
     }
