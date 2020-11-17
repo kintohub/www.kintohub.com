@@ -34,7 +34,7 @@ const StyledTechStackCard = styled(Card)`
   }
 
   .description {
-    min-height: 50px;
+    min-height: 60px;
     ${bps.down(1500)} {
       height: 80px;
     }
