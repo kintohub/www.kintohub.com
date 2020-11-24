@@ -207,7 +207,7 @@ export default (props: Props) => {
               <Divider />
               <ListItem button className="menu-item">
                 <Typography variant="subtitle1" color="textPrimary">
-                  <a target="_blank" href="https://docs.kintohub.com">
+                  <a href="https://docs.kintohub.com">
                     Documentation{" "}
                   </a>
                 </Typography>

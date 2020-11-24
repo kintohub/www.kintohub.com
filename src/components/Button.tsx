@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
 
 export default ({ buttonTitle, link, ...props }: Props) => {
   return (
-    <a href={link} target="_blank">
+    <a href={link}>
       <StyledButton {...props}>{buttonTitle}</StyledButton>
     </a>
   )
