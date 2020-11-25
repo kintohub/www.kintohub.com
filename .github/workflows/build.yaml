@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
 
 jobs:
   build:
@@ -17,16 +14,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14
-    - run: npm install
-    - run: npm run build
+    - run: yarn install
+    - run: yarn build
       env:
         GATSBY_SEGMENT_WRITE_KEY: ${{ secrets.GATSBY_SEGMENT_WRITE_KEY }}
         GATSBY_TRACK_PAGE: true
-        GATSBY_DRIFT: ${{ secrets.GATSBY_DRIFT }}
     - name: Deploy to Github Page
       uses: peaceiris/actions-gh-pages@v3
       with:
         publish_dir: ./public
         keep_files: true
-        personal_token: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
-        external_repository: kintohub/www.kintohub.com
+        github_token: ${{ secrets.GITHUB_TOKEN }}
