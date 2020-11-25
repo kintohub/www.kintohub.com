@@ -36,7 +36,11 @@ const StyledDiv = styled.div`
   width: 100%;
   height: auto;
   z-index: 1;
-  background: url(${HeroBgDesktop}) no-repeat top center;
+  background: url(${HeroBgDesktop}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -113,9 +117,9 @@ const StyledDiv = styled.div`
     }
   }
 
-  .card{
+  .card {
     ${bps.down("md")} {
-      max-width:800px;
+      max-width: 800px;
     }
   }
 `
@@ -232,11 +236,17 @@ export default () => {
               </Typography>
               <Typography variant="subtitle2" color="textSecondary">
                 Use our Git integrations with{" "}
-                <a href="https://docs.kintohub.com/repository/github-apps">
+                <a
+                  target="_blank"
+                  href="https://docs.kintohub.com/repository/github-apps"
+                >
                   Github
                 </a>{" "}
                 or use an{" "}
-                <a href="https://docs.kintohub.com/repository/import%20url">
+                <a
+                  target="_blank"
+                  href="https://docs.kintohub.com/repository/import%20url"
+                >
                   import url
                 </a>
               </Typography>
@@ -266,7 +276,10 @@ export default () => {
                 Once deployed, your projects can be assigned to a custom domain.
               </Typography>
               <Typography variant="subtitle2">
-                <a href="https://docs.kintohub.com/anatomy/domains">
+                <a
+                  target="_blank"
+                  href="https://docs.kintohub.com/anatomy/domains"
+                >
                   Learn more →
                 </a>
               </Typography>

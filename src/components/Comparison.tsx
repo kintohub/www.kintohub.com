@@ -239,9 +239,11 @@ export default () => {
       <Typography align="center">
         <Button className="btn">
           <MapIcon color="secondary" />
-          <Typography className="roadmap" align="center" variant="subtitle1">
-            View Roadmap
-          </Typography>
+          <a href="https://feedback.kintohub.com/">
+            <Typography className="roadmap" align="center" variant="subtitle1">
+              View Roadmap
+            </Typography>
+          </a>
         </Button>
       </Typography>
       <VerticalSpacer size={44} />

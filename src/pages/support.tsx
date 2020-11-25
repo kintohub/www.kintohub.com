@@ -48,7 +48,9 @@ const SupportHeader = () => {
         Let us know how we can help. If you need support, it’s best to{" "}
         <span>
           {" "}
-          <a href="https://kintohub.com/discord">join our Discord</a>{" "}
+          <a target="_blank" href="https://kintohub.com/discord">
+            join our Discord
+          </a>{" "}
         </span>{" "}
         to chat with our developers.
       </Typography>
@@ -140,29 +142,6 @@ const ExploreOptions = () => {
           <VerticalSpacer size={22} />
           <Divider className="divider" />
           <VerticalSpacer size={22} />
-
-          <Grid container>
-            <Hidden smDown>
-              <ContactSupportRoundedIcon className="explore-option-icon" />
-            </Hidden>
-
-            <Grid item xs={10}>
-              <Typography variant="h6" color="textPrimary">
-                Frequently Asked Questions
-              </Typography>
-              <VerticalSpacer size={5} />
-              <Typography variant="subtitle2" color="textSecondary">
-                Asking a general question? There’s a good chance that someone
-                else did too.
-              </Typography>
-              <VerticalSpacer size={5} />
-              <a href="https://kintohub.com" target="_blank">
-                <Typography variant="subtitle2" color="primary">
-                  Go to FAQ →
-                </Typography>
-              </a>
-            </Grid>
-          </Grid>
         </Grid>
         <VerticalSpacer size={64} />
       </MuiThemeProvider>

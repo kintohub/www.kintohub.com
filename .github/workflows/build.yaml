@@ -1,0 +1,27 @@
+name: Node Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - run: yarn
+    - run: yarn build
+      env:
+        GATSBY_SEGMENT_WRITE_KEY: ${{ secrets.GATSBY_SEGMENT_WRITE_KEY }}
+        GATSBY_TRACK_PAGE: true
+    - name: Deploy to Github Page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./public
+        keep_files: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
